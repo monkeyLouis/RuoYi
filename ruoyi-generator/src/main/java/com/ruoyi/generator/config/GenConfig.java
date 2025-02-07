@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
- * 读取代码生成相关配置
+ * 讀取代碼生成相關設定
  * 
  * @author ruoyi
  */

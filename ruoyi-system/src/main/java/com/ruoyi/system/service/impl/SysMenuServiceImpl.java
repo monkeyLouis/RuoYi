@@ -22,7 +22,7 @@ import com.ruoyi.system.mapper.SysRoleMenuMapper;
 import com.ruoyi.system.service.ISysMenuService;
 
 /**
- * 菜单 业务层处理
+ * 菜單 業務層處理
  * 
  * @author ruoyi
  */
@@ -38,16 +38,16 @@ public class SysMenuServiceImpl implements ISysMenuService
     private SysRoleMenuMapper roleMenuMapper;
 
     /**
-     * 根据用户查询菜单
+     * 根據用戶查詢菜單
      * 
-     * @param user 用户信息
-     * @return 菜单列表
+     * @param user 用戶資訊
+     * @return 菜單列表
      */
     @Override
     public List<SysMenu> selectMenusByUser(SysUser user)
     {
         List<SysMenu> menus = new LinkedList<SysMenu>();
-        // 管理员显示所有菜单信息
+        // 管理員顯示所有菜單資訊
         if (user.isAdmin())
         {
             menus = menuMapper.selectMenuNormalAll();
@@ -60,9 +60,9 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 查询菜单集合
+     * 查詢菜單集合
      * 
-     * @return 所有菜单信息
+     * @return 所有菜單資訊
      */
     @Override
     public List<SysMenu> selectMenuList(SysMenu menu, Long userId)
@@ -81,9 +81,9 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 查询菜单集合
+     * 查詢菜單集合
      * 
-     * @return 所有菜单信息
+     * @return 所有菜單資訊
      */
     @Override
     public List<SysMenu> selectMenuAll(Long userId)
@@ -101,10 +101,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 根据用户ID查询权限
+     * 根據用戶ID查詢權限
      * 
-     * @param userId 用户ID
-     * @return 权限列表
+     * @param userId 用戶ID
+     * @return 權限列表
      */
     @Override
     public Set<String> selectPermsByUserId(Long userId)
@@ -122,10 +122,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 根据角色ID查询权限
+     * 根據角色ID查詢權限
      * 
      * @param roleId 角色ID
-     * @return 权限列表
+     * @return 權限列表
      */
     @Override
     public Set<String> selectPermsByRoleId(Long roleId)
@@ -143,10 +143,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 根据角色ID查询菜单
+     * 根據角色ID查詢菜單
      * 
-     * @param role 角色对象
-     * @return 菜单列表
+     * @param role 角色對象
+     * @return 菜單列表
      */
     @Override
     public List<Ztree> roleMenuTreeData(SysRole role, Long userId)
@@ -167,9 +167,9 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 查询所有菜单
+     * 查詢所有菜單
      * 
-     * @return 菜单列表
+     * @return 菜單列表
      */
     @Override
     public List<Ztree> menuTreeData(Long userId)
@@ -180,9 +180,9 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 查询系统所有权限
+     * 查詢系統所有權限
      * 
-     * @return 权限列表
+     * @return 權限列表
      */
     @Override
     public LinkedHashMap<String, String> selectPermsAll(Long userId)
@@ -200,10 +200,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 对象转菜单树
+     * 對象轉菜單樹
      * 
-     * @param menuList 菜单列表
-     * @return 树结构列表
+     * @param menuList 菜單列表
+     * @return 樹結構列表
      */
     public List<Ztree> initZtree(List<SysMenu> menuList)
     {
@@ -211,12 +211,12 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 对象转菜单树
+     * 對象轉菜單樹
      * 
-     * @param menuList 菜单列表
-     * @param roleMenuList 角色已存在菜单列表
-     * @param permsFlag 是否需要显示权限标识
-     * @return 树结构列表
+     * @param menuList 菜單列表
+     * @param roleMenuList 角色已存在菜單列表
+     * @param permsFlag 是否需要顯示權限標識
+     * @return 樹結構列表
      */
     public List<Ztree> initZtree(List<SysMenu> menuList, List<String> roleMenuList, boolean permsFlag)
     {
@@ -226,7 +226,7 @@ public class SysMenuServiceImpl implements ISysMenuService
         {
             Ztree ztree = new Ztree();
             ztree.setId(menu.getMenuId());
-            ztree.setpId(menu.getParentId());
+            ztree.setPId(menu.getParentId());
             ztree.setName(transMenuName(menu, permsFlag));
             ztree.setTitle(menu.getMenuName());
             if (isCheck)
@@ -250,10 +250,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 删除菜单管理信息
+     * 刪除菜單管理資訊
      * 
-     * @param menuId 菜单ID
-     * @return 结果
+     * @param menuId 菜單ID
+     * @return 結果
      */
     @Override
     public int deleteMenuById(Long menuId)
@@ -262,10 +262,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 根据菜单ID查询信息
+     * 根據菜單ID查詢資訊
      * 
-     * @param menuId 菜单ID
-     * @return 菜单信息
+     * @param menuId 菜單ID
+     * @return 菜單資訊
      */
     @Override
     public SysMenu selectMenuById(Long menuId)
@@ -274,10 +274,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 查询子菜单数量
+     * 查詢子菜單數量
      * 
-     * @param parentId 父级菜单ID
-     * @return 结果
+     * @param parentId 父級菜單ID
+     * @return 結果
      */
     @Override
     public int selectCountMenuByParentId(Long parentId)
@@ -286,10 +286,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 查询菜单使用数量
+     * 查詢菜單使用數量
      * 
-     * @param menuId 菜单ID
-     * @return 结果
+     * @param menuId 菜單ID
+     * @return 結果
      */
     @Override
     public int selectCountRoleMenuByMenuId(Long menuId)
@@ -298,10 +298,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 新增保存菜单信息
+     * 新增保存菜單資訊
      * 
-     * @param menu 菜单信息
-     * @return 结果
+     * @param menu 菜單資訊
+     * @return 結果
      */
     @Override
     public int insertMenu(SysMenu menu)
@@ -310,10 +310,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 修改保存菜单信息
+     * 修改保存菜單資訊
      * 
-     * @param menu 菜单信息
-     * @return 结果
+     * @param menu 菜單資訊
+     * @return 結果
      */
     @Override
     public int updateMenu(SysMenu menu)
@@ -322,10 +322,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 校验菜单名称是否唯一
+     * 校驗菜單名稱是否唯一
      * 
-     * @param menu 菜单信息
-     * @return 结果
+     * @param menu 菜單資訊
+     * @return 結果
      */
     @Override
     public boolean checkMenuNameUnique(SysMenu menu)
@@ -340,10 +340,10 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 根据父节点的ID获取所有子节点
+     * 根據父節點的ID獲取所有子節點
      * 
-     * @param list 分类表
-     * @param parentId 传入的父节点ID
+     * @param list 分類表
+     * @param parentId 傳入的父節點ID
      * @return String
      */
     public List<SysMenu> getChildPerms(List<SysMenu> list, int parentId)
@@ -352,7 +352,7 @@ public class SysMenuServiceImpl implements ISysMenuService
         for (Iterator<SysMenu> iterator = list.iterator(); iterator.hasNext();)
         {
             SysMenu t = (SysMenu) iterator.next();
-            // 一、根据传入的某个父节点ID,遍历该父节点的所有子节点
+            // 一、根據傳入的某個父節點ID,遍歷該父節點的所有子節點
             if (t.getParentId() == parentId)
             {
                 recursionFn(list, t);
@@ -363,14 +363,14 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 递归列表
+     * 遞迴列表
      * 
      * @param list
      * @param t
      */
     private void recursionFn(List<SysMenu> list, SysMenu t)
     {
-        // 得到子节点列表
+        // 得到子節點列表
         List<SysMenu> childList = getChildList(list, t);
         t.setChildren(childList);
         for (SysMenu tChild : childList)
@@ -383,7 +383,7 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 得到子节点列表
+     * 得到子節點列表
      */
     private List<SysMenu> getChildList(List<SysMenu> list, SysMenu t)
     {
@@ -401,7 +401,7 @@ public class SysMenuServiceImpl implements ISysMenuService
     }
 
     /**
-     * 判断是否有子节点
+     * 判斷是否有子節點
      */
     private boolean hasChild(List<SysMenu> list, SysMenu t)
     {

@@ -4,80 +4,80 @@ import java.util.List;
 import com.ruoyi.common.core.domain.entity.SysDictType;
 
 /**
- * 字典表 数据层
+ * 字典表 數據層
  * 
  * @author ruoyi
  */
 public interface SysDictTypeMapper
 {
     /**
-     * 根据条件分页查询字典类型
+     * 根據條件分頁查詢字典類型
      * 
-     * @param dictType 字典类型信息
-     * @return 字典类型集合信息
+     * @param dictType 字典類型資訊
+     * @return 字典類型集合資訊
      */
     public List<SysDictType> selectDictTypeList(SysDictType dictType);
 
     /**
-     * 根据所有字典类型
+     * 根據所有字典類型
      * 
-     * @return 字典类型集合信息
+     * @return 字典類型集合資訊
      */
     public List<SysDictType> selectDictTypeAll();
 
     /**
-     * 根据字典类型ID查询信息
+     * 根據字典類型ID查詢資訊
      * 
-     * @param dictId 字典类型ID
-     * @return 字典类型
+     * @param dictId 字典類型ID
+     * @return 字典類型
      */
     public SysDictType selectDictTypeById(Long dictId);
 
     /**
-     * 根据字典类型查询信息
+     * 根據字典類型查詢資訊
      * 
-     * @param dictType 字典类型
-     * @return 字典类型
+     * @param dictType 字典類型
+     * @return 字典類型
      */
     public SysDictType selectDictTypeByType(String dictType);
 
     /**
-     * 通过字典ID删除字典信息
+     * 通過字典ID刪除字典資訊
      * 
      * @param dictId 字典ID
-     * @return 结果
+     * @return 結果
      */
     public int deleteDictTypeById(Long dictId);
 
     /**
-     * 批量删除字典类型
+     * 批次刪除字典類型
      * 
-     * @param ids 需要删除的数据
-     * @return 结果
+     * @param ids 需要刪除的數據
+     * @return 結果
      */
     public int deleteDictTypeByIds(Long[] ids);
 
     /**
-     * 新增字典类型信息
+     * 新增字典類型資訊
      * 
-     * @param dictType 字典类型信息
-     * @return 结果
+     * @param dictType 字典類型資訊
+     * @return 結果
      */
     public int insertDictType(SysDictType dictType);
 
     /**
-     * 修改字典类型信息
+     * 修改字典類型資訊
      * 
-     * @param dictType 字典类型信息
-     * @return 结果
+     * @param dictType 字典類型資訊
+     * @return 結果
      */
     public int updateDictType(SysDictType dictType);
 
     /**
-     * 校验字典类型称是否唯一
+     * 校驗字典類型稱是否唯一
      * 
-     * @param dictType 字典类型
-     * @return 结果
+     * @param dictType 字典類型
+     * @return 結果
      */
     public SysDictType checkDictTypeUnique(String dictType);
 }

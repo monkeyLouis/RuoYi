@@ -24,7 +24,7 @@ import com.ruoyi.quartz.service.ISysJobLogService;
 import com.ruoyi.quartz.service.ISysJobService;
 
 /**
- * 调度日志操作处理
+ * 調度日誌操作處理
  * 
  * @author ruoyi
  */
@@ -62,7 +62,7 @@ public class SysJobLogController extends BaseController
         return getDataTable(list);
     }
 
-    @Log(title = "调度日志", businessType = BusinessType.EXPORT)
+    @Log(title = "調度日誌", businessType = BusinessType.EXPORT)
     @RequiresPermissions("monitor:job:export")
     @PostMapping("/export")
     @ResponseBody
@@ -70,10 +70,10 @@ public class SysJobLogController extends BaseController
     {
         List<SysJobLog> list = jobLogService.selectJobLogList(jobLog);
         ExcelUtil<SysJobLog> util = new ExcelUtil<SysJobLog>(SysJobLog.class);
-        return util.exportExcel(list, "调度日志");
+        return util.exportExcel(list, "調度日誌");
     }
 
-    @Log(title = "调度日志", businessType = BusinessType.DELETE)
+    @Log(title = "調度日誌", businessType = BusinessType.DELETE)
     @RequiresPermissions("monitor:job:remove")
     @PostMapping("/remove")
     @ResponseBody
@@ -91,7 +91,7 @@ public class SysJobLogController extends BaseController
         return prefix + "/detail";
     }
 
-    @Log(title = "调度日志", businessType = BusinessType.CLEAN)
+    @Log(title = "調度日誌", businessType = BusinessType.CLEAN)
     @RequiresPermissions("monitor:job:remove")
     @PostMapping("/clean")
     @ResponseBody

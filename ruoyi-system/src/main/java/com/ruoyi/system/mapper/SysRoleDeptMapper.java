@@ -4,41 +4,41 @@ import java.util.List;
 import com.ruoyi.system.domain.SysRoleDept;
 
 /**
- * 角色与部门关联表 数据层
+ * 角色與部門關聯表 數據層
  * 
  * @author ruoyi
  */
 public interface SysRoleDeptMapper
 {
     /**
-     * 通过角色ID删除角色和部门关联
+     * 通過角色ID刪除角色和部門關聯
      * 
      * @param roleId 角色ID
-     * @return 结果
+     * @return 結果
      */
     public int deleteRoleDeptByRoleId(Long roleId);
 
     /**
-     * 批量删除角色部门关联信息
+     * 批次刪除角色部門關聯資訊
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     public int deleteRoleDept(Long[] ids);
 
     /**
-     * 查询部门使用数量
+     * 查詢部門使用數量
      * 
-     * @param deptId 部门ID
-     * @return 结果
+     * @param deptId 部門ID
+     * @return 結果
      */
     public int selectCountRoleDeptByDeptId(Long deptId);
 
     /**
-     * 批量新增角色部门信息
+     * 批次新增角色部門資訊
      * 
-     * @param roleDeptList 角色部门列表
-     * @return 结果
+     * @param roleDeptList 角色部門列表
+     * @return 結果
      */
     public int batchRoleDept(List<SysRoleDept> roleDeptList);
 }

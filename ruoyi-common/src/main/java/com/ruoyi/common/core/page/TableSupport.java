@@ -4,19 +4,19 @@ import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.ServletUtils;
 
 /**
- * 表格数据处理
+ * 表格數據處理
  * 
  * @author ruoyi
  */
 public class TableSupport
 {
     /**
-     * 当前记录起始索引
+     * 當前記錄起始索引
      */
     public static final String PAGE_NUM = "pageNum";
 
     /**
-     * 每页显示记录数
+     * 每頁顯示記錄數
      */
     public static final String PAGE_SIZE = "pageSize";
 
@@ -31,12 +31,12 @@ public class TableSupport
     public static final String IS_ASC = "isAsc";
 
     /**
-     * 分页参数合理化
+     * 分頁參數合理化
      */
     public static final String REASONABLE = "reasonable";
 
     /**
-     * 封装分页对象
+     * 封裝分頁對象
      */
     public static PageDomain getPageDomain()
     {

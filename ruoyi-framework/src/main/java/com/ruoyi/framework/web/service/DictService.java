@@ -8,7 +8,7 @@ import com.ruoyi.system.service.ISysDictDataService;
 import com.ruoyi.system.service.ISysDictTypeService;
 
 /**
- * RuoYi首创 html调用 thymeleaf 实现字典读取
+ * RuoYi首創 html調用 thymeleaf 實現字典讀取
  * 
  * @author ruoyi
  */
@@ -22,10 +22,10 @@ public class DictService
     private ISysDictDataService dictDataService;
 
     /**
-     * 根据字典类型查询字典数据信息
+     * 根據字典類型查詢字典數據資訊
      * 
-     * @param dictType 字典类型
-     * @return 参数键值
+     * @param dictType 字典類型
+     * @return 參數鍵值
      */
     public List<SysDictData> getType(String dictType)
     {
@@ -33,11 +33,11 @@ public class DictService
     }
 
     /**
-     * 根据字典类型和字典键值查询字典数据信息
+     * 根據字典類型和字典鍵值查詢字典數據資訊
      * 
-     * @param dictType 字典类型
-     * @param dictValue 字典键值
-     * @return 字典标签
+     * @param dictType 字典類型
+     * @param dictValue 字典鍵值
+     * @return 字典標籤
      */
     public String getLabel(String dictType, String dictValue)
     {

@@ -25,7 +25,7 @@ import org.springframework.util.ClassUtils;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * Mybatis支持*匹配扫描包
+ * Mybatis設定*掃描特定Package
  * 
  * @author ruoyi
  */

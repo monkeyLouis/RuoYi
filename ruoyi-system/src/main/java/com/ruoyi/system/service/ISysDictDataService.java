@@ -4,57 +4,57 @@ import java.util.List;
 import com.ruoyi.common.core.domain.entity.SysDictData;
 
 /**
- * 字典 业务层
+ * 字典 業務層
  * 
  * @author ruoyi
  */
 public interface ISysDictDataService
 {
     /**
-     * 根据条件分页查询字典数据
+     * 根據條件分頁查詢字典數據
      * 
-     * @param dictData 字典数据信息
-     * @return 字典数据集合信息
+     * @param dictData 字典數據資訊
+     * @return 字典數據集合資訊
      */
     public List<SysDictData> selectDictDataList(SysDictData dictData);
 
     /**
-     * 根据字典类型和字典键值查询字典数据信息
+     * 根據字典類型和字典鍵值查詢字典數據資訊
      * 
-     * @param dictType 字典类型
-     * @param dictValue 字典键值
-     * @return 字典标签
+     * @param dictType 字典類型
+     * @param dictValue 字典鍵值
+     * @return 字典標籤
      */
     public String selectDictLabel(String dictType, String dictValue);
 
     /**
-     * 根据字典数据ID查询信息
+     * 根據字典數據ID查詢資訊
      * 
-     * @param dictCode 字典数据ID
-     * @return 字典数据
+     * @param dictCode 字典數據ID
+     * @return 字典數據
      */
     public SysDictData selectDictDataById(Long dictCode);
 
     /**
-     * 批量删除字典数据
+     * 批次刪除字典數據
      * 
-     * @param ids 需要删除的数据
+     * @param ids 需要刪除的數據
      */
     public void deleteDictDataByIds(String ids);
 
     /**
-     * 新增保存字典数据信息
+     * 新增保存字典數據資訊
      * 
-     * @param dictData 字典数据信息
-     * @return 结果
+     * @param dictData 字典數據資訊
+     * @return 結果
      */
     public int insertDictData(SysDictData dictData);
 
     /**
-     * 修改保存字典数据信息
+     * 修改保存字典數據資訊
      * 
-     * @param dictData 字典数据信息
-     * @return 结果
+     * @param dictData 字典數據資訊
+     * @return 結果
      */
     public int updateDictData(SysDictData dictData);
 }

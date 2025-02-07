@@ -5,7 +5,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import com.ruoyi.common.core.text.Convert;
 
 /**
- * 权限信息
+ * 權限訊息
  * 
  * @author ruoyi
  */

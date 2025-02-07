@@ -7,7 +7,7 @@
      <div class="container-div">
         <div class="btn-group-sm" id="toolbar" role="group">
             <a class="btn btn-primary" onclick="getData()">
-                <i class="fa fa-search"></i> 查询所有数据
+                <i class="fa fa-search"></i> 查詢所有數據
             </a>
         </div>
 		<div class="row">
@@ -33,9 +33,9 @@
 		        showToggle: false,
 		        showColumns: false,
 		        onReorderRow: function (data, newRow, oldRow, el) {
-			        // 当拖拽结束后，data为整个表格的数据
+			        // 當拖拽結束後，data為整個表格的數據
 		            console.table(data)
-		            // 当sidePagination: "server"时，拖拽行后顺序错乱，需要重新调用加载数据方法
+		            // 當sidePagination: "server"時，拖拽行後順序錯亂，需要重新調用載入數據方法
 		            $("#" + table.options.id).bootstrapTable('load', {
 			            total: el._xhr.responseJSON.total,
 			            rows: data
@@ -47,31 +47,31 @@
 		        },
 				{
 					field : 'userId', 
-					title : '用户ID'
+					title : '用戶ID'
 				},
 				{
 					field : 'userCode', 
-					title : '用户编号'
+					title : '用戶編號'
 				},
 				{
 					field : 'userName', 
-					title : '用户姓名'
+					title : '用戶姓名'
 				},
 				{
 					field : 'userPhone', 
-					title : '用户手机'
+					title : '用戶手機'
 				},
 				{
 					field : 'userEmail', 
-					title : '用户邮箱'
+					title : '用戶信箱'
 				},
 				{
 				    field : 'userBalance',
-				    title : '用户余额'
+				    title : '用戶餘額'
 				},
 				{
                     field: 'status',
-                    title: '用户状态',
+                    title: '用戶狀態',
                     align: 'center',
                     formatter: function(value, row, index) {
                     	return $.table.selectDictLabel(datas, value);
@@ -81,7 +81,7 @@
             $.table.init(options);
         });
         
-        /* 查询表格所有数据值 */
+        /* 查詢表格所有數據值 */
         function getData(){
             var data = $("#" + table.options.id).bootstrapTable('getData');
             alert(JSON.stringify(data.map( item => { return item.userId })))

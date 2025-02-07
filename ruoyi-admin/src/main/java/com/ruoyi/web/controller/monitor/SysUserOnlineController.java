@@ -23,7 +23,7 @@ import com.ruoyi.system.domain.SysUserOnline;
 import com.ruoyi.system.service.ISysUserOnlineService;
 
 /**
- * 在线用户监控
+ * 在線用戶監控
  * 
  * @author ruoyi
  */
@@ -57,7 +57,7 @@ public class SysUserOnlineController extends BaseController
     }
 
     @RequiresPermissions(value = { "monitor:online:batchForceLogout", "monitor:online:forceLogout" }, logical = Logical.OR)
-    @Log(title = "在线用户", businessType = BusinessType.FORCE)
+    @Log(title = "在線用戶", businessType = BusinessType.FORCE)
     @PostMapping("/batchForceLogout")
     @ResponseBody
     public AjaxResult batchForceLogout(String ids)
@@ -67,16 +67,16 @@ public class SysUserOnlineController extends BaseController
             SysUserOnline online = userOnlineService.selectOnlineById(sessionId);
             if (online == null)
             {
-                return error("用户已下线");
+                return error("用戶已下線");
             }
             OnlineSession onlineSession = (OnlineSession) onlineSessionDAO.readSession(online.getSessionId());
             if (onlineSession == null)
             {
-                return error("用户已下线");
+                return error("用戶已下線");
             }
             if (sessionId.equals(ShiroUtils.getSessionId()))
             {
-                return error("当前登录用户无法强退");
+                return error("當前登入用戶無法強退");
             }
             onlineSessionDAO.delete(onlineSession);
             online.setStatus(OnlineStatus.off_line);

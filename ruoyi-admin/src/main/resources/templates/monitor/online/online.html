@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('在线用户列表')" />
+	<th:block th:include="include :: header('在線用戶列表')" />
 </head>
 <body class="gray-bg">
     <div class="container-div">
@@ -11,14 +11,14 @@
 					<div class="select-list">
 						<ul>
 							<li>
-								登录地址：<input type="text" name="ipaddr"/>
+								登錄地址：<input type="text" name="ipaddr"/>
 							</li>
 							<li>
-								登录名称：<input type="text" name="loginName"/>
+								登錄名稱：<input type="text" name="loginName"/>
 							</li>
 							<li>
 								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
-								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重設</a>
 							</li>
 						</ul>
 					</div>
@@ -27,7 +27,7 @@
 			
 	        <div class="btn-group-sm" id="toolbar" role="group">
 	            <a class="btn btn-danger multiple disabled" onclick="javascript:batchForceLogout()" shiro:hasPermission="monitor:online:batchForceLogout">
-	                <i class="fa fa-sign-out"></i> 强退
+	                <i class="fa fa-sign-out"></i> 強退
 	            </a>
 	        </div>
 	        
@@ -55,70 +55,70 @@
 		            checkbox: true
 		        },
 		        {
-                    title: "序号",
+                    title: "序號",
                     formatter: function (value, row, index) {
                  	    return $.table.serialNumber(index);
                     }
                 },
 		        {
 		            field: 'sessionId',
-		            title: '会话编号',
+		            title: '會話編號',
 		            formatter: function(value, row, index) {
                     	return $.table.tooltip(value);
                     }
 		        },
 		        {
 		            field: 'loginName',
-		            title: '登录名称',
+		            title: '登錄名稱',
 		            sortable: true
 		        },
 		        {
 		            field: 'deptName',
-		            title: '部门名称'
+		            title: '部門名稱'
 		        },
 		        {
 		            field: 'ipaddr',
-		            title: '主机'
+		            title: '主機'
 		        },
 		        {
 		            field: 'loginLocation',
-		            title: '登录地点'
+		            title: '登錄地點'
 		        },
 		        {
 		            field: 'browser',
-		            title: '浏览器'
+		            title: '瀏覽器'
 		        },
 		        {
 		            field: 'os',
-		            title: '操作系统'
+		            title: '操作系統'
 		        },
 		        {
 		            field: 'status',
-		            title: '会话状态',
+		            title: '會話狀態',
 		            align: 'center',
 		            formatter: function(value, row, index) {
 		                if (value == 'on_line') {
-		                    return '<span class="badge badge-primary">在线</span>';
+		                    return '<span class="badge badge-primary">在線</span>';
 		                } else if (value == 'off_line') {
-		                    return '<span class="badge badge-danger">离线</span>';
+		                    return '<span class="badge badge-danger">離線</span>';
 		                }
 		            }
 		        },
 		        {
 		            field: 'startTimestamp',
-		            title: '登录时间',
+		            title: '登錄時間',
 		            sortable: true
 		        },
 		        {
 		            field: 'lastAccessTime',
-		            title: '最后访问时间',
+		            title: '最後訪問時間',
 		            sortable: true
 		        },
 		        {
 		            title: '操作',
 		            align: 'center',
 		            formatter: function(value, row, index) {
-		                var msg = '<a class="btn btn-danger btn-xs ' + forceFlag + '" href="javascript:void(0)" onclick="forceLogout(\'' + row.sessionId + '\')"><i class="fa fa-sign-out"></i>强退</a> ';
+		                var msg = '<a class="btn btn-danger btn-xs ' + forceFlag + '" href="javascript:void(0)" onclick="forceLogout(\'' + row.sessionId + '\')"><i class="fa fa-sign-out"></i>強退</a> ';
 		                return msg;
 		            }
 		        }]
@@ -126,22 +126,22 @@
 		    $.table.init(options);
 		});
 
-		// 单条强退
+		// 單條強退
 		function forceLogout(sessionId) {
-		    $.modal.confirm("确定要强制选中用户下线吗？", function() {
+		    $.modal.confirm("確定要強制選中用戶下線嗎？", function() {
 		    	var data = { "ids": sessionId };
 		        $.operate.post(prefix + "/batchForceLogout", data);
 		    })
 		}
 
-		// 批量强退
+		// 批次強退
 		function batchForceLogout() {
 		    var rows = $.table.selectColumns("sessionId");
 		    if (rows.length == 0) {
-		        $.modal.alertWarning("请选择要强退的用户");
+		        $.modal.alertWarning("請選擇要強退的用戶");
 		        return;
 		    }
-		    $.modal.confirm("确认要强退选中的" + rows.length + "条数据吗?", function() {
+		    $.modal.confirm("確認要強退選中的" + rows.length + "條數據嗎?", function() {
 		        var url = prefix + "/batchForceLogout";
 		        var data = { "ids": rows.join() };
 		        $.operate.post(url, data);

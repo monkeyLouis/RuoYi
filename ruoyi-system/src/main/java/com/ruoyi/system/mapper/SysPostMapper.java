@@ -4,80 +4,80 @@ import java.util.List;
 import com.ruoyi.system.domain.SysPost;
 
 /**
- * 岗位信息 数据层
+ * 崗位資訊 數據層
  * 
  * @author ruoyi
  */
 public interface SysPostMapper
 {
     /**
-     * 查询岗位数据集合
+     * 查詢崗位數據集合
      * 
-     * @param post 岗位信息
-     * @return 岗位数据集合
+     * @param post 崗位資訊
+     * @return 崗位數據集合
      */
     public List<SysPost> selectPostList(SysPost post);
 
     /**
-     * 查询所有岗位
+     * 查詢所有崗位
      * 
-     * @return 岗位列表
+     * @return 崗位列表
      */
     public List<SysPost> selectPostAll();
 
     /**
-     * 根据用户ID查询岗位
+     * 根據用戶ID查詢崗位
      * 
-     * @param userId 用户ID
-     * @return 岗位列表
+     * @param userId 用戶ID
+     * @return 崗位列表
      */
     public List<SysPost> selectPostsByUserId(Long userId);
 
     /**
-     * 通过岗位ID查询岗位信息
+     * 通過崗位ID查詢崗位資訊
      * 
-     * @param postId 岗位ID
-     * @return 角色对象信息
+     * @param postId 崗位ID
+     * @return 角色對象資訊
      */
     public SysPost selectPostById(Long postId);
 
     /**
-     * 批量删除岗位信息
+     * 批次刪除崗位資訊
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     public int deletePostByIds(Long[] ids);
 
     /**
-     * 修改岗位信息
+     * 修改崗位資訊
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     public int updatePost(SysPost post);
 
     /**
-     * 新增岗位信息
+     * 新增崗位資訊
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     public int insertPost(SysPost post);
 
     /**
-     * 校验岗位名称
+     * 校驗崗位名稱
      * 
-     * @param postName 岗位名称
-     * @return 结果
+     * @param postName 崗位名稱
+     * @return 結果
      */
     public SysPost checkPostNameUnique(String postName);
 
     /**
-     * 校验岗位编码
+     * 校驗崗位編碼
      * 
-     * @param postCode 岗位编码
-     * @return 结果
+     * @param postCode 崗位編碼
+     * @return 結果
      */
     public SysPost checkPostCodeUnique(String postCode);
 }

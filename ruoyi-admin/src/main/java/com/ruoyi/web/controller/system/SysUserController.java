@@ -36,7 +36,7 @@ import com.ruoyi.system.service.ISysRoleService;
 import com.ruoyi.system.service.ISysUserService;
 
 /**
- * 用户信息
+ * 用戶資訊
  * 
  * @author ruoyi
  */
@@ -78,7 +78,7 @@ public class SysUserController extends BaseController
         return getDataTable(list);
     }
 
-    @Log(title = "用户管理", businessType = BusinessType.EXPORT)
+    @Log(title = "用戶管理", businessType = BusinessType.EXPORT)
     @RequiresPermissions("system:user:export")
     @PostMapping("/export")
     @ResponseBody
@@ -86,10 +86,10 @@ public class SysUserController extends BaseController
     {
         List<SysUser> list = userService.selectUserList(user);
         ExcelUtil<SysUser> util = new ExcelUtil<SysUser>(SysUser.class);
-        return util.exportExcel(list, "用户数据");
+        return util.exportExcel(list, "用戶數據");
     }
 
-    @Log(title = "用户管理", businessType = BusinessType.IMPORT)
+    @Log(title = "用戶管理", businessType = BusinessType.IMPORT)
     @RequiresPermissions("system:user:import")
     @PostMapping("/importData")
     @ResponseBody
@@ -107,11 +107,11 @@ public class SysUserController extends BaseController
     public AjaxResult importTemplate()
     {
         ExcelUtil<SysUser> util = new ExcelUtil<SysUser>(SysUser.class);
-        return util.importTemplateExcel("用户数据");
+        return util.importTemplateExcel("用戶數據");
     }
 
     /**
-     * 新增用户
+     * 新增用戶
      */
     @RequiresPermissions("system:user:add")
     @GetMapping("/add")
@@ -123,10 +123,10 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 新增保存用户
+     * 新增保存用戶
      */
     @RequiresPermissions("system:user:add")
-    @Log(title = "用户管理", businessType = BusinessType.INSERT)
+    @Log(title = "用戶管理", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(@Validated SysUser user)
@@ -135,15 +135,15 @@ public class SysUserController extends BaseController
         roleService.checkRoleDataScope(user.getRoleIds());
         if (!userService.checkLoginNameUnique(user))
         {
-            return error("新增用户'" + user.getLoginName() + "'失败，登录账号已存在");
+            return error("新增用戶'" + user.getLoginName() + "'失敗，登入帳號已存在");
         }
         else if (StringUtils.isNotEmpty(user.getPhonenumber()) && !userService.checkPhoneUnique(user))
         {
-            return error("新增用户'" + user.getLoginName() + "'失败，手机号码已存在");
+            return error("新增用戶'" + user.getLoginName() + "'失敗，手機號碼已存在");
         }
         else if (StringUtils.isNotEmpty(user.getEmail()) && !userService.checkEmailUnique(user))
         {
-            return error("新增用户'" + user.getLoginName() + "'失败，邮箱账号已存在");
+            return error("新增用戶'" + user.getLoginName() + "'失敗，信箱帳號已存在");
         }
         user.setSalt(ShiroUtils.randomSalt());
         user.setPassword(passwordService.encryptPassword(user.getLoginName(), user.getPassword(), user.getSalt()));
@@ -153,7 +153,7 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 修改用户
+     * 修改用戶
      */
     @RequiresPermissions("system:user:edit")
     @GetMapping("/edit/{userId}")
@@ -168,7 +168,7 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 查询用户详细
+     * 查詢用戶資訊
      */
     @RequiresPermissions("system:user:list")
     @GetMapping("/view/{userId}")
@@ -182,10 +182,10 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 修改保存用户
+     * 修改保存用戶
      */
     @RequiresPermissions("system:user:edit")
-    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
+    @Log(title = "用戶管理", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(@Validated SysUser user)
@@ -196,15 +196,15 @@ public class SysUserController extends BaseController
         roleService.checkRoleDataScope(user.getRoleIds());
         if (!userService.checkLoginNameUnique(user))
         {
-            return error("修改用户'" + user.getLoginName() + "'失败，登录账号已存在");
+            return error("修改用戶'" + user.getLoginName() + "'失敗，登入帳號已存在");
         }
         else if (StringUtils.isNotEmpty(user.getPhonenumber()) && !userService.checkPhoneUnique(user))
         {
-            return error("修改用户'" + user.getLoginName() + "'失败，手机号码已存在");
+            return error("修改用戶'" + user.getLoginName() + "'失敗，手機號碼已存在");
         }
         else if (StringUtils.isNotEmpty(user.getEmail()) && !userService.checkEmailUnique(user))
         {
-            return error("修改用户'" + user.getLoginName() + "'失败，邮箱账号已存在");
+            return error("修改用戶'" + user.getLoginName() + "'失敗，信箱帳號已存在");
         }
         user.setUpdateBy(getLoginName());
         AuthorizationUtils.clearAllCachedAuthorizationInfo();
@@ -220,7 +220,7 @@ public class SysUserController extends BaseController
     }
 
     @RequiresPermissions("system:user:resetPwd")
-    @Log(title = "重置密码", businessType = BusinessType.UPDATE)
+    @Log(title = "重設密碼", businessType = BusinessType.UPDATE)
     @PostMapping("/resetPwd")
     @ResponseBody
     public AjaxResult resetPwdSave(SysUser user)
@@ -241,14 +241,14 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 进入授权角色页
+     * 進入授權角色頁
      */
     @RequiresPermissions("system:user:edit")
     @GetMapping("/authRole/{userId}")
     public String authRole(@PathVariable("userId") Long userId, ModelMap mmap)
     {
         SysUser user = userService.selectUserById(userId);
-        // 获取用户所属的角色列表
+        // 獲取用戶所屬的角色列表
         List<SysRole> roles = roleService.selectRolesByUserId(userId);
         mmap.put("user", user);
         mmap.put("roles", SysUser.isAdmin(userId) ? roles : roles.stream().filter(r -> !r.isAdmin()).collect(Collectors.toList()));
@@ -256,10 +256,10 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 用户授权角色
+     * 用戶授權角色
      */
     @RequiresPermissions("system:user:edit")
-    @Log(title = "用户管理", businessType = BusinessType.GRANT)
+    @Log(title = "用戶管理", businessType = BusinessType.GRANT)
     @PostMapping("/authRole/insertAuthRole")
     @ResponseBody
     public AjaxResult insertAuthRole(Long userId, Long[] roleIds)
@@ -272,20 +272,20 @@ public class SysUserController extends BaseController
     }
 
     @RequiresPermissions("system:user:remove")
-    @Log(title = "用户管理", businessType = BusinessType.DELETE)
+    @Log(title = "用戶管理", businessType = BusinessType.DELETE)
     @PostMapping("/remove")
     @ResponseBody
     public AjaxResult remove(String ids)
     {
         if (ArrayUtils.contains(Convert.toLongArray(ids), getUserId()))
         {
-            return error("当前用户不能删除");
+            return error("當前用戶不能刪除");
         }
         return toAjax(userService.deleteUserByIds(ids));
     }
 
     /**
-     * 校验用户名
+     * 校驗使用者名稱
      */
     @PostMapping("/checkLoginNameUnique")
     @ResponseBody
@@ -295,7 +295,7 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 校验手机号码
+     * 校驗手機號碼
      */
     @PostMapping("/checkPhoneUnique")
     @ResponseBody
@@ -305,7 +305,7 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 校验email邮箱
+     * 校驗email信箱
      */
     @PostMapping("/checkEmailUnique")
     @ResponseBody
@@ -315,9 +315,9 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 用户状态修改
+     * 用戶狀態修改
      */
-    @Log(title = "用户管理", businessType = BusinessType.UPDATE)
+    @Log(title = "用戶管理", businessType = BusinessType.UPDATE)
     @RequiresPermissions("system:user:edit")
     @PostMapping("/changeStatus")
     @ResponseBody
@@ -329,7 +329,7 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 加载部门列表树
+     * 載入部門列表樹
      */
     @RequiresPermissions("system:user:list")
     @GetMapping("/deptTreeData")
@@ -341,9 +341,9 @@ public class SysUserController extends BaseController
     }
 
     /**
-     * 选择部门树
+     * 選擇部門樹
      * 
-     * @param deptId 部门ID
+     * @param deptId 部門ID
      */
     @RequiresPermissions("system:user:list")
     @GetMapping("/selectDeptTree/{deptId}")

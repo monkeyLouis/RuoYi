@@ -9,7 +9,7 @@ import com.ruoyi.common.core.context.PermissionContextHolder;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * 自定义权限拦截器，将权限字符串放到当前请求中以便用于多个角色匹配符合要求的权限
+ * 自訂權限攔截器，將權限字串放到當前請求中以便用於多個角色匹配符合要求的權限
  * 
  * @author ruoyi
  */

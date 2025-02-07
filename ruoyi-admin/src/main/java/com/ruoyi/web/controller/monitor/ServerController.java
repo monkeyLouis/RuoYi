@@ -9,7 +9,7 @@ import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.framework.web.domain.Server;
 
 /**
- * 服务器监控
+ * 伺服器監控
  * 
  * @author ruoyi
  */

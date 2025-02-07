@@ -16,7 +16,7 @@ import com.ruoyi.framework.manager.factory.AsyncFactory;
 import com.ruoyi.system.service.ISysUserService;
 
 /**
- * 注册校验方法
+ * 註冊校驗方法
  * 
  * @author ruoyi
  */
@@ -30,7 +30,7 @@ public class SysRegisterService
     private SysPasswordService passwordService;
 
     /**
-     * 注册
+     * 註冊
      */
     public String register(SysUser user)
     {
@@ -38,29 +38,29 @@ public class SysRegisterService
 
         if (ShiroConstants.CAPTCHA_ERROR.equals(ServletUtils.getRequest().getAttribute(ShiroConstants.CURRENT_CAPTCHA)))
         {
-            msg = "验证码错误";
+            msg = "驗證碼錯誤";
         }
         else if (StringUtils.isEmpty(loginName))
         {
-            msg = "用户名不能为空";
+            msg = "使用者名稱不能為空";
         }
         else if (StringUtils.isEmpty(password))
         {
-            msg = "用户密码不能为空";
+            msg = "用戶密碼不能為空";
         }
         else if (password.length() < UserConstants.PASSWORD_MIN_LENGTH
                 || password.length() > UserConstants.PASSWORD_MAX_LENGTH)
         {
-            msg = "密码长度必须在5到20个字符之间";
+            msg = "密碼長度必須在5到20個字元之間";
         }
         else if (loginName.length() < UserConstants.USERNAME_MIN_LENGTH
                 || loginName.length() > UserConstants.USERNAME_MAX_LENGTH)
         {
-            msg = "账户长度必须在2到20个字符之间";
+            msg = "帳戶長度必須在2到20個字元之間";
         }
         else if (!userService.checkLoginNameUnique(user))
         {
-            msg = "保存用户'" + loginName + "'失败，注册账号已存在";
+            msg = "保存用戶'" + loginName + "'失敗，註冊帳號已存在";
         }
         else
         {
@@ -71,7 +71,7 @@ public class SysRegisterService
             boolean regFlag = userService.registerUser(user);
             if (!regFlag)
             {
-                msg = "注册失败,请联系系统管理人员";
+                msg = "註冊失敗,請聯絡系統管理人員";
             }
             else
             {

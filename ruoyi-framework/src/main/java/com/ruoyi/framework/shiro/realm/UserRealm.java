@@ -33,7 +33,7 @@ import com.ruoyi.system.service.ISysMenuService;
 import com.ruoyi.system.service.ISysRoleService;
 
 /**
- * 自定义Realm 处理登录 权限
+ * 自訂Realm 處理登錄 權限
  * 
  * @author ruoyi
  */
@@ -51,7 +51,7 @@ public class UserRealm extends AuthorizingRealm
     private SysLoginService loginService;
 
     /**
-     * 授权
+     * 授權
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0)
@@ -62,7 +62,7 @@ public class UserRealm extends AuthorizingRealm
         // 功能列表
         Set<String> menus = new HashSet<String>();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        // 管理员拥有所有权限
+        // 管理員擁有所有權限
         if (user.isAdmin())
         {
             info.addRole("admin");
@@ -72,16 +72,16 @@ public class UserRealm extends AuthorizingRealm
         {
             roles = roleService.selectRoleKeys(user.getUserId());
             menus = menuService.selectPermsByUserId(user.getUserId());
-            // 角色加入AuthorizationInfo认证对象
+            // 角色加入AuthorizationInfo認證對象
             info.setRoles(roles);
-            // 权限加入AuthorizationInfo认证对象
+            // 權限加入AuthorizationInfo認證對象
             info.setStringPermissions(menus);
         }
         return info;
     }
 
     /**
-     * 登录认证
+     * 登錄認證
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException
@@ -125,7 +125,7 @@ public class UserRealm extends AuthorizingRealm
         }
         catch (Exception e)
         {
-            log.info("对用户[" + username + "]进行登录验证..验证未通过{}", e.getMessage());
+            log.info("對用戶[" + username + "]進行登錄驗證..驗證未通過{}", e.getMessage());
             throw new AuthenticationException(e.getMessage(), e);
         }
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, password, getName());
@@ -133,7 +133,7 @@ public class UserRealm extends AuthorizingRealm
     }
 
     /**
-     * 清理指定用户授权信息缓存
+     * 清理指定用戶授權資訊快取
      */
     public void clearCachedAuthorizationInfo(Object principal)
     {
@@ -142,7 +142,7 @@ public class UserRealm extends AuthorizingRealm
     }
 
     /**
-     * 清理所有用户授权信息缓存
+     * 清理所有用戶授權資訊快取
      */
     public void clearAllCachedAuthorizationInfo()
     {

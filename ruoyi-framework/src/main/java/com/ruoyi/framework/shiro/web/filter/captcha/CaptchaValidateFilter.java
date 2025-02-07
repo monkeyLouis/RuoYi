@@ -10,19 +10,19 @@ import com.ruoyi.common.utils.ShiroUtils;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * 验证码过滤器
+ * 驗證碼過濾器
  * 
  * @author ruoyi
  */
 public class CaptchaValidateFilter extends AccessControlFilter
 {
     /**
-     * 是否开启验证码
+     * 是否開啟驗證碼
      */
     private boolean captchaEnabled = true;
 
     /**
-     * 验证码类型
+     * 驗證碼類型
      */
     private String captchaType = "math";
 
@@ -49,7 +49,7 @@ public class CaptchaValidateFilter extends AccessControlFilter
             throws Exception
     {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        // 验证码禁用 或不是表单提交 允许访问
+        // 驗證碼禁用 或不是表單提交 允許訪問
         if (captchaEnabled == false || !"post".equals(httpServletRequest.getMethod().toLowerCase()))
         {
             return true;
@@ -61,7 +61,7 @@ public class CaptchaValidateFilter extends AccessControlFilter
     {
         Object obj = ShiroUtils.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
         String code = String.valueOf(obj != null ? obj : "");
-        // 验证码清除，防止多次使用。
+        // 驗證碼清除，防止多次使用。
         request.getSession().removeAttribute(Constants.KAPTCHA_SESSION_KEY);
         if (StringUtils.isEmpty(validateCode) || !validateCode.equalsIgnoreCase(code))
         {

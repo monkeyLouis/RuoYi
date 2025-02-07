@@ -26,7 +26,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 
 /**
- * 表格相关
+ * 表格相關
  * 
  * @author ruoyi
  */
@@ -38,113 +38,113 @@ public class DemoTableController extends BaseController
 
     private final static List<UserTableModel> users = new ArrayList<UserTableModel>();
     {
-        users.add(new UserTableModel(1, "1000001", "测试1", "0", "15888888888", "ry@qq.com", 150.0, "0"));
-        users.add(new UserTableModel(2, "1000002", "测试2", "1", "15666666666", "ry@qq.com", 180.0, "1"));
-        users.add(new UserTableModel(3, "1000003", "测试3", "0", "15666666666", "ry@qq.com", 110.0, "1"));
-        users.add(new UserTableModel(4, "1000004", "测试4", "1", "15666666666", "ry@qq.com", 220.0, "1"));
-        users.add(new UserTableModel(5, "1000005", "测试5", "0", "15666666666", "ry@qq.com", 140.0, "1"));
-        users.add(new UserTableModel(6, "1000006", "测试6", "1", "15666666666", "ry@qq.com", 330.0, "1"));
-        users.add(new UserTableModel(7, "1000007", "测试7", "0", "15666666666", "ry@qq.com", 160.0, "1"));
-        users.add(new UserTableModel(8, "1000008", "测试8", "1", "15666666666", "ry@qq.com", 170.0, "1"));
-        users.add(new UserTableModel(9, "1000009", "测试9", "0", "15666666666", "ry@qq.com", 180.0, "1"));
-        users.add(new UserTableModel(10, "1000010", "测试10", "0", "15666666666", "ry@qq.com", 210.0, "1"));
-        users.add(new UserTableModel(11, "1000011", "测试11", "1", "15666666666", "ry@qq.com", 110.0, "1"));
-        users.add(new UserTableModel(12, "1000012", "测试12", "0", "15666666666", "ry@qq.com", 120.0, "1"));
-        users.add(new UserTableModel(13, "1000013", "测试13", "1", "15666666666", "ry@qq.com", 380.0, "1"));
-        users.add(new UserTableModel(14, "1000014", "测试14", "0", "15666666666", "ry@qq.com", 280.0, "1"));
-        users.add(new UserTableModel(15, "1000015", "测试15", "0", "15666666666", "ry@qq.com", 570.0, "1"));
-        users.add(new UserTableModel(16, "1000016", "测试16", "1", "15666666666", "ry@qq.com", 260.0, "1"));
-        users.add(new UserTableModel(17, "1000017", "测试17", "1", "15666666666", "ry@qq.com", 210.0, "1"));
-        users.add(new UserTableModel(18, "1000018", "测试18", "1", "15666666666", "ry@qq.com", 340.0, "1"));
-        users.add(new UserTableModel(19, "1000019", "测试19", "1", "15666666666", "ry@qq.com", 160.0, "1"));
-        users.add(new UserTableModel(20, "1000020", "测试20", "1", "15666666666", "ry@qq.com", 220.0, "1"));
-        users.add(new UserTableModel(21, "1000021", "测试21", "1", "15666666666", "ry@qq.com", 120.0, "1"));
-        users.add(new UserTableModel(22, "1000022", "测试22", "1", "15666666666", "ry@qq.com", 130.0, "1"));
-        users.add(new UserTableModel(23, "1000023", "测试23", "1", "15666666666", "ry@qq.com", 490.0, "1"));
-        users.add(new UserTableModel(24, "1000024", "测试24", "1", "15666666666", "ry@qq.com", 570.0, "1"));
-        users.add(new UserTableModel(25, "1000025", "测试25", "1", "15666666666", "ry@qq.com", 250.0, "1"));
-        users.add(new UserTableModel(26, "1000026", "测试26", "1", "15666666666", "ry@qq.com", 250.0, "1"));
+        users.add(new UserTableModel(1, "1000001", "測試1", "0", "15888888888", "ry@qq.com", 150.0, "0"));
+        users.add(new UserTableModel(2, "1000002", "測試2", "1", "15666666666", "ry@qq.com", 180.0, "1"));
+        users.add(new UserTableModel(3, "1000003", "測試3", "0", "15666666666", "ry@qq.com", 110.0, "1"));
+        users.add(new UserTableModel(4, "1000004", "測試4", "1", "15666666666", "ry@qq.com", 220.0, "1"));
+        users.add(new UserTableModel(5, "1000005", "測試5", "0", "15666666666", "ry@qq.com", 140.0, "1"));
+        users.add(new UserTableModel(6, "1000006", "測試6", "1", "15666666666", "ry@qq.com", 330.0, "1"));
+        users.add(new UserTableModel(7, "1000007", "測試7", "0", "15666666666", "ry@qq.com", 160.0, "1"));
+        users.add(new UserTableModel(8, "1000008", "測試8", "1", "15666666666", "ry@qq.com", 170.0, "1"));
+        users.add(new UserTableModel(9, "1000009", "測試9", "0", "15666666666", "ry@qq.com", 180.0, "1"));
+        users.add(new UserTableModel(10, "1000010", "測試10", "0", "15666666666", "ry@qq.com", 210.0, "1"));
+        users.add(new UserTableModel(11, "1000011", "測試11", "1", "15666666666", "ry@qq.com", 110.0, "1"));
+        users.add(new UserTableModel(12, "1000012", "測試12", "0", "15666666666", "ry@qq.com", 120.0, "1"));
+        users.add(new UserTableModel(13, "1000013", "測試13", "1", "15666666666", "ry@qq.com", 380.0, "1"));
+        users.add(new UserTableModel(14, "1000014", "測試14", "0", "15666666666", "ry@qq.com", 280.0, "1"));
+        users.add(new UserTableModel(15, "1000015", "測試15", "0", "15666666666", "ry@qq.com", 570.0, "1"));
+        users.add(new UserTableModel(16, "1000016", "測試16", "1", "15666666666", "ry@qq.com", 260.0, "1"));
+        users.add(new UserTableModel(17, "1000017", "測試17", "1", "15666666666", "ry@qq.com", 210.0, "1"));
+        users.add(new UserTableModel(18, "1000018", "測試18", "1", "15666666666", "ry@qq.com", 340.0, "1"));
+        users.add(new UserTableModel(19, "1000019", "測試19", "1", "15666666666", "ry@qq.com", 160.0, "1"));
+        users.add(new UserTableModel(20, "1000020", "測試20", "1", "15666666666", "ry@qq.com", 220.0, "1"));
+        users.add(new UserTableModel(21, "1000021", "測試21", "1", "15666666666", "ry@qq.com", 120.0, "1"));
+        users.add(new UserTableModel(22, "1000022", "測試22", "1", "15666666666", "ry@qq.com", 130.0, "1"));
+        users.add(new UserTableModel(23, "1000023", "測試23", "1", "15666666666", "ry@qq.com", 490.0, "1"));
+        users.add(new UserTableModel(24, "1000024", "測試24", "1", "15666666666", "ry@qq.com", 570.0, "1"));
+        users.add(new UserTableModel(25, "1000025", "測試25", "1", "15666666666", "ry@qq.com", 250.0, "1"));
+        users.add(new UserTableModel(26, "1000026", "測試26", "1", "15666666666", "ry@qq.com", 250.0, "1"));
     }
 
     private final static List<AreaModel> areas = new ArrayList<AreaModel>();
     {
-        areas.add(new AreaModel(1, 0, "广东省", "440000", "GDS", "GuangDongSheng", 1));
+        areas.add(new AreaModel(1, 0, "廣東省", "440000", "GDS", "GuangDongSheng", 1));
         areas.add(new AreaModel(2, 0, "湖南省", "430000", "HNS", "HuNanSheng", 1));
         areas.add(new AreaModel(3, 0, "河南省", "410000", "HNS", "HeNanSheng", 0));
         areas.add(new AreaModel(4, 0, "湖北省", "420000", "HBS", "HuBeiSheng", 0));
-        areas.add(new AreaModel(5, 0, "辽宁省", "210000", "LNS", "LiaoNingSheng", 0));
-        areas.add(new AreaModel(6, 0, "山东省", "370000", "SDS", "ShanDongSheng", 0));
-        areas.add(new AreaModel(7, 0, "陕西省", "610000", "SXS", "ShanXiSheng", 0));
-        areas.add(new AreaModel(8, 0, "贵州省", "520000", "GZS", "GuiZhouSheng", 0));
+        areas.add(new AreaModel(5, 0, "遼寧省", "210000", "LNS", "LiaoNingSheng", 0));
+        areas.add(new AreaModel(6, 0, "山東省", "370000", "SDS", "ShanDongSheng", 0));
+        areas.add(new AreaModel(7, 0, "陝西省", "610000", "SXS", "ShanXiSheng", 0));
+        areas.add(new AreaModel(8, 0, "貴州省", "520000", "GZS", "GuiZhouSheng", 0));
         areas.add(new AreaModel(9,  0, "上海市", "310000", "SHS", "ShangHaiShi", 0));
-        areas.add(new AreaModel(10, 0, "重庆市", "500000", "CQS", "ChongQingShi", 0));
+        areas.add(new AreaModel(10, 0, "重慶市", "500000", "CQS", "ChongQingShi", 0));
         areas.add(new AreaModel(11, 0, "若依省", "666666", "YYS", "RuoYiSheng", 0));
         areas.add(new AreaModel(12, 0, "安徽省", "340000", "AHS", "AnHuiSheng", 0));
         areas.add(new AreaModel(13, 0, "福建省", "350000", "FJS", "FuJianSheng", 0));
         areas.add(new AreaModel(14, 0, "海南省", "460000", "HNS", "HaiNanSheng", 0));
-        areas.add(new AreaModel(15, 0, "江苏省", "320000", "JSS", "JiangSuSheng", 0));
+        areas.add(new AreaModel(15, 0, "江蘇省", "320000", "JSS", "JiangSuSheng", 0));
         areas.add(new AreaModel(16, 0, "青海省", "630000", "QHS", "QingHaiSheng", 0));
-        areas.add(new AreaModel(17, 0, "广西壮族自治区", "450000", "GXZZZZQ", "GuangXiZhuangZuZiZhiQu", 0));
-        areas.add(new AreaModel(18, 0, "宁夏回族自治区", "640000", "NXHZZZQ", "NingXiaHuiZuZiZhiQu", 0));
-        areas.add(new AreaModel(19, 0, "内蒙古自治区", "150000", "NMGZZQ", "NeiMengGuZiZhiQu", 0));
-        areas.add(new AreaModel(20, 0, "新疆维吾尔自治区", "650000", "XJWWEZZQ", "XinJiangWeiWuErZiZhiQu", 0));
+        areas.add(new AreaModel(17, 0, "廣西壯族自治區", "450000", "GXZZZZQ", "GuangXiZhuangZuZiZhiQu", 0));
+        areas.add(new AreaModel(18, 0, "寧夏回族自治區", "640000", "NXHZZZQ", "NingXiaHuiZuZiZhiQu", 0));
+        areas.add(new AreaModel(19, 0, "內蒙古自治區", "150000", "NMGZZQ", "NeiMengGuZiZhiQu", 0));
+        areas.add(new AreaModel(20, 0, "新疆維吾爾自治區", "650000", "XJWWEZZQ", "XinJiangWeiWuErZiZhiQu", 0));
         areas.add(new AreaModel(21, 0, "江西省", "360000", "JXS", "JiangXiSheng", 0));
         areas.add(new AreaModel(22, 0, "浙江省", "330000", "ZJS", "ZheJiangSheng", 0));
         areas.add(new AreaModel(23, 0, "河北省", "130000", "HBS", "HeBeiSheng", 0));
         areas.add(new AreaModel(24, 0, "天津市", "120000", "TJS", "TianJinShi", 0));
         areas.add(new AreaModel(25, 0, "山西省", "140000", "SXS", "ShanXiSheng", 0));
-        areas.add(new AreaModel(26, 0, "台湾省", "710000", "TWS", "TaiWanSheng", 0));
-        areas.add(new AreaModel(27, 0, "甘肃省", "620000", "GSS", "GanSuSheng", 0));
+        areas.add(new AreaModel(26, 0, "台灣省", "710000", "TWS", "TaiWanSheng", 0));
+        areas.add(new AreaModel(27, 0, "甘肅省", "620000", "GSS", "GanSuSheng", 0));
         areas.add(new AreaModel(28, 0, "四川省", "510000", "SCS", "SiChuanSheng", 0));
-        areas.add(new AreaModel(29, 0, "云南省", "530000", "YNS", "YunNanSheng", 0));
+        areas.add(new AreaModel(29, 0, "雲南省", "530000", "YNS", "YunNanSheng", 0));
         areas.add(new AreaModel(30, 0, "北京市", "110000", "BJS", "BeiJingShi", 0));
-        areas.add(new AreaModel(31, 0, "香港特别行政区", "810000", "XGTBXZQ", "XiangGangTeBieXingZhengQu", 0));
-        areas.add(new AreaModel(32, 0, "澳门特别行政区", "820000", "AMTBXZQ", "AoMenTeBieXingZhengQu", 0));
+        areas.add(new AreaModel(31, 0, "香港特別行政區", "810000", "XGTBXZQ", "XiangGangTeBieXingZhengQu", 0));
+        areas.add(new AreaModel(32, 0, "澳門特別行政區", "820000", "AMTBXZQ", "AoMenTeBieXingZhengQu", 0));
         
         areas.add(new AreaModel(100, 1, "深圳市", "440300", "SZS", "ShenZhenShi", 1));
-        areas.add(new AreaModel(101, 1, "广州市", "440100", "GZS", "GuangZhouShi", 0));
-        areas.add(new AreaModel(102, 1, "东莞市", "441900", "DGS", "DongGuanShi", 0));
-        areas.add(new AreaModel(103, 2, "长沙市", "410005", "CSS", "ChangShaShi", 1));
-        areas.add(new AreaModel(104, 2, "岳阳市", "414000", "YYS", "YueYangShi", 0));
+        areas.add(new AreaModel(101, 1, "廣州市", "440100", "GZS", "GuangZhouShi", 0));
+        areas.add(new AreaModel(102, 1, "東莞市", "441900", "DGS", "DongGuanShi", 0));
+        areas.add(new AreaModel(103, 2, "長沙市", "410005", "CSS", "ChangShaShi", 1));
+        areas.add(new AreaModel(104, 2, "岳陽市", "414000", "YYS", "YueYangShi", 0));
         
-        areas.add(new AreaModel(1000, 100, "龙岗区", "518172", "LGQ", "LongGangQu", 0));
-        areas.add(new AreaModel(1001, 100, "南山区", "518051", "NSQ", "NanShanQu", 0));
-        areas.add(new AreaModel(1002, 100, "宝安区", "518101", "BAQ", "BaoAnQu", 0));
-        areas.add(new AreaModel(1003, 100, "福田区", "518081", "FTQ", "FuTianQu", 0));
-        areas.add(new AreaModel(1004, 103, "天心区", "410004", "TXQ", "TianXinQu", 0));
-        areas.add(new AreaModel(1005, 103, "开福区", "410008", "KFQ", "KaiFuQu", 0));
-        areas.add(new AreaModel(1006, 103, "芙蓉区", "410011", "FRQ", "FuRongQu", 0));
-        areas.add(new AreaModel(1007, 103, "雨花区", "410011", "YHQ", "YuHuaQu", 0));
+        areas.add(new AreaModel(1000, 100, "龍崗區", "518172", "LGQ", "LongGangQu", 0));
+        areas.add(new AreaModel(1001, 100, "南山區", "518051", "NSQ", "NanShanQu", 0));
+        areas.add(new AreaModel(1002, 100, "寶安區", "518101", "BAQ", "BaoAnQu", 0));
+        areas.add(new AreaModel(1003, 100, "福田區", "518081", "FTQ", "FuTianQu", 0));
+        areas.add(new AreaModel(1004, 103, "天心區", "410004", "TXQ", "TianXinQu", 0));
+        areas.add(new AreaModel(1005, 103, "開福區", "410008", "KFQ", "KaiFuQu", 0));
+        areas.add(new AreaModel(1006, 103, "芙蓉區", "410011", "FRQ", "FuRongQu", 0));
+        areas.add(new AreaModel(1007, 103, "雨花區", "410011", "YHQ", "YuHuaQu", 0));
     }
 
     private final static List<UserTableColumn> columns = new ArrayList<UserTableColumn>();
     {
-        columns.add(new UserTableColumn("用户ID", "userId"));
-        columns.add(new UserTableColumn("用户编号", "userCode"));
-        columns.add(new UserTableColumn("用户姓名", "userName"));
-        columns.add(new UserTableColumn("用户手机", "userPhone"));
-        columns.add(new UserTableColumn("用户邮箱", "userEmail"));
-        columns.add(new UserTableColumn("用户状态", "status"));
+        columns.add(new UserTableColumn("用戶ID", "userId"));
+        columns.add(new UserTableColumn("用戶編號", "userCode"));
+        columns.add(new UserTableColumn("用戶姓名", "userName"));
+        columns.add(new UserTableColumn("用戶手機", "userPhone"));
+        columns.add(new UserTableColumn("用戶信箱", "userEmail"));
+        columns.add(new UserTableColumn("用戶狀態", "status"));
     }
     
     private final static List<DocumentModel> documents = new ArrayList<DocumentModel>();
     {
-        documents.add(new DocumentModel(1, "247-XW·2024-D10-0001", "新闻热线[2024]000001", "索尼射击游戏《Concord》停止运营，玩家将获全额退款", "索尼宣布多人射击游戏《Concord》将于9月6日停止运营，玩家将获得全额退款。游戏总监Ryan Ellis在给玩家的信中表示，这款游戏首次发布“并没有像我们预期的那样顺利”。《Concord》的开发历时8年，投资超过1.5亿美元。游戏在Steam平台的售价为40美元，采用买断制销售模式。据SteamDB统计，游戏上市后的最高同时在线人数为697人。"));
-        documents.add(new DocumentModel(2, "247-XW·2024-D30-0002", "新闻热线[2024]000002", "网红账号被封，央媒：如此炫富毒瘤早就该拔了", "在社交平台上分享自己的生活日常，本来无可厚非。但无底线地展示物欲、宣扬拜金，取笑甚至嘲讽工薪者的烟火生活，就会遮蔽普通人的平凡质朴和坚韧奋斗，在无形中消解芸芸众生脚踏实地、自立自强的社会正气。对这种助长金钱至上、刺激公众焦虑，既污染网络生态，又撕裂社会和谐的炫富“毒瘤”，必须坚决拔除之。在国家有关部门的部署下，近日，多个网络平台开展“不良价值导向内容专项治理”行动，对“奢靡浪费”“炫富拜金”等问题从严打击，倡导理性、文明的消费观和价值观。"));
-        documents.add(new DocumentModel(3, "CT01-XW·2024-Y-0003", "新闻热线[2024]000003", "重庆一夫妻被骗至缅甸，家属：两人已被解救，预计很快能回国", "5月25日，重庆一对夫妻在前往泰国后失联，疑被诈骗集团骗至缅甸的消息引发广泛关注。警方已对此事立案调查，而这对夫妻的亲属则每天生活在焦急和不安之中。亲属：家都瘫痪了，事情一经曝光，迅速登上了热搜，成为公众热议的话题。据了解，这对夫妻原计划是去泰国谈生意，但不幸的是，他们的泰国之行变成了一场噩梦。亲属李先生透露，4月14日，他们夫妻二人抵达泰国，不久后便疑似被人以10万元的价格卖到缅甸，目前被困在缅甸妙瓦底的一个电信诈骗园区。"));
-        documents.add(new DocumentModel(4, "CT01-XW·2024-Y-0004", "新闻热线[2024]000004", "江滨社区联合派出所、金霞消防站开展电动自行车安全隐患夜查活动", "近日，长沙市开福区江滨社区联合派出所、金霞消防站深入居民小区、单位场所，以电动车自行车火灾防范为重点，开展消防安全夜查行动。此次夜查紧紧围绕老旧居民区、“三合一”场所、沿街门店、夜间经营使用场所等场所开展监督检查，重点检查电动自行车违规停放充电、堵塞疏散通道和安全出口，架空层违规作为电动自行车停放充电场所，电动自行车违规“进楼入户”“飞线充电”，电动自行车擅自改装等五大类问题。"));
-        documents.add(new DocumentModel(5, "CT01-XW·2024-Y-0005", "新闻热线[2024]000005", "《黑神话》让海外玩家迷上“悟空”", "备受全球玩家瞩目的首款国产3A游戏《黑神话：悟空》日前正式发布。精美绝伦的东方美学世界、精彩纷呈的中国神话故事、酣畅淋漓的游戏体验，这款游戏为全球玩家带来一场视觉与文化的双重盛宴。从“悟空”成功出海的背后，海外人士看到了中国游戏产业的巨大进步，感受到了中国文化的多元精彩，并对下一个“悟空”的诞生及更多中国文化产品走向世界充满期待。"));
-        documents.add(new DocumentModel(6, "CT01-XW·2024-Y-0006", "新闻热线[2024]000006", "市场状况充满挑战！极星宣布裁员全球约15%的员工", "据路透社报道，极星周五以“充满挑战的市场状况”为由，宣布计划在全球范围内裁减约450个职位。此次裁员之际，许多人都对电动汽车需求降温表示担忧，而且极星预计汽车业务最早将在2025年开始实现收支平衡。极星发言人表示：“作为该商业计划的一部分，我们需要调整我们的业务和运营规模。” “这涉及减少外部支出，遗憾的是，还包括我们的员工数量。”该公司还表示，希望减少对沃尔沃及其母公司吉利外部融资的依赖，最近还表示希望削减成本并提高电动汽车的利润率。"));
-        documents.add(new DocumentModel(7, "CT01-XW·2024-Y-0007", "新闻热线[2024]000007", "浙江隐秘富豪涉百亿非法集资案，部分资金流入新造车公司", "5月10日、11日，上海北广投资管理有限公司（下称“北广投”）非法集资案在上海黄浦区人民法院一审公开开庭审理，北广投实控人周敏、法定代表人朱江等30余名中高管被控非法吸收公众存款罪。根据财新报道，这一案件中，非法集资的资金有部分流入了两家新能源车企——爱驰汽车、万象汽车。同时，有多位投资人引述与经侦部门沟通时的说法称，该案事发时未兑付金额有130余亿元，其中去往广微控股45亿元、万象汽车63亿元、爱驰汽车15亿元。"));
-        documents.add(new DocumentModel(8, "CT01-XW·2024-Y-0008", "新闻热线[2024]000008", "特斯拉宣布Model Y升级：搭载HW4.0硬件，售价仍25.89万元起", "2月1日，特斯拉官方宣布ModelY升级。外观上，新增ModelY专属色“快银车漆”，并采用烈焰红代替中国红、星空灰代替冷光银；性能上，ModelY全系配备全新一代自动辅助驾驶硬件(HW4.0)，通过搭载超远距离双目摄像头，ModelY的最远探测距离达424米。由此，特斯拉全系车型均配备了自动辅助驾驶硬件HW4.0。在售价方面，特斯拉中国官网显示，ModelY车型依然保持原价。ModelY后轮驱动版25.89万元起、ModelY长续航版29.99万元起、ModelY高性能版售价36.39万元起。"));
-        documents.add(new DocumentModel(9, "CT01-XW·2024-D10-0009", "新闻热线[2024]000009", "华为手机归来，谁最受伤？", "低迷周期下的智能手机市场在2023年下半年迎来了华为的回归，这也给本就竞争激烈的市场环境带来了更大变数。1月29日，有消息称，华为已注册“星耀手机”品牌商标，定位中端手机市场，但上述消息并未获得华为方面确认。“目前星耀的相关信息我们看到了，但是没有获得产品信息以及启动线下铺货的通知。对于和其他品牌的二选一问题，听其他省份的经销商说过，但目前（华为渠道）这边也没有更多动作。”一位广东区域的华为核心经销商对记者说。但华为手机的反扑已经开始。在多家调研机构公布的2023年四季度智能手机出货数据中，华为手机的量正在明显上升，当季增幅在35%到47%之间。不过，从全年数据来看，并未登上前五榜单。"));
-        documents.add(new DocumentModel(10, "CT01-XW·2024-D10-0010", "新闻热线[2024]000010", "疯狂裁员的硅谷大厂：除了AI，其它都是将就", "放眼望去，近期科技企业财报形势一片大好，裁员浪潮却仍在不断蔓延。国内职场动态看脉脉，那硅谷裁员情况就得看layoff.fyi了。数据显示，2024年，103家科技企业进行了裁员，28963位员工失去了饭碗。其中，电子支付公司PayPal大笔一挥，裁掉2500人，微软则在开年就裁掉1900人。回望2023年，谷歌、Meta、亚马逊、微软均为裁员重灾区，裁员人数在一万左右。具体而言，谷歌近日披露的财报指出，2023年谷歌解雇了12000多名员工，光是在遣散费和其他费用上就花费了21亿美元。而且裁员费用还在不断增加，2024年刚过去一个月，谷歌就已经花费了7亿美元用来裁员。"));
-        documents.add(new DocumentModel(11, "CT01-XW·2024-D30-0011", "新闻热线[2024]000011", "国产手机品牌重新崛起背后：市场正在逐步恢复活力，竞争也愈发激烈", "2024年伊始，随着全球经济的逐渐复苏，手机消费市场也展现出勃勃生机。中国信通院最新数据显示，2023年中国市场手机出货量实现了6.5%的同比增长，其中5G手机增长势头更为强劲，占比高达82.8%。1月25日，国际数据公司（IDC）发布了最新手机季度跟踪报告，揭示了中国智能手机市场在2023年第四季度的出货量情况。报告显示，该季度中国智能手机市场出货量达到了约7363万台，同比增长1.2%。这是在连续十个季度同比下降后，中国智能手机市场首次实现反弹。这一积极信号表明，市场正在逐步恢复活力，各大品牌之间的竞争也愈发激烈。"));
-        documents.add(new DocumentModel(12, "CT01-XW·2024-D30-0012", "新闻热线[2024]000012", "SpaceX将于1月31日向国际空间站发射天鹅号货运飞船", "1月29日消息，美国太空探索技术公司SpaceX计划于当地时间1月30日，利用“猎鹰9号”火箭从佛罗里达州肯尼迪航天中心发射诺斯罗普·格鲁曼公司的“天鹅号”货运飞船至国际空间站。此次任务是执行NG-20商业补给，将运送约8200多磅的物资、设备及科学实验器材。"));
+        documents.add(new DocumentModel(1, "247-XW·2024-D10-0001", "新聞熱線[2024]000001", "索尼射擊遊戲《Concord》停止運營，玩家將獲全額退款", "索尼宣布多人射擊遊戲《Concord》將於9月6日停止運營，玩家將獲得全額退款。遊戲總監Ryan Ellis在給玩家的信中表示，這款遊戲首次發布“並沒有像我們預期的那樣順利”。《Concord》的開發歷時8年，投資超過1.5億美元。遊戲在Steam平台的售價為40美元，採用買斷制銷售模式。據SteamDB統計，遊戲上市後的最高同時線上人數為697人。"));
+        documents.add(new DocumentModel(2, "247-XW·2024-D30-0002", "新聞熱線[2024]000002", "網紅帳號被封，央媒：如此炫富毒瘤早就該拔了", "在社交平台上分享自己的生活日常，本來無可厚非。但無底線地展示物慾、宣揚拜金，取笑甚至嘲諷工薪者的煙火生活，就會遮蔽普通人的平凡質樸和堅韌奮鬥，在無形中消解芸芸眾生腳踏實地、自立自強的社會正氣。對這種助長金錢至上、刺激公眾焦慮，既汙染網路生態，又撕裂社會和諧的炫富“毒瘤”，必須堅決拔除之。在國家有關部門的部署下，近日，多個網路平台開展“不良價值導向內容專項治理”行動，對“奢靡浪費”“炫富拜金”等問題從嚴打擊，倡導理性、文明的消費觀和價值觀。"));
+        documents.add(new DocumentModel(3, "CT01-XW·2024-Y-0003", "新聞熱線[2024]000003", "重慶一夫妻被騙至緬甸，家屬：兩人已被解救，預計很快能回國", "5月25日，重慶一對夫妻在前往泰國後失聯，疑被詐騙集團騙至緬甸的消息引發廣泛關注。警方已對此事立案調查，而這對夫妻的親屬則每天生活在焦急和不安之中。親屬：家都癱瘓了，事情一經曝光，迅速登上了熱搜，成為公眾熱議的話題。據了解，這對夫妻原計劃是去泰國談生意，但不幸的是，他們的泰國之行變成了一場噩夢。親屬李先生透露，4月14日，他們夫妻二人抵達泰國，不久後便疑似被人以10萬元的價格賣到緬甸，目前被困在緬甸妙瓦底的一個電信詐騙園區。"));
+        documents.add(new DocumentModel(4, "CT01-XW·2024-Y-0004", "新聞熱線[2024]000004", "江濱社區聯合派出所、金霞消防站開展電動自行車安全隱患夜查活動", "近日，長沙市開福區江濱社區聯合派出所、金霞消防站深入居民社區、單位場所，以電動車自行車火災防範為重點，開展消防安全夜查行動。此次夜查緊緊圍繞老舊居民區、“三合一”場所、沿街門店、夜間經營使用場所等場所開展監督檢查，重點檢查電動自行車違規停放充電、堵塞疏散通道和安全出口，架空層違規作為電動自行車停放充電場所，電動自行車違規“進樓入戶”“飛線充電”，電動自行車擅自改裝等五大類問題。"));
+        documents.add(new DocumentModel(5, "CT01-XW·2024-Y-0005", "新聞熱線[2024]000005", "《黑神話》讓海外玩家迷上“悟空”", "備受全球玩家矚目的首款國產3A遊戲《黑神話：悟空》日前正式發布。精美絕倫的東方美學世界、精彩紛呈的中國神話故事、酣暢淋漓的遊戲體驗，這款遊戲為全球玩家帶來一場視覺與文化的雙重盛宴。從“悟空”成功出海的背後，海外人士看到了中國遊戲產業的巨大進步，感受到了中國文化的多元精彩，並對下一個“悟空”的誕生及更多中國文化產品走向世界充滿期待。"));
+        documents.add(new DocumentModel(6, "CT01-XW·2024-Y-0006", "新聞熱線[2024]000006", "市場狀況充滿挑戰！極星宣布裁員全球約15%的員工", "據路透社報導，極星週五以“充滿挑戰的市場狀況”為由，宣布計劃在全球範圍內裁減約450個職位。此次裁員之際，許多人都對電動汽車需求降溫表示擔憂，而且極星預計汽車業務最早將在2025年開始實現收支平衡。極星發言人表示：“作為該商業計劃的一部分，我們需要調整我們的業務和運營規模。” “這涉及減少外部支出，遺憾的是，還包括我們的員工數量。”該公司還表示，希望減少對富豪及其母公司吉利外部融資的依賴，最近還表示希望削減成本並提高電動汽車的利潤率。"));
+        documents.add(new DocumentModel(7, "CT01-XW·2024-Y-0007", "新聞熱線[2024]000007", "浙江隱秘富豪涉百億非法集資案，部分資金流入新造車公司", "5月10日、11日，上海北廣投資管理有限公司（下稱“北廣投”）非法集資案在上海黃浦區人民法院一審公開開庭審理，北廣投實控人周敏、法定代表人朱江等30餘名中高階主管被控非法吸收公眾存款罪。根據財新報導，這一案件中，非法集資的資金有部分流入了兩家新能源車企——愛馳汽車、萬象汽車。同時，有多位投資人引述與經偵部門溝通時的說法稱，該案事發時未兌付金額有130餘億元，其中去往廣微控股45億元、萬象汽車63億元、愛馳汽車15億元。"));
+        documents.add(new DocumentModel(8, "CT01-XW·2024-Y-0008", "新聞熱線[2024]000008", "特斯拉宣布Model Y升級：搭載HW4.0硬體，售價仍25.89萬元起", "2月1日，特斯拉官方宣布ModelY升級。外觀上，新增ModelY專屬色“快銀車漆”，並採用烈焰紅代替中國紅、星空灰代替冷光銀；性能上，ModelY全系配備全新一代自動輔助駕駛硬體(HW4.0)，通過搭載超遠距離雙目攝影機，ModelY的最遠探測距離達424公尺。由此，特斯拉全系車型均配備了自動輔助駕駛硬體HW4.0。在售價方面，特斯拉中國官網顯示，ModelY車型依然保持原價。ModelY後輪驅動版25.89萬元起、ModelY長續航版29.99萬元起、ModelY高性能版售價36.39萬元起。"));
+        documents.add(new DocumentModel(9, "CT01-XW·2024-D10-0009", "新聞熱線[2024]000009", "華為手機歸來，誰最受傷？", "低迷週期下的智慧型手機市場在2023年下半年迎來了華為的回歸，這也給本就競爭激烈的市場環境帶來了更大變數。1月29日，有消息稱，華為已註冊“星耀手機”品牌商標，定位中端手機市場，但上述消息並未獲得華為方面確認。“目前星耀的相關資訊我們看到了，但是沒有獲得產品資訊以及啟動線下鋪貨的通知。對於和其他品牌的二選一問題，聽其他省份的經銷商說過，但目前（華為渠道）這邊也沒有更多動作。”一位廣東區域的華為核心經銷商對記者說。但華為手機的反撲已經開始。在多家調研機構公布的2023年四季度智慧型手機出貨數據中，華為手機的量正在明顯上升，當季增幅在35%到47%之間。不過，從全年數據來看，並未登上前五榜單。"));
+        documents.add(new DocumentModel(10, "CT01-XW·2024-D10-0010", "新聞熱線[2024]000010", "瘋狂裁員的矽谷大廠：除了AI，其它都是將就", "放眼望去，近期科技企業財報形勢一片大好，裁員浪潮卻仍在不斷蔓延。國內職場動態看脈脈，那矽谷裁員情況就得看layoff.fyi了。數據顯示，2024年，103家科技企業進行了裁員，28963位員工失去了飯碗。其中，電子支付公司PayPal大筆一揮，裁掉2500人，微軟則在開年就裁掉1900人。回望2023年，Google、Meta、亞馬遜、微軟均為裁員重災區，裁員人數在一萬左右。具體而言，Google近日披露的財報指出，2023年Google解僱了12000多名員工，光是在遣散費和其他費用上就花費了21億美元。而且裁員費用還在不斷增加，2024年剛過去一個月，Google就已經花費了7億美元用來裁員。"));
+        documents.add(new DocumentModel(11, "CT01-XW·2024-D30-0011", "新聞熱線[2024]000011", "國產手機品牌重新崛起背後：市場正在逐步恢復活力，競爭也越來越激烈", "2024年伊始，隨著全球經濟的逐漸復甦，手機消費市場也展現出勃勃生機。中國信通院最新數據顯示，2023年中國市場手機出貨量實現了6.5%的同比增長，其中5G手機增長勢頭更為強勁，占比高達82.8%。1月25日，國際數據公司（IDC）發布了最新手機季度跟蹤報告，揭示了中國智慧型手機市場在2023年第四季度的出貨量情況。報告顯示，該季度中國智慧型手機市場出貨量達到了約7363萬台，同比增長1.2%。這是在連續十個季度同比下降後，中國智慧型手機市場首次實現反彈。這一積極信號表明，市場正在逐步恢復活力，各大品牌之間的競爭也越來越激烈。"));
+        documents.add(new DocumentModel(12, "CT01-XW·2024-D30-0012", "新聞熱線[2024]000012", "SpaceX將於1月31日向國際太空站發射天鵝號貨運飛船", "1月29日消息，美國太空探索技術公司SpaceX計劃於當地時間1月30日，利用“獵鷹9號”火箭從佛羅里達州甘迺迪太空中心發射諾斯羅普·格魯曼公司的“天鵝號”貨運飛船至國際太空站。此次任務是執行NG-20商業補給，將運送約8200多磅的物資、設備及科學實驗器材。"));
     }
 
     /**
-     * 搜索相关
+     * 搜索相關
      */
     @GetMapping("/search")
     public String search()
@@ -153,7 +153,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 数据汇总
+     * 數據匯總
      */
     @GetMapping("/footer")
     public String footer()
@@ -162,7 +162,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 组合表头
+     * 組合表頭
      */
     @GetMapping("/groupHeader")
     public String groupHeader()
@@ -171,7 +171,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格导出
+     * 表格導出
      */
     @GetMapping("/export")
     public String export()
@@ -180,7 +180,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格导出选择列
+     * 表格導出選擇列
      */
     @GetMapping("/exportSelected")
     public String exportSelected()
@@ -189,7 +189,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 导出数据
+     * 導出數據
      */
     @PostMapping("/exportData")
     @ResponseBody
@@ -198,7 +198,7 @@ public class DemoTableController extends BaseController
         List<UserTableModel> userList = new ArrayList<UserTableModel>(Arrays.asList(new UserTableModel[users.size()]));
         Collections.copy(userList, users);
 
-        // 条件过滤
+        // 條件過濾
         if (StringUtils.isNotEmpty(userIds))
         {
             userList.clear();
@@ -214,11 +214,11 @@ public class DemoTableController extends BaseController
             }
         }
         ExcelUtil<UserTableModel> util = new ExcelUtil<UserTableModel>(UserTableModel.class);
-        return util.exportExcel(userList, "用户数据");
+        return util.exportExcel(userList, "用戶數據");
     }
 
     /**
-     * 翻页记住选择
+     * 翻頁記住選擇
      */
     @GetMapping("/remember")
     public String remember()
@@ -227,7 +227,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格保存状态
+     * 表格保存狀態
      */
     @GetMapping("/cookie")
     public String cookie()
@@ -236,7 +236,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 跳转至指定页
+     * 跳轉至指定頁
      */
     @GetMapping("/pageGo")
     public String pageGo()
@@ -245,7 +245,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 自定义查询参数
+     * 自訂查詢參數
      */
     @GetMapping("/params")
     public String params()
@@ -263,7 +263,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 点击按钮加载表格
+     * 點擊按鈕載入表格
      */
     @GetMapping("/button")
     public String button()
@@ -272,7 +272,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 直接加载表格数据
+     * 直接載入表格數據
      */
     @GetMapping("/data")
     public String data(ModelMap mmap)
@@ -282,7 +282,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格冻结列
+     * 表格凍結列
      */
     @GetMapping("/fixedColumns")
     public String fixedColumns()
@@ -291,7 +291,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 自定义触发事件
+     * 自訂觸發事件
      */
     @GetMapping("/event")
     public String event()
@@ -300,7 +300,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格细节视图
+     * 表格細節視圖
      */
     @GetMapping("/detail")
     public String detail()
@@ -309,7 +309,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格父子视图
+     * 表格父子視圖
      */
     @GetMapping("/child")
     public String child()
@@ -318,7 +318,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格图片预览
+     * 表格圖片預覽
      */
     @GetMapping("/image")
     public String image()
@@ -327,7 +327,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 动态增删改查
+     * 動態增刪改查
      */
     @GetMapping("/curd")
     public String curd()
@@ -354,7 +354,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格列宽拖动
+     * 表格列寬拖動
      */
     @GetMapping("/resizable")
     public String resizable()
@@ -363,7 +363,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格行内编辑操作
+     * 表格行內編輯操作
      */
     @GetMapping("/editable")
     public String editable()
@@ -381,7 +381,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格自动刷新
+     * 表格自動刷新
      */
     @GetMapping("/refresh")
     public String refresh()
@@ -390,7 +390,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格打印配置
+     * 表格列印配置
      */
     @GetMapping("/print")
     public String print()
@@ -399,7 +399,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格标题格式化
+     * 表格標題格式化
      */
     @GetMapping("/headerStyle")
     public String headerStyle()
@@ -408,7 +408,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格动态列
+     * 表格動態列
      */
     @GetMapping("/dynamicColumns")
     public String dynamicColumns()
@@ -417,7 +417,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 表格虚拟滚动
+     * 表格虛擬滾動
      */
     @GetMapping("/virtualScroll")
     public String virtualScroll()
@@ -426,7 +426,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 自定义视图分页
+     * 自訂視圖分頁
      */
     @GetMapping("/customView")
     public String customView()
@@ -444,7 +444,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 异步加载表格树
+     * 非同步載入表格樹
      */
     @GetMapping("/asynTree")
     public String asynTree()
@@ -462,7 +462,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 动态获取列
+     * 動態獲取列
      */
     @PostMapping("/ajaxColumns")
     @ResponseBody
@@ -472,13 +472,13 @@ public class DemoTableController extends BaseController
         Collections.copy(columnList, columns);
         if (userColumn != null && "userBalance".equals(userColumn.getField()))
         {
-            columnList.add(new UserTableColumn("用户余额", "userBalance"));
+            columnList.add(new UserTableColumn("用戶餘額", "userBalance"));
         }
         return AjaxResult.success(columnList);
     }
 
     /**
-     * 查询数据
+     * 查詢數據
      */
     @PostMapping("/list")
     @ResponseBody
@@ -487,7 +487,7 @@ public class DemoTableController extends BaseController
         TableDataInfo rspData = new TableDataInfo();
         List<UserTableModel> userList = new ArrayList<UserTableModel>(Arrays.asList(new UserTableModel[users.size()]));
         Collections.copy(userList, users);
-        // 查询条件过滤
+        // 查詢條件過濾
         if (StringUtils.isNotEmpty(userModel.getUserName()))
         {
             userList.clear();
@@ -518,7 +518,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 查询全文索引数据
+     * 查詢全文索引數據
      */
     @PostMapping("/text/list")
     @ResponseBody
@@ -527,7 +527,7 @@ public class DemoTableController extends BaseController
         TableDataInfo rspData = new TableDataInfo();
         List<DocumentModel> documentList = new ArrayList<DocumentModel>(Arrays.asList(new DocumentModel[documents.size()]));
         Collections.copy(documentList, documents);
-        // 查询条件过滤
+        // 查詢條件過濾
         if (StringUtils.isNotEmpty(baseEntity.getSearchValue()))
         {
             documentList.clear();
@@ -569,7 +569,7 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 查询树表数据
+     * 查詢樹表數據
      */
     @PostMapping("/tree/list")
     @ResponseBody
@@ -577,7 +577,7 @@ public class DemoTableController extends BaseController
     {
         TableDataInfo rspData = new TableDataInfo();
         List<AreaModel> areaList = new ArrayList<AreaModel>(Arrays.asList(new AreaModel[areas.size()]));
-        // 默认查询条件 parentId 0
+        // 默認查詢條件 parentId 0
         Collections.copy(areaList, areas);
         areaList.clear();
         if (StringUtils.isNotEmpty(areaModel.getAreaName()))
@@ -613,14 +613,14 @@ public class DemoTableController extends BaseController
     }
 
     /**
-     * 查询树表子节点数据
+     * 查詢樹表子節點數據
      */
     @PostMapping("/tree/listChild")
     @ResponseBody
     public List<AreaModel> listChild(AreaModel areaModel)
     {
         List<AreaModel> areaList = new ArrayList<AreaModel>(Arrays.asList(new AreaModel[areas.size()]));
-        // 查询条件 parentId
+        // 查詢條件 parentId
         Collections.copy(areaList, areas);
         areaList.clear();
         if (StringUtils.isNotEmpty(areaModel.getAreaName()))
@@ -649,9 +649,9 @@ public class DemoTableController extends BaseController
 
 class UserTableColumn
 {
-    /** 表头 */
+    /** 表頭 */
     private String title;
-    /** 字段 */
+    /** 欄位 */
     private String field;
 
     public UserTableColumn()
@@ -688,36 +688,36 @@ class UserTableColumn
 
 class UserTableModel
 {
-    /** 用户ID */
+    /** 用戶ID */
     private int userId;
 
-    /** 用户编号 */
-    @Excel(name = "用户编号", cellType = ColumnType.NUMERIC)
+    /** 用戶編號 */
+    @Excel(name = "用戶編號", cellType = ColumnType.NUMERIC)
     private String userCode;
 
-    /** 用户姓名 */
-    @Excel(name = "用户姓名")
+    /** 用戶姓名 */
+    @Excel(name = "用戶姓名")
     private String userName;
 
-    /** 用户性别 */
+    /** 用戶性別 */
     private String userSex;
 
-    /** 用户手机 */
-    @Excel(name = "用户手机")
+    /** 用戶手機 */
+    @Excel(name = "用戶手機")
     private String userPhone;
 
-    /** 用户邮箱 */
-    @Excel(name = "用户邮箱")
+    /** 用戶信箱 */
+    @Excel(name = "用戶信箱")
     private String userEmail;
 
-    /** 用户余额 */
-    @Excel(name = "用户余额", cellType = ColumnType.NUMERIC)
+    /** 用戶餘額 */
+    @Excel(name = "用戶餘額", cellType = ColumnType.NUMERIC)
     private double userBalance;
 
-    /** 用户状态（0正常 1停用） */
+    /** 用戶狀態（0正常 1停用） */
     private String status;
 
-    /** 创建时间 */
+    /** 創建時間 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
@@ -832,25 +832,25 @@ class UserTableModel
 }
 class AreaModel
 {
-    /** 编号 */
+    /** 編號 */
     private Long id;
 
-    /** 父编号 */
+    /** 父編號 */
     private Long parentId;
 
-    /** 区域名称 */
+    /** 區域名稱 */
     private String areaName;
 
-    /** 区域代码 */
+    /** 區域代碼 */
     private String areaCode;
 
-    /** 名称首字母 */
+    /** 名稱首字母 */
     private String simplePy;
 
-    /** 名称全拼 */
+    /** 名稱全拼 */
     private String pinYin;
 
-    /** 是否有子节点（0无 1有） */
+    /** 是否有子節點（0無 1有） */
     private Integer isTreeLeaf = 1;
 
     public AreaModel()
@@ -942,19 +942,19 @@ class AreaModel
 
 class DocumentModel
 {
-    /** 编号 */
+    /** 編號 */
     private int tableId;
 
-    /** 档号 */
+    /** 檔號 */
     private String archiveNo;
 
-    /** 文件编号 */
+    /** 文件編號 */
     private String docNo;
 
-    /** 标题 */
+    /** 標題 */
     private String title;
 
-    /** 内容 */
+    /** 內容 */
     private String content;
 
     public DocumentModel()

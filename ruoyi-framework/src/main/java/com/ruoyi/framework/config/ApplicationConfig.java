@@ -5,14 +5,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
- * 程序注解配置
+ * 程序註解配置
  *
  * @author ruoyi
  */
 @Configuration
-// 表示通过aop框架暴露该代理对象,AopContext能够访问
+// 表示通過aop框架暴露該代理對象,AopContext能夠訪問
 @EnableAspectJAutoProxy(exposeProxy = true)
-// 指定要扫描的Mapper类的包的路径
+// 指定要掃描的Mapper類的包的路徑
 @MapperScan("com.ruoyi.**.mapper")
 public class ApplicationConfig
 {

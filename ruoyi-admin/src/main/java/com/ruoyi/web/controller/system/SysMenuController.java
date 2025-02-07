@@ -23,7 +23,7 @@ import com.ruoyi.framework.shiro.util.AuthorizationUtils;
 import com.ruoyi.system.service.ISysMenuService;
 
 /**
- * 菜单信息
+ * 選單資訊
  * 
  * @author ruoyi
  */
@@ -54,9 +54,9 @@ public class SysMenuController extends BaseController
     }
 
     /**
-     * 删除菜单
+     * 刪除選單
      */
-    @Log(title = "菜单管理", businessType = BusinessType.DELETE)
+    @Log(title = "選單管理", businessType = BusinessType.DELETE)
     @RequiresPermissions("system:menu:remove")
     @GetMapping("/remove/{menuId}")
     @ResponseBody
@@ -64,11 +64,11 @@ public class SysMenuController extends BaseController
     {
         if (menuService.selectCountMenuByParentId(menuId) > 0)
         {
-            return AjaxResult.warn("存在子菜单,不允许删除");
+            return AjaxResult.warn("存在子選單,不允許刪除");
         }
         if (menuService.selectCountRoleMenuByMenuId(menuId) > 0)
         {
-            return AjaxResult.warn("菜单已分配,不允许删除");
+            return AjaxResult.warn("選單已分配,不允許刪除");
         }
         AuthorizationUtils.clearAllCachedAuthorizationInfo();
         return toAjax(menuService.deleteMenuById(menuId));
@@ -90,16 +90,16 @@ public class SysMenuController extends BaseController
         {
             menu = new SysMenu();
             menu.setMenuId(0L);
-            menu.setMenuName("主目录");
+            menu.setMenuName("主目錄");
         }
         mmap.put("menu", menu);
         return prefix + "/add";
     }
 
     /**
-     * 新增保存菜单
+     * 新增保存選單
      */
-    @Log(title = "菜单管理", businessType = BusinessType.INSERT)
+    @Log(title = "選單管理", businessType = BusinessType.INSERT)
     @RequiresPermissions("system:menu:add")
     @PostMapping("/add")
     @ResponseBody
@@ -107,7 +107,7 @@ public class SysMenuController extends BaseController
     {
         if (!menuService.checkMenuNameUnique(menu))
         {
-            return error("新增菜单'" + menu.getMenuName() + "'失败，菜单名称已存在");
+            return error("新增選單'" + menu.getMenuName() + "'失敗，選單名稱已存在");
         }
         menu.setCreateBy(getLoginName());
         AuthorizationUtils.clearAllCachedAuthorizationInfo();
@@ -115,7 +115,7 @@ public class SysMenuController extends BaseController
     }
 
     /**
-     * 修改菜单
+     * 修改選單
      */
     @RequiresPermissions("system:menu:edit")
     @GetMapping("/edit/{menuId}")
@@ -126,9 +126,9 @@ public class SysMenuController extends BaseController
     }
 
     /**
-     * 修改保存菜单
+     * 修改保存選單
      */
-    @Log(title = "菜单管理", businessType = BusinessType.UPDATE)
+    @Log(title = "選單管理", businessType = BusinessType.UPDATE)
     @RequiresPermissions("system:menu:edit")
     @PostMapping("/edit")
     @ResponseBody
@@ -136,7 +136,7 @@ public class SysMenuController extends BaseController
     {
         if (!menuService.checkMenuNameUnique(menu))
         {
-            return error("修改菜单'" + menu.getMenuName() + "'失败，菜单名称已存在");
+            return error("修改選單'" + menu.getMenuName() + "'失敗，選單名稱已存在");
         }
         menu.setUpdateBy(getLoginName());
         AuthorizationUtils.clearAllCachedAuthorizationInfo();
@@ -144,7 +144,7 @@ public class SysMenuController extends BaseController
     }
 
     /**
-     * 选择菜单图标
+     * 選擇選單圖示
      */
     @GetMapping("/icon")
     public String icon()
@@ -153,7 +153,7 @@ public class SysMenuController extends BaseController
     }
 
     /**
-     * 校验菜单名称
+     * 校驗選單名稱
      */
     @PostMapping("/checkMenuNameUnique")
     @ResponseBody
@@ -163,7 +163,7 @@ public class SysMenuController extends BaseController
     }
 
     /**
-     * 加载角色菜单列表树
+     * 載入角色選單列表樹
      */
     @GetMapping("/roleMenuTreeData")
     @ResponseBody
@@ -175,7 +175,7 @@ public class SysMenuController extends BaseController
     }
 
     /**
-     * 加载所有菜单列表树
+     * 載入所有選單列表樹
      */
     @GetMapping("/menuTreeData")
     @ResponseBody
@@ -187,7 +187,7 @@ public class SysMenuController extends BaseController
     }
 
     /**
-     * 选择菜单树
+     * 選擇選單樹
      */
     @GetMapping("/selectMenuTree/{menuId}")
     public String selectMenuTree(@PathVariable("menuId") Long menuId, ModelMap mmap)

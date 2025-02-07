@@ -4,73 +4,73 @@ import java.util.List;
 import com.ruoyi.system.domain.SysConfig;
 
 /**
- * 参数配置 数据层
+ * 參數配置 數據層
  * 
  * @author ruoyi
  */
 public interface SysConfigMapper
 {
     /**
-     * 查询参数配置信息
+     * 查詢參數配置資訊
      * 
-     * @param config 参数配置信息
-     * @return 参数配置信息
+     * @param config 參數配置資訊
+     * @return 參數配置資訊
      */
     public SysConfig selectConfig(SysConfig config);
 
     /**
-     * 通过ID查询配置
+     * 通過ID查詢配置
      * 
-     * @param configId 参数ID
-     * @return 参数配置信息
+     * @param configId 參數ID
+     * @return 參數配置資訊
      */
     public SysConfig selectConfigById(Long configId);
 
     /**
-     * 查询参数配置列表
+     * 查詢參數配置列表
      * 
-     * @param config 参数配置信息
-     * @return 参数配置集合
+     * @param config 參數配置資訊
+     * @return 參數配置集合
      */
     public List<SysConfig> selectConfigList(SysConfig config);
 
     /**
-     * 根据键名查询参数配置信息
+     * 根據鍵名查詢參數配置資訊
      * 
-     * @param configKey 参数键名
-     * @return 参数配置信息
+     * @param configKey 參數鍵名
+     * @return 參數配置資訊
      */
     public SysConfig checkConfigKeyUnique(String configKey);
 
     /**
-     * 新增参数配置
+     * 新增參數配置
      * 
-     * @param config 参数配置信息
-     * @return 结果
+     * @param config 參數配置資訊
+     * @return 結果
      */
     public int insertConfig(SysConfig config);
 
     /**
-     * 修改参数配置
+     * 修改參數配置
      * 
-     * @param config 参数配置信息
-     * @return 结果
+     * @param config 參數配置資訊
+     * @return 結果
      */
     public int updateConfig(SysConfig config);
 
     /**
-     * 删除参数配置
+     * 刪除參數配置
      * 
-     * @param configId 参数主键
-     * @return 结果
+     * @param configId 參數主鍵
+     * @return 結果
      */
     public int deleteConfigById(Long configId);
 
     /**
-     * 批量删除参数配置
+     * 批次刪除參數配置
      * 
-     * @param configIds 需要删除的数据ID
-     * @return 结果
+     * @param configIds 需要刪除的數據ID
+     * @return 結果
      */
     public int deleteConfigByIds(String[] configIds);
 }

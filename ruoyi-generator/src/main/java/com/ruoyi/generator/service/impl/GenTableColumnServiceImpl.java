@@ -9,7 +9,7 @@ import com.ruoyi.generator.mapper.GenTableColumnMapper;
 import com.ruoyi.generator.service.IGenTableColumnService;
 
 /**
- * 业务字段 服务层实现
+ * 業務欄位 服務層實作
  * 
  * @author ruoyi
  */
@@ -20,10 +20,10 @@ public class GenTableColumnServiceImpl implements IGenTableColumnService
     private GenTableColumnMapper genTableColumnMapper;
 
     /**
-     * 查询业务字段列表
+     * 查詢業務欄位列表
      * 
-     * @param genTableColumn 业务字段信息
-     * @return 业务字段集合
+     * @param genTableColumn 業務欄位資訊
+     * @return 業務欄位集合
      */
     @Override
     public List<GenTableColumn> selectGenTableColumnListByTableId(GenTableColumn genTableColumn)
@@ -32,10 +32,10 @@ public class GenTableColumnServiceImpl implements IGenTableColumnService
     }
 
     /**
-     * 新增业务字段
+     * 新增業務欄位
      * 
-     * @param genTableColumn 业务字段信息
-     * @return 结果
+     * @param genTableColumn 業務欄位資訊
+     * @return 結果
      */
     @Override
     public int insertGenTableColumn(GenTableColumn genTableColumn)
@@ -44,10 +44,10 @@ public class GenTableColumnServiceImpl implements IGenTableColumnService
     }
 
     /**
-     * 修改业务字段
+     * 修改業務欄位
      * 
-     * @param genTableColumn 业务字段信息
-     * @return 结果
+     * @param genTableColumn 業務欄位資訊
+     * @return 結果
      */
     @Override
     public int updateGenTableColumn(GenTableColumn genTableColumn)
@@ -56,10 +56,10 @@ public class GenTableColumnServiceImpl implements IGenTableColumnService
     }
 
     /**
-     * 删除业务字段对象
+     * 刪除業務欄位對象
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     @Override
     public int deleteGenTableColumnByIds(String ids)

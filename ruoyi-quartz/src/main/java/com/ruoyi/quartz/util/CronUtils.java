@@ -10,7 +10,7 @@ import org.quartz.impl.triggers.CronTriggerImpl;
 import com.ruoyi.common.utils.DateUtils;
 
 /**
- * cron表达式工具类
+ * cron表達式工具類
  * 
  * @author ruoyi
  *
@@ -18,10 +18,10 @@ import com.ruoyi.common.utils.DateUtils;
 public class CronUtils
 {
     /**
-     * 返回一个布尔值代表一个给定的Cron表达式的有效性
+     * 返回一個布林值代表一個給定的Cron表達式的有效性
      *
-     * @param cronExpression Cron表达式
-     * @return boolean 表达式是否有效
+     * @param cronExpression Cron表達式
+     * @return boolean 表達式是否有效
      */
     public static boolean isValid(String cronExpression)
     {
@@ -29,10 +29,10 @@ public class CronUtils
     }
 
     /**
-     * 返回一个字符串值,表示该消息无效Cron表达式给出有效性
+     * 返回一個字串值,表示該消息無效Cron表達式給出有效性
      *
-     * @param cronExpression Cron表达式
-     * @return String 无效时返回表达式错误描述,如果有效返回null
+     * @param cronExpression Cron表達式
+     * @return String 無效時返回表達式錯誤描述,如果有效返回null
      */
     public static String getInvalidMessage(String cronExpression)
     {
@@ -48,10 +48,10 @@ public class CronUtils
     }
 
     /**
-     * 返回下一个执行时间根据给定的Cron表达式
+     * 返回下一個執行時間根據給定的Cron表達式
      *
-     * @param cronExpression Cron表达式
-     * @return Date 下次Cron表达式执行时间
+     * @param cronExpression Cron表達式
+     * @return Date 下次Cron表達式執行時間
      */
     public static Date getNextExecution(String cronExpression)
     {
@@ -67,10 +67,10 @@ public class CronUtils
     }
 
     /**
-     * 通过表达式获取近10次的执行时间
+     * 通過表達式獲取近10次的執行時間
      * 
-     * @param cron 表达式
-     * @return 时间列表
+     * @param cron 表達式
+     * @return 時間列表
      */
     public static List<String> getRecentTriggerTime(String cron)
     {

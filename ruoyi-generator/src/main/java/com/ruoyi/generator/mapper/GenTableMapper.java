@@ -4,88 +4,88 @@ import java.util.List;
 import com.ruoyi.generator.domain.GenTable;
 
 /**
- * 业务 数据层
+ * 業務 數據層
  * 
  * @author ruoyi
  */
 public interface GenTableMapper
 {
     /**
-     * 查询业务列表
+     * 查詢業務列表
      * 
-     * @param genTable 业务信息
-     * @return 业务集合
+     * @param genTable 業務資訊
+     * @return 業務集合
      */
     public List<GenTable> selectGenTableList(GenTable genTable);
 
     /**
-     * 查询据库列表
+     * 查詢據庫列表
      * 
-     * @param genTable 业务信息
-     * @return 数据库表集合
+     * @param genTable 業務資訊
+     * @return 資料庫表集合
      */
     public List<GenTable> selectDbTableList(GenTable genTable);
 
     /**
-     * 查询据库列表
+     * 查詢據庫列表
      * 
-     * @param tableNames 表名称组
-     * @return 数据库表集合
+     * @param tableNames 表名稱組
+     * @return 資料庫表集合
      */
     public List<GenTable> selectDbTableListByNames(String[] tableNames);
 
     /**
-     * 查询所有表信息
+     * 查詢所有表資訊
      * 
-     * @return 表信息集合
+     * @return 表資訊集合
      */
     public List<GenTable> selectGenTableAll();
 
     /**
-     * 查询表ID业务信息
+     * 查詢表ID業務資訊
      * 
-     * @param id 业务ID
-     * @return 业务信息
+     * @param id 業務ID
+     * @return 業務資訊
      */
     public GenTable selectGenTableById(Long id);
 
     /**
-     * 查询表名称业务信息
+     * 查詢表名稱業務資訊
      * 
-     * @param tableName 表名称
-     * @return 业务信息
+     * @param tableName 表名稱
+     * @return 業務資訊
      */
     public GenTable selectGenTableByName(String tableName);
 
     /**
-     * 新增业务
+     * 新增業務
      * 
-     * @param genTable 业务信息
-     * @return 结果
+     * @param genTable 業務資訊
+     * @return 結果
      */
     public int insertGenTable(GenTable genTable);
 
     /**
-     * 修改业务
+     * 修改業務
      * 
-     * @param genTable 业务信息
-     * @return 结果
+     * @param genTable 業務資訊
+     * @return 結果
      */
     public int updateGenTable(GenTable genTable);
 
     /**
-     * 批量删除业务
+     * 批次刪除業務
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     public int deleteGenTableByIds(Long[] ids);
 
     /**
-     * 创建表
+     * 創建表
      *
      * @param sql
-     * @return 结果
+     * @return 結果
      */
     public int createTable(String sql);
 }

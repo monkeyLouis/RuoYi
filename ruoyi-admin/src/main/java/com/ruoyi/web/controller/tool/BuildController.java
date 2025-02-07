@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ruoyi.common.core.controller.BaseController;
 
 /**
- * build 表单构建
+ * build 表單構建
  * 
  * @author ruoyi
  */

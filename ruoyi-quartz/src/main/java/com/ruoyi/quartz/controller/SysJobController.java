@@ -28,7 +28,7 @@ import com.ruoyi.quartz.util.CronUtils;
 import com.ruoyi.quartz.util.ScheduleUtils;
 
 /**
- * 调度任务信息操作处理
+ * 調度任務資訊操作處理
  * 
  * @author ruoyi
  */
@@ -58,7 +58,7 @@ public class SysJobController extends BaseController
         return getDataTable(list);
     }
 
-    @Log(title = "定时任务", businessType = BusinessType.EXPORT)
+    @Log(title = "定時任務", businessType = BusinessType.EXPORT)
     @RequiresPermissions("monitor:job:export")
     @PostMapping("/export")
     @ResponseBody
@@ -66,10 +66,10 @@ public class SysJobController extends BaseController
     {
         List<SysJob> list = jobService.selectJobList(job);
         ExcelUtil<SysJob> util = new ExcelUtil<SysJob>(SysJob.class);
-        return util.exportExcel(list, "定时任务");
+        return util.exportExcel(list, "定時任務");
     }
 
-    @Log(title = "定时任务", businessType = BusinessType.DELETE)
+    @Log(title = "定時任務", businessType = BusinessType.DELETE)
     @RequiresPermissions("monitor:job:remove")
     @PostMapping("/remove")
     @ResponseBody
@@ -89,9 +89,9 @@ public class SysJobController extends BaseController
     }
 
     /**
-     * 任务调度状态修改
+     * 任務調度狀態修改
      */
-    @Log(title = "定时任务", businessType = BusinessType.UPDATE)
+    @Log(title = "定時任務", businessType = BusinessType.UPDATE)
     @RequiresPermissions("monitor:job:changeStatus")
     @PostMapping("/changeStatus")
     @ResponseBody
@@ -103,20 +103,20 @@ public class SysJobController extends BaseController
     }
 
     /**
-     * 任务调度立即执行一次
+     * 任務調度立即執行一次
      */
-    @Log(title = "定时任务", businessType = BusinessType.UPDATE)
+    @Log(title = "定時任務", businessType = BusinessType.UPDATE)
     @RequiresPermissions("monitor:job:changeStatus")
     @PostMapping("/run")
     @ResponseBody
     public AjaxResult run(SysJob job) throws SchedulerException
     {
         boolean result = jobService.run(job);
-        return result ? success() : error("任务不存在或已过期！");
+        return result ? success() : error("任務不存在或已過期！");
     }
 
     /**
-     * 新增调度
+     * 新增調度
      */
     @RequiresPermissions("monitor:job:add")
     @GetMapping("/add")
@@ -126,9 +126,9 @@ public class SysJobController extends BaseController
     }
 
     /**
-     * 新增保存调度
+     * 新增保存調度
      */
-    @Log(title = "定时任务", businessType = BusinessType.INSERT)
+    @Log(title = "定時任務", businessType = BusinessType.INSERT)
     @RequiresPermissions("monitor:job:add")
     @PostMapping("/add")
     @ResponseBody
@@ -136,34 +136,34 @@ public class SysJobController extends BaseController
     {
         if (!CronUtils.isValid(job.getCronExpression()))
         {
-            return error("新增任务'" + job.getJobName() + "'失败，Cron表达式不正确");
+            return error("新增任務'" + job.getJobName() + "'失敗，Cron表達式不正確");
         }
         else if (StringUtils.containsIgnoreCase(job.getInvokeTarget(), Constants.LOOKUP_RMI))
         {
-            return error("新增任务'" + job.getJobName() + "'失败，目标字符串不允许'rmi'调用");
+            return error("新增任務'" + job.getJobName() + "'失敗，目標字串不允許'rmi'調用");
         }
         else if (StringUtils.containsAnyIgnoreCase(job.getInvokeTarget(), new String[] { Constants.LOOKUP_LDAP, Constants.LOOKUP_LDAPS }))
         {
-            return error("新增任务'" + job.getJobName() + "'失败，目标字符串不允许'ldap(s)'调用");
+            return error("新增任務'" + job.getJobName() + "'失敗，目標字串不允許'ldap(s)'調用");
         }
         else if (StringUtils.containsAnyIgnoreCase(job.getInvokeTarget(), new String[] { Constants.HTTP, Constants.HTTPS }))
         {
-            return error("新增任务'" + job.getJobName() + "'失败，目标字符串不允许'http(s)'调用");
+            return error("新增任務'" + job.getJobName() + "'失敗，目標字串不允許'http(s)'調用");
         }
         else if (StringUtils.containsAnyIgnoreCase(job.getInvokeTarget(), Constants.JOB_ERROR_STR))
         {
-            return error("新增任务'" + job.getJobName() + "'失败，目标字符串存在违规");
+            return error("新增任務'" + job.getJobName() + "'失敗，目標字串存在違規");
         }
         else if (!ScheduleUtils.whiteList(job.getInvokeTarget()))
         {
-            return error("新增任务'" + job.getJobName() + "'失败，目标字符串不在白名单内");
+            return error("新增任務'" + job.getJobName() + "'失敗，目標字串不在白名單內");
         }
         job.setCreateBy(getLoginName());
         return toAjax(jobService.insertJob(job));
     }
 
     /**
-     * 修改调度
+     * 修改調度
      */
     @RequiresPermissions("monitor:job:edit")
     @GetMapping("/edit/{jobId}")
@@ -174,9 +174,9 @@ public class SysJobController extends BaseController
     }
 
     /**
-     * 修改保存调度
+     * 修改保存調度
      */
-    @Log(title = "定时任务", businessType = BusinessType.UPDATE)
+    @Log(title = "定時任務", businessType = BusinessType.UPDATE)
     @RequiresPermissions("monitor:job:edit")
     @PostMapping("/edit")
     @ResponseBody
@@ -184,33 +184,33 @@ public class SysJobController extends BaseController
     {
         if (!CronUtils.isValid(job.getCronExpression()))
         {
-            return error("修改任务'" + job.getJobName() + "'失败，Cron表达式不正确");
+            return error("修改任務'" + job.getJobName() + "'失敗，Cron表達式不正確");
         }
         else if (StringUtils.containsIgnoreCase(job.getInvokeTarget(), Constants.LOOKUP_RMI))
         {
-            return error("修改任务'" + job.getJobName() + "'失败，目标字符串不允许'rmi'调用");
+            return error("修改任務'" + job.getJobName() + "'失敗，目標字串不允許'rmi'調用");
         }
         else if (StringUtils.containsAnyIgnoreCase(job.getInvokeTarget(), new String[] { Constants.LOOKUP_LDAP, Constants.LOOKUP_LDAPS }))
         {
-            return error("修改任务'" + job.getJobName() + "'失败，目标字符串不允许'ldap'调用");
+            return error("修改任務'" + job.getJobName() + "'失敗，目標字串不允許'ldap'調用");
         }
         else if (StringUtils.containsAnyIgnoreCase(job.getInvokeTarget(), new String[] { Constants.HTTP, Constants.HTTPS }))
         {
-            return error("修改任务'" + job.getJobName() + "'失败，目标字符串不允许'http(s)'调用");
+            return error("修改任務'" + job.getJobName() + "'失敗，目標字串不允許'http(s)'調用");
         }
         else if (StringUtils.containsAnyIgnoreCase(job.getInvokeTarget(), Constants.JOB_ERROR_STR))
         {
-            return error("修改任务'" + job.getJobName() + "'失败，目标字符串存在违规");
+            return error("修改任務'" + job.getJobName() + "'失敗，目標字串存在違規");
         }
         else if (!ScheduleUtils.whiteList(job.getInvokeTarget()))
         {
-            return error("修改任务'" + job.getJobName() + "'失败，目标字符串不在白名单内");
+            return error("修改任務'" + job.getJobName() + "'失敗，目標字串不在白名單內");
         }
         return toAjax(jobService.updateJob(job));
     }
 
     /**
-     * 校验cron表达式是否有效
+     * 校驗cron表達式是否有效
      */
     @PostMapping("/checkCronExpressionIsValid")
     @ResponseBody
@@ -220,7 +220,7 @@ public class SysJobController extends BaseController
     }
 
     /**
-     * Cron表达式在线生成
+     * Cron表達式在線生成
      */
     @GetMapping("/cron")
     public String cron()
@@ -229,7 +229,7 @@ public class SysJobController extends BaseController
     }
 
     /**
-     * 查询cron表达式近5次的执行时间
+     * 查詢cron表達式近5次的執行時間
      */
     @GetMapping("/queryCronExpression")
     @ResponseBody
@@ -242,7 +242,7 @@ public class SysJobController extends BaseController
         }
         else
         {
-            return error("表达式无效");
+            return error("表達式無效");
         }
     }
 }

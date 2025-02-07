@@ -2,17 +2,20 @@ package com.ruoyi.common.core.page;
 
 import com.ruoyi.common.utils.StringUtils;
 
+import lombok.Data;
+
 /**
- * 分页数据
+ * 分頁數據
  * 
  * @author ruoyi
  */
+@Data
 public class PageDomain
 {
-    /** 当前记录起始索引 */
+    /** 當前記錄起始索引 */
     private Integer pageNum;
 
-    /** 每页显示记录数 */
+    /** 每頁顯示記錄數 */
     private Integer pageSize;
 
     /** 排序列 */
@@ -21,11 +24,10 @@ public class PageDomain
     /** 排序的方向desc或者asc */
     private String isAsc = "asc";
 
-    /** 分页参数合理化 */
+    /** 分頁參數合理化 */
     private Boolean reasonable = true;
 
-    public String getOrderBy()
-    {
+    public String getOrderBy() {
         if (StringUtils.isEmpty(orderByColumn))
         {
             return "";
@@ -33,48 +35,7 @@ public class PageDomain
         return StringUtils.toUnderScoreCase(orderByColumn) + " " + isAsc;
     }
 
-    public Integer getPageNum()
-    {
-        return pageNum;
-    }
-
-    public void setPageNum(Integer pageNum)
-    {
-        this.pageNum = pageNum;
-    }
-
-    public Integer getPageSize()
-    {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize)
-    {
-        this.pageSize = pageSize;
-    }
-
-    public String getOrderByColumn()
-    {
-        return orderByColumn;
-    }
-
-    public void setOrderByColumn(String orderByColumn)
-    {
-        this.orderByColumn = orderByColumn;
-    }
-
-    public String getIsAsc()
-    {
-        return isAsc;
-    }
-
-    public void setIsAsc(String isAsc)
-    {
-        this.isAsc = isAsc;
-    }
-
-    public Boolean getReasonable()
-    {
+    public Boolean getReasonable() {
         if (StringUtils.isNull(reasonable))
         {
             return Boolean.TRUE;
@@ -82,8 +43,4 @@ public class PageDomain
         return reasonable;
     }
 
-    public void setReasonable(Boolean reasonable)
-    {
-        this.reasonable = reasonable;
-    }
 }

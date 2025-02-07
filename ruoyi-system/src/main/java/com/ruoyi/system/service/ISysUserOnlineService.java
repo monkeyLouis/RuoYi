@@ -5,71 +5,71 @@ import java.util.List;
 import com.ruoyi.system.domain.SysUserOnline;
 
 /**
- * 在线用户 服务层
+ * 在線用戶 服務層
  * 
  * @author ruoyi
  */
 public interface ISysUserOnlineService
 {
     /**
-     * 通过会话序号查询信息
+     * 通過會話序號查詢資訊
      * 
-     * @param sessionId 会话ID
-     * @return 在线用户信息
+     * @param sessionId 會話ID
+     * @return 在線用戶資訊
      */
     public SysUserOnline selectOnlineById(String sessionId);
 
     /**
-     * 通过会话序号删除信息
+     * 通過會話序號刪除資訊
      * 
-     * @param sessionId 会话ID
-     * @return 在线用户信息
+     * @param sessionId 會話ID
+     * @return 在線用戶資訊
      */
     public void deleteOnlineById(String sessionId);
 
     /**
-     * 通过会话序号删除信息
+     * 通過會話序號刪除資訊
      * 
-     * @param sessions 会话ID集合
-     * @return 在线用户信息
+     * @param sessions 會話ID集合
+     * @return 在線用戶資訊
      */
     public void batchDeleteOnline(List<String> sessions);
 
     /**
-     * 保存会话信息
+     * 保存會話資訊
      * 
-     * @param online 会话信息
+     * @param online 會話資訊
      */
     public void saveOnline(SysUserOnline online);
 
     /**
-     * 查询会话集合
+     * 查詢會話集合
      * 
-     * @param userOnline 分页参数
-     * @return 会话集合
+     * @param userOnline 分頁參數
+     * @return 會話集合
      */
     public List<SysUserOnline> selectUserOnlineList(SysUserOnline userOnline);
 
     /**
-     * 强退用户
+     * 強退用戶
      * 
-     * @param sessionId 会话ID
+     * @param sessionId 會話ID
      */
     public void forceLogout(String sessionId);
 
     /**
-     * 清理用户缓存
+     * 清理用戶快取
      * 
-     * @param loginName 登录名称
-     * @param sessionId 会话ID
+     * @param loginName 登錄名稱
+     * @param sessionId 會話ID
      */
     public void removeUserCache(String loginName, String sessionId);
 
     /**
-     * 查询会话集合
+     * 查詢會話集合
      * 
      * @param expiredDate 有效期
-     * @return 会话集合
+     * @return 會話集合
      */
     public List<SysUserOnline> selectOnlineByExpired(Date expiredDate);
 }

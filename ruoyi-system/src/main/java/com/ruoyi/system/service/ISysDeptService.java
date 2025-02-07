@@ -6,112 +6,112 @@ import com.ruoyi.common.core.domain.entity.SysDept;
 import com.ruoyi.common.core.domain.entity.SysRole;
 
 /**
- * 部门管理 服务层
+ * 部門管理 服務層
  * 
  * @author ruoyi
  */
 public interface ISysDeptService
 {
     /**
-     * 查询部门管理数据
+     * 查詢部門管理數據
      * 
-     * @param dept 部门信息
-     * @return 部门信息集合
+     * @param dept 部門資訊
+     * @return 部門資訊集合
      */
     public List<SysDept> selectDeptList(SysDept dept);
 
     /**
-     * 查询部门管理树
+     * 查詢部門管理樹
      * 
-     * @param dept 部门信息
-     * @return 所有部门信息
+     * @param dept 部門資訊
+     * @return 所有部門資訊
      */
     public List<Ztree> selectDeptTree(SysDept dept);
 
     /**
-     * 查询部门管理树（排除下级）
+     * 查詢部門管理樹（排除下級）
      * 
-     * @param dept 部门信息
-     * @return 所有部门信息
+     * @param dept 部門資訊
+     * @return 所有部門資訊
      */
     public List<Ztree> selectDeptTreeExcludeChild(SysDept dept);
 
     /**
-     * 根据角色ID查询菜单
+     * 根據角色ID查詢菜單
      *
-     * @param role 角色对象
-     * @return 菜单列表
+     * @param role 角色對象
+     * @return 菜單列表
      */
     public List<Ztree> roleDeptTreeData(SysRole role);
 
     /**
-     * 根据父部门ID查询下级部门数量
+     * 根據父部門ID查詢下級部門數量
      * 
-     * @param parentId 父部门ID
-     * @return 结果
+     * @param parentId 父部門ID
+     * @return 結果
      */
     public int selectDeptCount(Long parentId);
 
     /**
-     * 查询部门是否存在用户
+     * 查詢部門是否存在用戶
      * 
-     * @param deptId 部门ID
-     * @return 结果 true 存在 false 不存在
+     * @param deptId 部門ID
+     * @return 結果 true 存在 false 不存在
      */
     public boolean checkDeptExistUser(Long deptId);
 
     /**
-     * 删除部门管理信息
+     * 刪除部門管理資訊
      * 
-     * @param deptId 部门ID
-     * @return 结果
+     * @param deptId 部門ID
+     * @return 結果
      */
     public int deleteDeptById(Long deptId);
 
     /**
-     * 新增保存部门信息
+     * 新增保存部門資訊
      * 
-     * @param dept 部门信息
-     * @return 结果
+     * @param dept 部門資訊
+     * @return 結果
      */
     public int insertDept(SysDept dept);
 
     /**
-     * 修改保存部门信息
+     * 修改保存部門資訊
      * 
-     * @param dept 部门信息
-     * @return 结果
+     * @param dept 部門資訊
+     * @return 結果
      */
     public int updateDept(SysDept dept);
 
     /**
-     * 根据部门ID查询信息
+     * 根據部門ID查詢資訊
      * 
-     * @param deptId 部门ID
-     * @return 部门信息
+     * @param deptId 部門ID
+     * @return 部門資訊
      */
     public SysDept selectDeptById(Long deptId);
 
     /**
-     * 根据ID查询所有子部门（正常状态）
+     * 根據ID查詢所有子部門（正常狀態）
      * 
-     * @param deptId 部门ID
-     * @return 子部门数
+     * @param deptId 部門ID
+     * @return 子部門數
      */
     public int selectNormalChildrenDeptById(Long deptId);
 
     /**
-     * 校验部门名称是否唯一
+     * 校驗部門名稱是否唯一
      * 
-     * @param dept 部门信息
-     * @return 结果
+     * @param dept 部門資訊
+     * @return 結果
      */
     public boolean checkDeptNameUnique(SysDept dept);
 
     /**
-     * 校验部门是否有数据权限
+     * 校驗部門是否有數據權限
      * 
-     * @param deptId 部门id
+     * @param deptId 部門id
      */
     public void checkDeptDataScope(Long deptId);
 }

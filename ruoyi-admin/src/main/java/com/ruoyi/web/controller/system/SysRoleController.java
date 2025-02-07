@@ -27,7 +27,7 @@ import com.ruoyi.system.service.ISysRoleService;
 import com.ruoyi.system.service.ISysUserService;
 
 /**
- * 角色信息
+ * 角色資訊
  * 
  * @author ruoyi
  */
@@ -71,7 +71,7 @@ public class SysRoleController extends BaseController
     {
         List<SysRole> list = roleService.selectRoleList(role);
         ExcelUtil<SysRole> util = new ExcelUtil<SysRole>(SysRole.class);
-        return util.exportExcel(list, "角色数据");
+        return util.exportExcel(list, "角色數據");
     }
 
     /**
@@ -95,11 +95,11 @@ public class SysRoleController extends BaseController
     {
         if (!roleService.checkRoleNameUnique(role))
         {
-            return error("新增角色'" + role.getRoleName() + "'失败，角色名称已存在");
+            return error("新增角色'" + role.getRoleName() + "'失敗，角色名稱已存在");
         }
         else if (!roleService.checkRoleKeyUnique(role))
         {
-            return error("新增角色'" + role.getRoleName() + "'失败，角色权限已存在");
+            return error("新增角色'" + role.getRoleName() + "'失敗，角色權限已存在");
         }
         role.setCreateBy(getLoginName());
         AuthorizationUtils.clearAllCachedAuthorizationInfo();
@@ -132,11 +132,11 @@ public class SysRoleController extends BaseController
         roleService.checkRoleDataScope(role.getRoleId());
         if (!roleService.checkRoleNameUnique(role))
         {
-            return error("修改角色'" + role.getRoleName() + "'失败，角色名称已存在");
+            return error("修改角色'" + role.getRoleName() + "'失敗，角色名稱已存在");
         }
         else if (!roleService.checkRoleKeyUnique(role))
         {
-            return error("修改角色'" + role.getRoleName() + "'失败，角色权限已存在");
+            return error("修改角色'" + role.getRoleName() + "'失敗，角色權限已存在");
         }
         role.setUpdateBy(getLoginName());
         AuthorizationUtils.clearAllCachedAuthorizationInfo();
@@ -144,7 +144,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 角色分配数据权限
+     * 角色分配數據權限
      */
     @GetMapping("/authDataScope/{roleId}")
     public String authDataScope(@PathVariable("roleId") Long roleId, ModelMap mmap)
@@ -154,7 +154,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 保存角色分配数据权限
+     * 保存角色分配數據權限
      */
     @RequiresPermissions("system:role:edit")
     @Log(title = "角色管理", businessType = BusinessType.UPDATE)
@@ -183,7 +183,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 校验角色名称
+     * 校驗角色名稱
      */
     @PostMapping("/checkRoleNameUnique")
     @ResponseBody
@@ -193,7 +193,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 校验角色权限
+     * 校驗角色權限
      */
     @PostMapping("/checkRoleKeyUnique")
     @ResponseBody
@@ -203,7 +203,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 选择菜单树
+     * 選擇選單樹
      */
     @GetMapping("/selectMenuTree")
     public String selectMenuTree()
@@ -212,7 +212,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 角色状态修改
+     * 角色狀態修改
      */
     @Log(title = "角色管理", businessType = BusinessType.UPDATE)
     @RequiresPermissions("system:role:edit")
@@ -226,7 +226,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 分配用户
+     * 分配用戶
      */
     @RequiresPermissions("system:role:edit")
     @GetMapping("/authUser/{roleId}")
@@ -237,7 +237,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 查询已分配用户角色列表
+     * 查詢已分配用戶角色列表
      */
     @RequiresPermissions("system:role:list")
     @PostMapping("/authUser/allocatedList")
@@ -250,7 +250,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 取消授权
+     * 取消授權
      */
     @RequiresPermissions("system:role:edit")
     @Log(title = "角色管理", businessType = BusinessType.GRANT)
@@ -262,7 +262,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 批量取消授权
+     * 批次取消授權
      */
     @RequiresPermissions("system:role:edit")
     @Log(title = "角色管理", businessType = BusinessType.GRANT)
@@ -274,7 +274,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 选择用户
+     * 選擇用戶
      */
     @RequiresPermissions("system:role:list")
     @GetMapping("/authUser/selectUser/{roleId}")
@@ -285,7 +285,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 查询未分配用户角色列表
+     * 查詢未分配用戶角色列表
      */
     @RequiresPermissions("system:role:list")
     @PostMapping("/authUser/unallocatedList")
@@ -298,7 +298,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 批量选择用户授权
+     * 批次選擇用戶授權
      */
     @RequiresPermissions("system:role:edit")
     @Log(title = "角色管理", businessType = BusinessType.GRANT)
@@ -311,7 +311,7 @@ public class SysRoleController extends BaseController
     }
 
     /**
-     * 加载角色部门（数据权限）列表树
+     * 載入角色部門（數據權限）列表樹
      */
     @RequiresPermissions("system:role:edit")
     @GetMapping("/deptTreeData")

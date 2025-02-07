@@ -16,7 +16,7 @@ import com.ruoyi.common.config.datasource.DynamicDataSourceContextHolder;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * 多数据源处理
+ * 多數據源處理
  * 
  * @author ruoyi
  */
@@ -50,13 +50,13 @@ public class DataSourceAspect
         }
         finally
         {
-            // 销毁数据源 在执行方法之后
+            // 銷毀數據源 在執行方法之後
             DynamicDataSourceContextHolder.clearDataSourceType();
         }
     }
 
     /**
-     * 获取需要切换的数据源
+     * 獲取需要切換的數據源
      */
     public DataSource getDataSource(ProceedingJoinPoint point)
     {

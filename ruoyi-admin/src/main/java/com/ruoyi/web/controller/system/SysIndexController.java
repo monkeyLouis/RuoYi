@@ -27,7 +27,7 @@ import com.ruoyi.system.service.ISysConfigService;
 import com.ruoyi.system.service.ISysMenuService;
 
 /**
- * 首页 业务处理
+ * 首頁 業務處理
  * 
  * @author ruoyi
  */
@@ -43,13 +43,13 @@ public class SysIndexController extends BaseController
     @Autowired
     private SysPasswordService passwordService;
 
-    // 系统首页
+    // 系統首頁
     @GetMapping("/index")
     public String index(ModelMap mmap)
     {
-        // 取身份信息
+        // 取身份資訊
         SysUser user = getSysUser();
-        // 根据用户id取出菜单
+        // 根據用戶id取出選單
         List<SysMenu> menus = menuService.selectMenusByUser(user);
         mmap.put("menus", menus);
         mmap.put("user", user);
@@ -66,12 +66,12 @@ public class SysIndexController extends BaseController
         mmap.put("isPasswordExpired", passwordIsExpiration(user.getPwdUpdateDate()));
         mmap.put("isMobile", ServletUtils.checkAgentIsMobile(ServletUtils.getRequest().getHeader("User-Agent")));
 
-        // 菜单导航显示风格
+        // 選單導航顯示風格
         String menuStyle = configService.selectConfigByKey("sys.index.menuStyle");
-        // 移动端，默认使左侧导航菜单，否则取默认配置
+        // 行動端，預設使左側導航選單，否則取默認配置
         String indexStyle = ServletUtils.checkAgentIsMobile(ServletUtils.getRequest().getHeader("User-Agent")) ? "index" : menuStyle;
 
-        // 优先Cookie配置导航菜单
+        // 優先Cookie配置導航選單
         Cookie[] cookies = ServletUtils.getRequest().getCookies();
         for (Cookie cookie : cookies)
         {
@@ -85,7 +85,7 @@ public class SysIndexController extends BaseController
         return webIndex;
     }
 
-    // 锁定屏幕
+    // 鎖定螢幕
     @GetMapping("/lockscreen")
     public String lockscreen(ModelMap mmap)
     {
@@ -94,7 +94,7 @@ public class SysIndexController extends BaseController
         return "lock";
     }
 
-    // 解锁屏幕
+    // 解鎖螢幕
     @PostMapping("/unlockscreen")
     @ResponseBody
     public AjaxResult unlockscreen(String password)
@@ -102,31 +102,31 @@ public class SysIndexController extends BaseController
         SysUser user = getSysUser();
         if (StringUtils.isNull(user))
         {
-            return AjaxResult.error("服务器超时，请重新登录");
+            return AjaxResult.error("伺服器超時，請重新登入");
         }
         if (passwordService.matches(user, password))
         {
             ServletUtils.getSession().removeAttribute(ShiroConstants.LOCK_SCREEN);
             return AjaxResult.success();
         }
-        return AjaxResult.error("密码不正确，请重新输入。");
+        return AjaxResult.error("密碼不正確，請重新輸入。");
     }
 
-    // 切换主题
+    // 切換主題
     @GetMapping("/system/switchSkin")
     public String switchSkin()
     {
         return "skin";
     }
 
-    // 切换菜单
+    // 切換選單
     @GetMapping("/system/menuStyle/{style}")
     public void menuStyle(@PathVariable String style, HttpServletResponse response)
     {
         CookieUtils.setCookie(response, "nav-style", style);
     }
 
-    // 系统介绍
+    // 系統介紹
     @GetMapping("/system/main")
     public String main(ModelMap mmap)
     {
@@ -152,14 +152,14 @@ public class SysIndexController extends BaseController
         return StringUtils.EMPTY;
     }
 
-    // 检查初始密码是否提醒修改
+    // 檢查初始密碼是否提醒修改
     public boolean initPasswordIsModify(Date pwdUpdateDate)
     {
         Integer initPasswordModify = Convert.toInt(configService.selectConfigByKey("sys.account.initPasswordModify"));
         return initPasswordModify != null && initPasswordModify == 1 && pwdUpdateDate == null;
     }
 
-    // 检查密码是否过期
+    // 檢查密碼是否過期
     public boolean passwordIsExpiration(Date pwdUpdateDate)
     {
         Integer passwordValidateDays = Convert.toInt(configService.selectConfigByKey("sys.account.passwordValidateDays"));
@@ -167,7 +167,7 @@ public class SysIndexController extends BaseController
         {
             if (StringUtils.isNull(pwdUpdateDate))
             {
-                // 如果从未修改过初始密码，直接提醒过期
+                // 如果從未修改過初始密碼，直接提醒過期
                 return true;
             }
             Date nowDate = DateUtils.getNowDate();

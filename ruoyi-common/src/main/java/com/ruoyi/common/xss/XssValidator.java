@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 自定义xss校验注解实现
+ * 自訂xss校驗註解實現
  * 
  * @author ruoyi
  */

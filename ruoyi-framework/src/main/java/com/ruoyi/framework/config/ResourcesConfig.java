@@ -12,7 +12,7 @@ import com.ruoyi.common.constant.Constants;
 import com.ruoyi.framework.interceptor.RepeatSubmitInterceptor;
 
 /**
- * 通用配置
+ * 通用設定
  * 
  * @author ruoyi
  */
@@ -20,7 +20,7 @@ import com.ruoyi.framework.interceptor.RepeatSubmitInterceptor;
 public class ResourcesConfig implements WebMvcConfigurer
 {
     /**
-     * 首页地址
+     * 首頁地址
      */
     @Value("${shiro.user.indexUrl}")
     private String indexUrl;
@@ -29,7 +29,7 @@ public class ResourcesConfig implements WebMvcConfigurer
     private RepeatSubmitInterceptor repeatSubmitInterceptor;
 
     /**
-     * 默认首页的设置，当输入域名是可以自动跳转到默认指定的网页
+     * 默認首頁的設置，當輸入域名是可以自動跳轉到默認指定的網頁
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry)
@@ -40,7 +40,7 @@ public class ResourcesConfig implements WebMvcConfigurer
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry)
     {
-        /** 本地文件上传路径 */
+        /** 本地文件上傳路徑 */
         registry.addResourceHandler(Constants.RESOURCE_PREFIX + "/**").addResourceLocations("file:" + RuoYiConfig.getProfile() + "/");
 
         /** swagger配置 */
@@ -48,7 +48,7 @@ public class ResourcesConfig implements WebMvcConfigurer
     }
 
     /**
-     * 自定义拦截规则
+     * 自訂攔截規則
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry)

@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception.file;
 
 /**
- * 文件名称超长限制异常类
+ * 文件名稱過長限制例外
  * 
  * @author ruoyi
  */

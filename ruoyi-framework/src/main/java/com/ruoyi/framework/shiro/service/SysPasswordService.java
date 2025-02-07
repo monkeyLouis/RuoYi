@@ -18,7 +18,7 @@ import com.ruoyi.framework.manager.AsyncManager;
 import com.ruoyi.framework.manager.factory.AsyncFactory;
 
 /**
- * 登录密码方法
+ * 登錄密碼方法
  * 
  * @author ruoyi
  */

@@ -4,88 +4,88 @@ import java.util.List;
 import com.ruoyi.system.domain.SysPost;
 
 /**
- * 岗位信息 服务层
+ * 崗位資訊 服務層
  * 
  * @author ruoyi
  */
 public interface ISysPostService
 {
     /**
-     * 查询岗位信息集合
+     * 查詢崗位資訊集合
      * 
-     * @param post 岗位信息
-     * @return 岗位信息集合
+     * @param post 崗位資訊
+     * @return 崗位資訊集合
      */
     public List<SysPost> selectPostList(SysPost post);
 
     /**
-     * 查询所有岗位
+     * 查詢所有崗位
      * 
-     * @return 岗位列表
+     * @return 崗位列表
      */
     public List<SysPost> selectPostAll();
 
     /**
-     * 根据用户ID查询岗位
+     * 根據用戶ID查詢崗位
      * 
-     * @param userId 用户ID
-     * @return 岗位列表
+     * @param userId 用戶ID
+     * @return 崗位列表
      */
     public List<SysPost> selectPostsByUserId(Long userId);
 
     /**
-     * 通过岗位ID查询岗位信息
+     * 通過崗位ID查詢崗位資訊
      * 
-     * @param postId 岗位ID
-     * @return 角色对象信息
+     * @param postId 崗位ID
+     * @return 角色對象資訊
      */
     public SysPost selectPostById(Long postId);
 
     /**
-     * 批量删除岗位信息
+     * 批次刪除崗位資訊
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     public int deletePostByIds(String ids);
 
     /**
-     * 新增保存岗位信息
+     * 新增保存崗位資訊
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     public int insertPost(SysPost post);
 
     /**
-     * 修改保存岗位信息
+     * 修改保存崗位資訊
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     public int updatePost(SysPost post);
 
     /**
-     * 通过岗位ID查询岗位使用数量
+     * 透過崗位ID查詢崗位使用數量
      * 
-     * @param postId 岗位ID
-     * @return 结果
+     * @param postId 崗位ID
+     * @return 結果
      */
     public int countUserPostById(Long postId);
 
     /**
-     * 校验岗位名称
+     * 校驗崗位名稱
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     public boolean checkPostNameUnique(SysPost post);
 
     /**
-     * 校验岗位编码
+     * 校驗崗位編碼
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     public boolean checkPostCodeUnique(SysPost post);
 }

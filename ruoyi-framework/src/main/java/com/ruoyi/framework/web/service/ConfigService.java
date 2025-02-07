@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.ruoyi.system.service.ISysConfigService;
 
 /**
- * RuoYi首创 html调用 thymeleaf 实现参数管理
+ * RuoYi首創 html調用 thymeleaf 實現參數管理
  * 
  * @author ruoyi
  */
@@ -16,10 +16,10 @@ public class ConfigService
     private ISysConfigService configService;
 
     /**
-     * 根据键名查询参数配置信息
+     * 根據鍵名查詢參數配置資訊
      * 
-     * @param configKey 参数键名
-     * @return 参数键值
+     * @param configKey 參數鍵名
+     * @return 參數鍵值
      */
     public String getKey(String configKey)
     {

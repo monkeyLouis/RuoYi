@@ -5,14 +5,14 @@ import org.apache.shiro.mgt.RealmSecurityManager;
 import com.ruoyi.framework.shiro.realm.UserRealm;
 
 /**
- * 用户授权信息
+ * 用戶授權資訊
  * 
  * @author ruoyi
  */
 public class AuthorizationUtils
 {
     /**
-     * 清理所有用户授权信息缓存
+     * 清理所有用戶授權資訊快取
      */
     public static void clearAllCachedAuthorizationInfo()
     {
@@ -20,7 +20,7 @@ public class AuthorizationUtils
     }
 
     /**
-     * 获取自定义Realm
+     * 獲取自訂Realm
      */
     public static UserRealm getUserRealm()
     {

@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception.user;
 
 /**
- * 用户锁定异常类
+ * 使用者被阻擋 例外
  * 
  * @author ruoyi
  */

@@ -26,7 +26,7 @@ import com.ruoyi.framework.shiro.service.SysPasswordService;
 import com.ruoyi.system.service.ISysUserService;
 
 /**
- * 个人信息 业务处理
+ * 個人資訊 業務處理
  * 
  * @author ruoyi
  */
@@ -45,7 +45,7 @@ public class SysProfileController extends BaseController
     private SysPasswordService passwordService;
 
     /**
-     * 个人信息
+     * 個人資訊
      */
     @GetMapping()
     public String profile(ModelMap mmap)
@@ -73,7 +73,7 @@ public class SysProfileController extends BaseController
         return prefix + "/resetPwd";
     }
 
-    @Log(title = "重置密码", businessType = BusinessType.UPDATE)
+    @Log(title = "重設密碼", businessType = BusinessType.UPDATE)
     @PostMapping("/resetPwd")
     @ResponseBody
     public AjaxResult resetPwd(String oldPassword, String newPassword)
@@ -81,11 +81,11 @@ public class SysProfileController extends BaseController
         SysUser user = getSysUser();
         if (!passwordService.matches(user, oldPassword))
         {
-            return error("修改密码失败，旧密码错误");
+            return error("修改密碼失敗，舊密碼錯誤");
         }
         if (passwordService.matches(user, newPassword))
         {
-            return error("新密码不能与旧密码相同");
+            return error("新密碼不能與舊密碼相同");
         }
         user.setSalt(ShiroUtils.randomSalt());
         user.setPassword(passwordService.encryptPassword(user.getLoginName(), newPassword, user.getSalt()));
@@ -95,11 +95,11 @@ public class SysProfileController extends BaseController
             setSysUser(userService.selectUserById(user.getUserId()));
             return success();
         }
-        return error("修改密码异常，请联系管理员");
+        return error("修改密碼異常，請聯絡管理員");
     }
 
     /**
-     * 修改用户
+     * 修改用戶
      */
     @GetMapping("/edit")
     public String edit(ModelMap mmap)
@@ -110,7 +110,7 @@ public class SysProfileController extends BaseController
     }
 
     /**
-     * 修改头像
+     * 修改頭像
      */
     @GetMapping("/avatar")
     public String avatar(ModelMap mmap)
@@ -121,9 +121,9 @@ public class SysProfileController extends BaseController
     }
 
     /**
-     * 修改用户
+     * 修改用戶
      */
-    @Log(title = "个人信息", businessType = BusinessType.UPDATE)
+    @Log(title = "個人資訊", businessType = BusinessType.UPDATE)
     @PostMapping("/update")
     @ResponseBody
     public AjaxResult update(SysUser user)
@@ -135,11 +135,11 @@ public class SysProfileController extends BaseController
         currentUser.setSex(user.getSex());
         if (StringUtils.isNotEmpty(user.getPhonenumber()) && !userService.checkPhoneUnique(currentUser))
         {
-            return error("修改用户'" + currentUser.getLoginName() + "'失败，手机号码已存在");
+            return error("修改用戶'" + currentUser.getLoginName() + "'失敗，手機號碼已存在");
         }
         else if (StringUtils.isNotEmpty(user.getEmail()) && !userService.checkEmailUnique(currentUser))
         {
-            return error("修改用户'" + currentUser.getLoginName() + "'失败，邮箱账号已存在");
+            return error("修改用戶'" + currentUser.getLoginName() + "'失敗，信箱帳號已存在");
         }
         if (userService.updateUserInfo(currentUser) > 0)
         {
@@ -150,9 +150,9 @@ public class SysProfileController extends BaseController
     }
 
     /**
-     * 保存头像
+     * 保存頭像
      */
-    @Log(title = "个人信息", businessType = BusinessType.UPDATE)
+    @Log(title = "個人資訊", businessType = BusinessType.UPDATE)
     @PostMapping("/updateAvatar")
     @ResponseBody
     public AjaxResult updateAvatar(@RequestParam("avatarfile") MultipartFile file)
@@ -174,7 +174,7 @@ public class SysProfileController extends BaseController
         }
         catch (Exception e)
         {
-            log.error("修改头像失败！", e);
+            log.error("修改頭像失敗！", e);
             return error(e.getMessage());
         }
     }

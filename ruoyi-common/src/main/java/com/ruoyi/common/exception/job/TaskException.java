@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception.job;
 
 /**
- * 计划策略异常
+ * 定時工作例外
  * 
  * @author ruoyi
  */

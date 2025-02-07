@@ -22,7 +22,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.service.ISysDeptService;
 
 /**
- * 部门信息
+ * 部門資訊
  * 
  * @author ruoyi
  */
@@ -52,7 +52,7 @@ public class SysDeptController extends BaseController
     }
 
     /**
-     * 新增部门
+     * 新增部門
      */
     @RequiresPermissions("system:dept:add")
     @GetMapping("/add/{parentId}")
@@ -67,9 +67,9 @@ public class SysDeptController extends BaseController
     }
 
     /**
-     * 新增保存部门
+     * 新增保存部門
      */
-    @Log(title = "部门管理", businessType = BusinessType.INSERT)
+    @Log(title = "部門管理", businessType = BusinessType.INSERT)
     @RequiresPermissions("system:dept:add")
     @PostMapping("/add")
     @ResponseBody
@@ -77,14 +77,14 @@ public class SysDeptController extends BaseController
     {
         if (!deptService.checkDeptNameUnique(dept))
         {
-            return error("新增部门'" + dept.getDeptName() + "'失败，部门名称已存在");
+            return error("新增部門'" + dept.getDeptName() + "'失敗，部門名稱已存在");
         }
         dept.setCreateBy(getLoginName());
         return toAjax(deptService.insertDept(dept));
     }
 
     /**
-     * 修改部门
+     * 修改部門
      */
     @RequiresPermissions("system:dept:edit")
     @GetMapping("/edit/{deptId}")
@@ -94,16 +94,16 @@ public class SysDeptController extends BaseController
         SysDept dept = deptService.selectDeptById(deptId);
         if (StringUtils.isNotNull(dept) && 100L == deptId)
         {
-            dept.setParentName("无");
+            dept.setParentName("無");
         }
         mmap.put("dept", dept);
         return prefix + "/edit";
     }
 
     /**
-     * 修改保存部门
+     * 修改保存部門
      */
-    @Log(title = "部门管理", businessType = BusinessType.UPDATE)
+    @Log(title = "部門管理", businessType = BusinessType.UPDATE)
     @RequiresPermissions("system:dept:edit")
     @PostMapping("/edit")
     @ResponseBody
@@ -113,24 +113,24 @@ public class SysDeptController extends BaseController
         deptService.checkDeptDataScope(deptId);
         if (!deptService.checkDeptNameUnique(dept))
         {
-            return error("修改部门'" + dept.getDeptName() + "'失败，部门名称已存在");
+            return error("修改部門'" + dept.getDeptName() + "'失敗，部門名稱已存在");
         }
         else if (dept.getParentId().equals(deptId))
         {
-            return error("修改部门'" + dept.getDeptName() + "'失败，上级部门不能是自己");
+            return error("修改部門'" + dept.getDeptName() + "'失敗，上級部門不能是自己");
         }
         else if (StringUtils.equals(UserConstants.DEPT_DISABLE, dept.getStatus()) && deptService.selectNormalChildrenDeptById(deptId) > 0)
         {
-            return AjaxResult.error("该部门包含未停用的子部门！");
+            return AjaxResult.error("該部門包含未停用的子部門！");
         }
         dept.setUpdateBy(getLoginName());
         return toAjax(deptService.updateDept(dept));
     }
 
     /**
-     * 删除
+     * 刪除
      */
-    @Log(title = "部门管理", businessType = BusinessType.DELETE)
+    @Log(title = "部門管理", businessType = BusinessType.DELETE)
     @RequiresPermissions("system:dept:remove")
     @GetMapping("/remove/{deptId}")
     @ResponseBody
@@ -138,18 +138,18 @@ public class SysDeptController extends BaseController
     {
         if (deptService.selectDeptCount(deptId) > 0)
         {
-            return AjaxResult.warn("存在下级部门,不允许删除");
+            return AjaxResult.warn("存在下級部門,不允許刪除");
         }
         if (deptService.checkDeptExistUser(deptId))
         {
-            return AjaxResult.warn("部门存在用户,不允许删除");
+            return AjaxResult.warn("部門存在用戶,不允許刪除");
         }
         deptService.checkDeptDataScope(deptId);
         return toAjax(deptService.deleteDeptById(deptId));
     }
 
     /**
-     * 校验部门名称
+     * 校驗部門名稱
      */
     @PostMapping("/checkDeptNameUnique")
     @ResponseBody
@@ -159,9 +159,9 @@ public class SysDeptController extends BaseController
     }
 
     /**
-     * 选择部门树
+     * 選擇部門樹
      * 
-     * @param deptId 部门ID
+     * @param deptId 部門ID
      * @param excludeId 排除ID
      */
     @RequiresPermissions("system:dept:list")
@@ -174,7 +174,7 @@ public class SysDeptController extends BaseController
     }
 
     /**
-     * 加载部门列表树（排除下级）
+     * 載入部門列表樹（排除下級）
      */
     @RequiresPermissions("system:dept:list")
     @GetMapping("/treeData/{excludeId}")

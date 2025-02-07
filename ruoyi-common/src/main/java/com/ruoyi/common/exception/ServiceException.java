@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception;
 
 /**
- * 业务异常
+ * 業務例外
  * 
  * @author ruoyi
  */

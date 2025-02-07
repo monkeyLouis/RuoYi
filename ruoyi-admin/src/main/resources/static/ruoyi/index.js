@@ -1,5 +1,5 @@
 /**
- * 首页方法封装处理
+ * 首頁方法封裝處理
  * Copyright (c) 2019 ruoyi
  */
 var isMobile = false;
@@ -9,14 +9,14 @@ $(function() {
     // MetsiMenu
     $('#side-menu').metisMenu();
 
-    // 固定菜单栏
+    // 固定選單欄
     $('.sidebar-collapse').slimScroll({
         height: sidebarHeight,
         railOpacity: 0.9,
         alwaysVisible: false
     });
 
-    // 菜单切换
+    // 菜單切換
     $('.navbar-minimalize').click(function() {
     	if (isMobile) {
     	    $("body").toggleClass("canvas-menu");
@@ -40,7 +40,7 @@ $(function() {
 
     $('.nav-close').click(NavToggle);
 
-    //ios浏览器兼容性处理
+    //ios瀏覽器相容性處理
     if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
         $('#content-main').css('overflow-y', 'auto');
     }
@@ -88,7 +88,7 @@ function syncMenuTab(dataId) {
             $dataObj.parent("li").addClass("selected");
             setIframeUrl(dataId);
             
-            // 顶部菜单同步处理
+            // 頂部選單同步處理
             var tabStr = $dataObj.parents(".tab-pane").attr("id");
             if ($.common.isNotEmpty(tabStr)) {
                 var sepIndex = tabStr.lastIndexOf('_');
@@ -111,7 +111,7 @@ function fixedSidebar() {
     }, 100);
 }
 
-// 设置锚点
+// 設置錨點
 function setIframeUrl(href) {
 	if ($.common.equals("history", mode)) {
 	    storage.set('publicPath', href);
@@ -140,10 +140,10 @@ function SmoothlyMenu() {
 }
 
 /**
- * iframe处理
+ * iframe處理
  */
 $(function() {
-    //计算元素集合的总宽度
+    //計算元素集合的總寬度
     function calSumWidth(elements) {
         var width = 0;
         $(elements).each(function() {
@@ -152,12 +152,12 @@ $(function() {
         return width;
     }
 
-    // 激活指定选项卡
+    // 啟用指定選項卡
     function setActiveTab(element) {
         if (!$(element).hasClass('active')) {
             var currentId = $(element).data('id');
             syncMenuTab(currentId);
-            // 显示tab对应的内容区
+            // 顯示tab對應的內容區
             $('.RuoYi_iframe').each(function() {
                 if ($(this).data('id') == currentId) {
                     openToCurrentTab(this);
@@ -168,15 +168,15 @@ $(function() {
         }
     }
 
-    //滚动到指定选项卡
+    //滾動到指定選項卡
     function scrollToTab(element) {
         var marginLeftVal = calSumWidth($(element).prevAll()),
         marginRightVal = calSumWidth($(element).nextAll());
-        // 可视区域非tab宽度
+        // 可視區域非tab寬度
         var tabOuterWidth = calSumWidth($(".content-tabs").children().not(".menuTabs"));
-        //可视区域tab宽度
+        //可視區域tab寬度
         var visibleWidth = $(".content-tabs").outerWidth(true) - tabOuterWidth;
-        //实际滚动宽度
+        //實際滾動寬度
         var scrollVal = 0;
         if ($(".page-tabs-content").outerWidth() < visibleWidth) {
             scrollVal = 0;
@@ -195,21 +195,21 @@ $(function() {
         $('.page-tabs-content').animate({ marginLeft: 0 - scrollVal + 'px' }, "fast");
     }
 
-    //查看左侧隐藏的选项卡
+    //查看左側隱藏的選項卡
     function scrollTabLeft() {
         var marginLeftVal = Math.abs(parseInt($('.page-tabs-content').css('margin-left')));
-        // 可视区域非tab宽度
+        // 可視區域非tab寬度
         var tabOuterWidth = calSumWidth($(".content-tabs").children().not(".menuTabs"));
-        //可视区域tab宽度
+        //可視區域tab寬度
         var visibleWidth = $(".content-tabs").outerWidth(true) - tabOuterWidth;
-        //实际滚动宽度
+        //實際滾動寬度
         var scrollVal = 0;
         if (($(".page-tabs-content").width()) < visibleWidth) {
             return false;
         } else {
             var tabElement = $(".menuTab:first");
             var offsetVal = 0;
-            while ((offsetVal + $(tabElement).outerWidth(true)) <= marginLeftVal) { //找到离当前tab最近的元素
+            while ((offsetVal + $(tabElement).outerWidth(true)) <= marginLeftVal) { //找到離當前tab最近的元素
                 offsetVal += $(tabElement).outerWidth(true);
                 tabElement = $(tabElement).next();
             }
@@ -225,21 +225,21 @@ $(function() {
         $('.page-tabs-content').animate({ marginLeft: 0 - scrollVal + 'px' }, "fast");
     }
 
-    //查看右侧隐藏的选项卡
+    //查看右側隱藏的選項卡
     function scrollTabRight() {
         var marginLeftVal = Math.abs(parseInt($('.page-tabs-content').css('margin-left')));
-        // 可视区域非tab宽度
+        // 可視區域非tab寬度
         var tabOuterWidth = calSumWidth($(".content-tabs").children().not(".menuTabs"));
-        //可视区域tab宽度
+        //可視區域tab寬度
         var visibleWidth = $(".content-tabs").outerWidth(true) - tabOuterWidth;
-        //实际滚动宽度
+        //實際滾動寬度
         var scrollVal = 0;
         if ($(".page-tabs-content").width() < visibleWidth) {
             return false;
         } else {
             var tabElement = $(".menuTab:first");
             var offsetVal = 0;
-            while ((offsetVal + $(tabElement).outerWidth(true)) <= marginLeftVal) { //找到离当前tab最近的元素
+            while ((offsetVal + $(tabElement).outerWidth(true)) <= marginLeftVal) { //找到離當前tab最近的元素
                 offsetVal += $(tabElement).outerWidth(true);
                 tabElement = $(tabElement).next();
             }
@@ -255,7 +255,7 @@ $(function() {
         }
     }
 
-    //通过遍历给菜单项加上data-index属性
+    //透過遍歷給菜單項加上data-index屬性
     $(".menuItem").each(function(index) {
         if (!$(this).attr('data-index')) {
             $(this).attr('data-index', index);
@@ -263,7 +263,7 @@ $(function() {
     });
 
     function menuItem() {
-        // 获取标识数据
+        // 獲取標識數據
         var dataUrl = $(this).attr('href'),
         dataIndex = $(this).data('index'),
         menuName = $(this).data('title') || $.trim($(this).text()),
@@ -283,13 +283,13 @@ $(function() {
         setIframeUrl(dataUrl);
         if (dataUrl == undefined || $.trim(dataUrl).length == 0) return false;
 
-        // 选项卡菜单已存在
+        // 選項卡菜單已存在
         $('.menuTab').each(function() {
             if ($(this).data('id') == dataUrl) {
                 if (!$(this).hasClass('active')) {
                     $(this).addClass('active').siblings('.menuTab').removeClass('active');
                     scrollToTab(this);
-                    // 显示tab对应的内容区
+                    // 顯示tab對應的內容區
                     $('.mainContent .RuoYi_iframe').each(function() {
                         if ($(this).data('id') == dataUrl) {
                             openToCurrentTab(this);
@@ -304,12 +304,12 @@ $(function() {
                 return false;
             }
         });
-        // 选项卡菜单不存在
+        // 選項卡菜單不存在
         if (flag) {
             var str = '<a href="javascript:;" class="active menuTab" data-id="' + dataUrl + '">' + menuName + ' <i class="fa fa-times-circle"></i></a>';
             $('.menuTab').removeClass('active');
 
-            // 添加选项卡对应的iframe
+            // 添加選項卡對應的iframe
             var str1 = '<iframe class="RuoYi_iframe" name="iframe' + dataIndex + '" width="100%" height="100%" src="' + dataUrl + '" frameborder="0" data-id="' + dataUrl + '" data-refresh="' + isRefresh + '" seamless></iframe>';
             if (isScrollToTop) {
                 $('.mainContent').find('iframe.RuoYi_iframe').hide();
@@ -318,13 +318,13 @@ $(function() {
             }
             $('.mainContent').append(str1);
             
-            $.modal.loading("数据加载中，请稍候...");
+            $.modal.loading("數據載入中，請稍候...");
 
             $('.mainContent iframe:visible').on('load', function() {
             	$.modal.closeLoading();
             });
 
-            // 添加选项卡
+            // 添加選項卡
             $('.menuTabs .page-tabs-content').append(str);
             scrollToTab($('.menuTab.active'));
         }
@@ -332,7 +332,7 @@ $(function() {
     }
 
     function menuBlank() {
-    	// 新窗口打开外网以http://开头，如http://ruoyi.vip
+    	// 新窗口打開外網以http://開頭，如http://ruoyi.vip
     	var dataUrl = $(this).attr('href');
     	window.open(dataUrl);
     	return false;
@@ -342,15 +342,15 @@ $(function() {
 
     $('.menuBlank').on('click', menuBlank);
 
-    // 关闭选项卡菜单
+    // 關閉選項卡菜單
     function closeTab() {
         var closeTabId = $(this).parents('.menuTab').data('id');
         var currentWidth = $(this).parents('.menuTab').width();
         var panelUrl = $(this).parents('.menuTab').data('panel');
-        // 当前元素处于活动状态
+        // 當前元素處於活動狀態
         if ($(this).parents('.menuTab').hasClass('active')) {
 
-            // 当前元素后面有同辈元素，使后面的一个元素处于活动状态
+            // 當前元素後面有同輩元素，使後面的一個元素處於活動狀態
             if ($(this).parents('.menuTab').next('.menuTab').length) {
 
                 var activeId = $(this).parents('.menuTab').next('.menuTab:eq(0)').data('id');
@@ -368,10 +368,10 @@ $(function() {
                     $('.page-tabs-content').animate({ marginLeft: (marginLeftVal + currentWidth) + 'px' }, "fast");
                 }
 
-                //  移除当前选项卡
+                //  移除當前選項卡
                 $(this).parents('.menuTab').remove();
 
-                // 移除tab对应的内容区
+                // 移除tab對應的內容區
                 $('.mainContent .RuoYi_iframe').each(function() {
                     if ($(this).data('id') == closeTabId) {
                         $(this).remove();
@@ -380,7 +380,7 @@ $(function() {
                 });
             }
 
-            // 当前元素后面没有同辈元素，使当前元素的上一个元素处于活动状态
+            // 當前元素後面沒有同輩元素，使當前元素的上一個元素處於活動狀態
             if ($(this).parents('.menuTab').prev('.menuTab').length) {
                 var activeId = $(this).parents('.menuTab').prev('.menuTab:last').data('id');
                 $(this).parents('.menuTab').prev('.menuTab:last').addClass('active');
@@ -391,10 +391,10 @@ $(function() {
                     }
                 });
 
-                //  移除当前选项卡
+                //  移除當前選項卡
                 $(this).parents('.menuTab').remove();
 
-                // 移除tab对应的内容区
+                // 移除tab對應的內容區
                 $('.mainContent .RuoYi_iframe').each(function() {
                     if ($(this).data('id') == closeTabId) {
                         $(this).remove();
@@ -413,12 +413,12 @@ $(function() {
             	}
             }
         }
-        // 当前元素不处于活动状态
+        // 當前元素不處於活動狀態
         else {
-            //  移除当前选项卡
+            //  移除當前選項卡
             $(this).parents('.menuTab').remove();
 
-            // 移除相应tab对应的内容区
+            // 移除相應tab對應的內容區
             $('.mainContent .RuoYi_iframe').each(function() {
                 if ($(this).data('id') == closeTabId) {
                     $(this).remove();
@@ -433,19 +433,19 @@ $(function() {
 
     $('.menuTabs').on('click', '.menuTab i', closeTab);
 
-    //滚动到已激活的选项卡
+    //滾動到已啟用的選項卡
     function showActiveTab() {
         scrollToTab($('.menuTab.active'));
     }
     $('.tabShowActive').on('click', showActiveTab);
 
-    // 点击选项卡菜单
+    // 點擊選項卡菜單
     function activeTab() {
         if (!$(this).hasClass('active')) {
             var currentId = $(this).data('id');
             var isRefresh = false;
             syncMenuTab(currentId);
-            // 显示tab对应的内容区
+            // 顯示tab對應的內容區
             $('.mainContent .RuoYi_iframe').each(function() {
                 if ($(this).data('id') == currentId) {
                     openToCurrentTab(this);
@@ -461,7 +461,7 @@ $(function() {
         }
     }
 
-    // 点击选项卡菜单
+    // 點擊選項卡菜單
     $('.menuTabs').on('click', '.menuTab', activeTab);
 
     // 刷新iframe
@@ -472,19 +472,19 @@ $(function() {
     	target.attr('src', url).ready();
     }
 
-    // 页签全屏
+    // 頁簽全螢幕
     function fullScreenTab() {
     	var currentId = $('.page-tabs-content').find('.active').attr('data-id');
     	var target = $('.RuoYi_iframe[data-id="' + currentId + '"]');
     	target.fullScreen(true);
     }
 
-    // 关闭当前选项卡
+    // 關閉當前選項卡
     function tabCloseCurrent() {
     	$('.page-tabs-content').find('.active i').trigger("click");
     }
 
-    //关闭其他选项卡
+    //關閉其他選項卡
     function tabCloseOther() {
         $('.page-tabs-content').children("[data-id]").not(":first").not(".active").each(function() {
             $('.RuoYi_iframe[data-id="' + $(this).data('id') + '"]').remove();
@@ -493,7 +493,7 @@ $(function() {
         $('.page-tabs-content').animate({ marginLeft: '0px' }, "fast");
     }
 
-    // 关闭全部选项卡
+    // 關閉全部選項卡
     function tabCloseAll() {
     	$('.page-tabs-content').children("[data-id]").not(":first").each(function() {
             $('.RuoYi_iframe[data-id="' + $(this).data('id') + '"]').remove();
@@ -512,24 +512,24 @@ $(function() {
     }
 
 
-    // 全屏显示
+    // 全螢幕顯示
     $('#fullScreen').on('click', function () {
     	$(document).toggleFullScreen();
     });
     
-    // 锁定屏幕
+    // 鎖定螢幕
     $('#lockScreen').on('click', function () {
     	storage.set('lockPath', $('.page-tabs-content').find('.active').attr('data-id'));
     	location.href  = ctx + "lockscreen";
     });
 
-    // 页签刷新按钮
+    // 頁簽刷新按鈕
     $('.tabReload').on('click', refreshTab);
 
-    // 页签全屏按钮
+    // 頁簽全螢幕按鈕
     $('.tabFullScreen').on('click', fullScreenTab);
 
-    // 双击选项卡全屏显示
+    // 雙擊選項卡全螢幕顯示
     $('.menuTabs').on('dblclick', '.menuTab', activeTabMax);
 
     // 左移按扭
@@ -538,27 +538,27 @@ $(function() {
     // 右移按扭
     $('.tabRight').on('click', scrollTabRight);
 
-    // 关闭当前
+    // 關閉當前
     $('.tabCloseCurrent').on('click', tabCloseCurrent);
 
-    // 关闭其他
+    // 關閉其他
     $('.tabCloseOther').on('click', tabCloseOther);
 
-    // 关闭全部
+    // 關閉全部
     $('.tabCloseAll').on('click', tabCloseAll);
 
-    // tab全屏显示
+    // tab全螢幕顯示
     $('.tabMaxCurrent').on('click', function () {
         $('.page-tabs-content').find('.active').trigger("dblclick");
     });
 
-    // 关闭全屏
+    // 關閉全螢幕
     $('#ax_close_max').click(function(){
     	$('#content-main').toggleClass('max');
     	$('#ax_close_max').hide();
     })
 
-    // 双击选项卡全屏显示
+    // 雙擊選項卡全螢幕顯示
     function activeTabMax() {
         $('#content-main').toggleClass('max');
         $('#ax_close_max').show();
@@ -577,21 +577,21 @@ $(function() {
         $('a[href$="' + url + '"]').click();
     };
 
-    // 右键菜单实现
+    // 右鍵菜單實現
     $.contextMenu({
         selector: ".menuTab",
         trigger: 'right',
         autoHide: true,
         items: {
             "close_current": {
-                name: "关闭当前",
+                name: "關閉當前",
                 icon: "fa-close",
                 callback: function(key, opt) {
                     opt.$trigger.find('i').trigger("click");
                 }
             },
             "close_other": {
-                name: "关闭其他",
+                name: "關閉其他",
                 icon: "fa-window-close-o",
                 callback: function(key, opt) {
                     setActiveTab(this);
@@ -599,7 +599,7 @@ $(function() {
                 }
             },
             "close_left": {
-                name: "关闭左侧",
+                name: "關閉左側",
                 icon: "fa-reply",
                 callback: function(key, opt) {
                     setActiveTab(this);
@@ -614,7 +614,7 @@ $(function() {
                 }
             },
             "close_right": {
-                name: "关闭右侧",
+                name: "關閉右側",
                 icon: "fa-share",
                 callback: function(key, opt) {
                     setActiveTab(this);
@@ -625,7 +625,7 @@ $(function() {
                 }
             },
             "close_all": {
-                name: "全部关闭",
+                name: "全部關閉",
                 icon: "fa-window-close",
                 callback: function(key, opt) {
                     tabCloseAll();
@@ -633,7 +633,7 @@ $(function() {
             },
             "step": "---------",
             "full": {
-                name: "全屏显示",
+                name: "全螢幕顯示",
                 icon: "fa-arrows-alt",
                 callback: function(key, opt) {
                     setActiveTab(this);
@@ -642,20 +642,20 @@ $(function() {
                 }
             },
             "refresh": {
-                name: "刷新页面",
+                name: "刷新頁面",
                 icon: "fa-refresh",
                 callback: function(key, opt) {
                     setActiveTab(this);
                     var target = $('.RuoYi_iframe[data-id="' + this.data('id') + '"]');
                     var url = target.attr('src');
-                    $.modal.loading("数据加载中，请稍候...");
+                    $.modal.loading("數據載入中，請稍候...");
                     target.attr('src', url).on('load', function() {
                     	$.modal.closeLoading();
                     });
                 }
             },
             "open": {
-                name: "新窗口打开",
+                name: "新窗口打開",
                 icon: "fa-link",
                 callback: function(key, opt) {
                     var target = $('.RuoYi_iframe[data-id="' + this.data('id') + '"]');

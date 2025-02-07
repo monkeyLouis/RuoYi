@@ -14,7 +14,7 @@ import javax.servlet.Filter;
 import java.util.Map;
 
 /**
- * 自定义ShiroFilterFactoryBean解决资源中文路径问题
+ * 自訂ShiroFilterFactoryBean解決資源中文路徑問題
  * 
  * @author ruoyi
  */
@@ -54,7 +54,7 @@ public class CustomShiroFilterFactoryBean extends ShiroFilterFactoryBean
         Filter invalidRequestFilter = filterMap.get(DefaultFilter.invalidRequest.name());
         if (invalidRequestFilter instanceof InvalidRequestFilter)
         {
-            // 此处是关键,设置false跳过URL携带中文400，servletPath中文校验bug
+            // 此處是關鍵,設置false跳過URL攜帶中文400，servletPath中文校驗bug
             ((InvalidRequestFilter) invalidRequestFilter).setBlockNonAscii(false);
         }
         // Now create a concrete ShiroFilter instance and apply the acquired SecurityManager and built

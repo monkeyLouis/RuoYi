@@ -4,49 +4,49 @@ import java.util.List;
 import com.ruoyi.system.domain.SysUserOnline;
 
 /**
- * 在线用户 数据层
+ * 在線用戶 數據層
  * 
  * @author ruoyi
  */
 public interface SysUserOnlineMapper
 {
     /**
-     * 通过会话序号查询信息
+     * 通過會話序號查詢資訊
      * 
-     * @param sessionId 会话ID
-     * @return 在线用户信息
+     * @param sessionId 會話ID
+     * @return 在線用戶資訊
      */
     public SysUserOnline selectOnlineById(String sessionId);
 
     /**
-     * 通过会话序号删除信息
+     * 通過會話序號刪除資訊
      * 
-     * @param sessionId 会话ID
-     * @return 在线用户信息
+     * @param sessionId 會話ID
+     * @return 在線用戶資訊
      */
     public int deleteOnlineById(String sessionId);
 
     /**
-     * 保存会话信息
+     * 保存會話資訊
      * 
-     * @param online 会话信息
-     * @return 结果
+     * @param online 會話資訊
+     * @return 結果
      */
     public int saveOnline(SysUserOnline online);
 
     /**
-     * 查询会话集合
+     * 查詢會話集合
      * 
-     * @param userOnline 会话参数
-     * @return 会话集合
+     * @param userOnline 會話參數
+     * @return 會話集合
      */
     public List<SysUserOnline> selectUserOnlineList(SysUserOnline userOnline);
 
     /**
-     * 查询过期会话集合
+     * 查詢過期會話集合
      * 
-     * @param lastAccessTime 过期时间
-     * @return 会话集合
+     * @param lastAccessTime 過期時間
+     * @return 會話集合
      */
     public List<SysUserOnline> selectOnlineByExpired(String lastAccessTime);
 }

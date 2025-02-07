@@ -17,7 +17,7 @@ import com.ruoyi.framework.manager.factory.AsyncFactory;
 import com.ruoyi.system.service.ISysUserOnlineService;
 
 /**
- * 退出过滤器
+ * 登出過濾器
  * 
  * @author ruoyi
  */
@@ -26,7 +26,7 @@ public class LogoutFilter extends org.apache.shiro.web.filter.authc.LogoutFilter
     private static final Logger log = LoggerFactory.getLogger(LogoutFilter.class);
 
     /**
-     * 退出后重定向的地址
+     * 登出後重導向的地址
      */
     private String loginUrl;
 
@@ -53,12 +53,12 @@ public class LogoutFilter extends org.apache.shiro.web.filter.authc.LogoutFilter
                 if (StringUtils.isNotNull(user))
                 {
                     String loginName = user.getLoginName();
-                    // 记录用户退出日志
+                    // 記錄用戶登出日誌
                     AsyncManager.me().execute(AsyncFactory.recordLogininfor(loginName, Constants.LOGOUT, MessageUtils.message("user.logout.success")));
-                    // 清理缓存
+                    // 清理快取
                     SpringUtils.getBean(ISysUserOnlineService.class).removeUserCache(loginName, ShiroUtils.getSessionId());
                 }
-                // 退出登录
+                // 登出
                 subject.logout();
             }
             catch (SessionException ise)
@@ -75,7 +75,7 @@ public class LogoutFilter extends org.apache.shiro.web.filter.authc.LogoutFilter
     }
 
     /**
-     * 退出跳转URL
+     * 登出跳轉URL
      */
     @Override
     protected String getRedirectUrl(ServletRequest request, ServletResponse response, Subject subject)

@@ -24,7 +24,7 @@ import com.ruoyi.common.utils.ServletUtils;
 import com.ruoyi.common.utils.ShiroUtils;
 
 /**
- * 登录帐号控制过滤器
+ * 登入帳號控制過濾器
  * 
  * @author ruoyi
  */
@@ -33,17 +33,17 @@ public class KickoutSessionFilter extends AccessControlFilter
     private final static ObjectMapper objectMapper = new ObjectMapper();
 
     /**
-     * 同一个用户最大会话数
+     * 同一個用戶最大會話數
      **/
     private int maxSession = -1;
 
     /**
-     * 踢出之前登录的/之后登录的用户 默认false踢出之前登录的用户
+     * 踢出之前登錄的/之後登錄的用戶 默認false踢出之前登錄的用戶
      **/
     private Boolean kickoutAfter = false;
 
     /**
-     * 踢出后到的地址
+     * 踢出後到的地址
      **/
     private String kickoutUrl;
 
@@ -63,62 +63,62 @@ public class KickoutSessionFilter extends AccessControlFilter
         Subject subject = getSubject(request, response);
         if (!subject.isAuthenticated() && !subject.isRemembered() || maxSession == -1)
         {
-            // 如果没有登录或用户最大会话数为-1，直接进行之后的流程
+            // 如果沒有登錄或用戶最大會話數為-1，直接進行之後的流程
             return true;
         }
         try
         {
             Session session = subject.getSession();
-            // 当前登录用户
+            // 當前登錄用戶
             SysUser user = ShiroUtils.getSysUser();
             String loginName = user.getLoginName();
             Serializable sessionId = session.getId();
 
-            // 读取缓存用户 没有就存入
+            // 讀取快取用戶 沒有就存入
             Deque<Serializable> deque = cache.get(loginName);
             if (deque == null)
             {
-                // 初始化队列
+                // 初始化隊列
                 deque = new ArrayDeque<Serializable>();
             }
 
-            // 如果队列里没有此sessionId，且用户没有被踢出；放入队列
+            // 如果隊列裡沒有此sessionId，且用戶沒有被踢出；放入隊列
             if (!deque.contains(sessionId) && session.getAttribute("kickout") == null)
             {
-                // 将sessionId存入队列
+                // 將sessionId存入隊列
                 deque.push(sessionId);
-                // 将用户的sessionId队列缓存
+                // 將用戶的sessionId隊列快取
                 cache.put(loginName, deque);
             }
 
-            // 如果队列里的sessionId数超出最大会话数，开始踢人
+            // 如果隊列裡的sessionId數超出最大會話數，開始踢人
             while (deque.size() > maxSession)
             {
-                // 是否踢出后来登录的，默认是false；即后者登录的用户踢出前者登录的用户；
+                // 是否踢出後來登錄的，預設是false；即後者登錄的用戶踢出前者登錄的用戶；
                 Serializable kickoutSessionId = kickoutAfter ? deque.removeFirst() : deque.removeLast();
-                // 踢出后再更新下缓存队列
+                // 踢出後再更新下快取隊列
                 cache.put(loginName, deque);
 
                 try
                 {
-                    // 获取被踢出的sessionId的session对象
+                    // 獲取被踢出的sessionId的session對象
                     Session kickoutSession = sessionManager.getSession(new DefaultSessionKey(kickoutSessionId));
                     if (null != kickoutSession)
                     {
-                        // 设置会话的kickout属性表示踢出了
+                        // 設置會話的kickout屬性表示踢出了
                         kickoutSession.setAttribute("kickout", true);
                     }
                 }
                 catch (Exception e)
                 {
-                    // 面对异常，我们选择忽略
+                    // 面對異常，我們選擇忽略
                 }
             }
 
-            // 如果被踢出了，(前者或后者)直接退出，重定向到踢出后的地址
+            // 如果被踢出了，(前者或後者)直接退出，重定向到踢出後的地址
             if (session.getAttribute("kickout") != null && (Boolean) session.getAttribute("kickout") == true)
             {
-                // 退出登录
+                // 退出登錄
                 subject.logout();
                 saveRequest(request);
                 return isAjaxResponse(request, response);
@@ -137,7 +137,7 @@ public class KickoutSessionFilter extends AccessControlFilter
         HttpServletResponse res = (HttpServletResponse) response;
         if (ServletUtils.isAjaxRequest(req))
         {
-            AjaxResult ajaxResult = AjaxResult.error("您已在别处登录，请您修改密码或重新登录");
+            AjaxResult ajaxResult = AjaxResult.error("您已在別處登錄，請您修改密碼或重新登入");
             ServletUtils.renderString(res, objectMapper.writeValueAsString(ajaxResult));
         }
         else
@@ -167,10 +167,10 @@ public class KickoutSessionFilter extends AccessControlFilter
         this.sessionManager = sessionManager;
     }
 
-    // 设置Cache的key的前缀
+    // 設置Cache的key的前綴
     public void setCacheManager(CacheManager cacheManager)
     {
-        // 必须和ehcache缓存配置中的缓存name一致
+        // 必須和ehcache快取配置中的快取name一致
         this.cache = cacheManager.getCache(ShiroConstants.SYS_USERCACHE);
     }
 }

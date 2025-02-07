@@ -10,7 +10,7 @@ import com.ruoyi.system.domain.SysUserOnline;
 import com.ruoyi.system.service.ISysUserOnlineService;
 
 /**
- * 会话db操作处理
+ * 會話db操作處理
  * 
  * @author ruoyi
  */
@@ -21,9 +21,9 @@ public class SysShiroService
     private ISysUserOnlineService onlineService;
 
     /**
-     * 删除会话
+     * 刪除會話
      *
-     * @param onlineSession 会话信息
+     * @param onlineSession 會話資訊
      */
     public void deleteSession(OnlineSession onlineSession)
     {
@@ -31,7 +31,7 @@ public class SysShiroService
     }
 
     /**
-     * 获取会话信息
+     * 獲取會話資訊
      *
      * @param sessionId
      * @return

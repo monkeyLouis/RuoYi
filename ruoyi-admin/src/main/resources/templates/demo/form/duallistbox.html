@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('左右互选组件')" />
+	<th:block th:include="include :: header('左右互選組件')" />
 	<th:block th:include="include :: bootstrap-duallistbox-css" />
 </head>
 <body class="gray-bg">
@@ -10,11 +10,11 @@
             <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>双重列表框 <small>https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox</small></h5>
+                        <h5>雙重列表框 <small>https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox</small></h5>
                     </div>  
                     <div class="ibox-content">
                         <p>
-                            Bootstrap Dual Listbox是针对Twitter Bootstrap进行了优化的响应式双列表框。它适用于所有现代浏览器和触摸设备。
+                            Bootstrap Dual Listbox是針對Twitter Bootstrap進行了最佳化的響應式雙列表框。它適用於所有現代瀏覽器和觸摸設備。
                         </p>
 
                         <form id="form" action="#" class="wizard-big">
@@ -35,7 +35,7 @@
                         </form>
                         <hr>
                         <div class="form-group">
-                            <label class="font-noraml">相关参数详细信息</label>
+                            <label class="font-noraml">相關參數詳細資訊</label>
                             <div><a href="http://doc.ruoyi.vip/ruoyi/document/zjwd.html#bootstrap-duallistbox" target="_blank">http://doc.ruoyi.vip/ruoyi/document/zjwd.html#bootstrap-duallistbox</a></div>
                         </div>
                     </div>
@@ -47,17 +47,17 @@
     <th:block th:include="include :: bootstrap-duallistbox-js" />
     <script type="text/javascript">
 	    $('.dual_select').bootstrapDualListbox({
-	    	nonSelectedListLabel: '未有用户',
-            selectedListLabel: '已有用户',
+	    	nonSelectedListLabel: '未有用戶',
+            selectedListLabel: '已有用戶',
             preserveSelectionOnMove: 'moved',
-            moveOnSelect: false,           // 出现一个剪头，表示可以一次选择一个
+            moveOnSelect: false,           // 出現一個剪頭，表示可以一次選擇一個
             filterTextClear: '展示所有',
             moveSelectedLabel: "添加",
             moveAllLabel: '添加所有',
             removeSelectedLabel: "移除",
             removeAllLabel: '移除所有',
-            infoText: '共{0}个',
-            showFilterInputs: false,       // 是否带搜索
+            infoText: '共{0}個',
+            showFilterInputs: false,       // 是否帶搜索
 	        selectorMinimalHeight: 160
 	    });
     </script>

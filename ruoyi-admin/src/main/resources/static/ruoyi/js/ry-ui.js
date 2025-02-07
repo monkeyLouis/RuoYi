@@ -1,14 +1,14 @@
 /**
- * 通用js方法封装处理
+ * 通用js方法封裝處理
  * Copyright (c) 2019 ruoyi
  */
 
-// 当前table相关信息
+// 當前table相關資訊
 var table = {
     config: {},
-    // 当前实例配置
+    // 當前實例配置
     options: {},
-    // 设置实例配置
+    // 設置實例配置
     set: function(id) {
         if ($.common.getLength(table.config) > 1 && $.common.isNotEmpty(event)) {
             var tableId = $.common.isEmpty(id) ? $(event.currentTarget).parents(".bootstrap-table").find("table.table").attr("id") || $(event.currentTarget).parents(".bootstrap-tree-table").find("table.table").attr("id") : id;
@@ -17,13 +17,13 @@ var table = {
             }
         }
     },
-    // 获取实例配置
+    // 獲取實例配置
     get: function(id) {
         return table.config[id];
     },
-    // 记住选择实例组
+    // 記住選擇實例組
     rememberSelecteds: {},
-    // 记住选择ID组
+    // 記住選擇ID組
     rememberSelectedIds: {}
 };
 
@@ -31,9 +31,9 @@ var table = {
     $.extend({
         _tree: {},
         bttTable: {},
-        // 表格封装处理
+        // 表格封裝處理
         table: {
-            // 初始化表格参数
+            // 初始化表格參數
             init: function(options) {
                 var defaults = {
                     id: "bootstrap-table",
@@ -82,80 +82,80 @@ var table = {
                 $.table.initEvent();
                 $('#' + options.id).bootstrapTable({
                     id: options.id,
-                    url: options.url,                                   // 请求后台的URL（*）
-                    contentType: "application/x-www-form-urlencoded",   // 编码类型
-                    method: options.method,                             // 请求方式（*）
-                    cache: false,                                       // 是否使用缓存
+                    url: options.url,                                   // 請求後台的URL（*）
+                    contentType: "application/x-www-form-urlencoded",   // 編碼類型
+                    method: options.method,                             // 請求方式（*）
+                    cache: false,                                       // 是否使用快取
                     height: options.height,                             // 表格的高度
-                    striped: options.striped,                           // 是否显示行间隔色
-                    undefinedText: options.undefinedText,               // 数据值为空时显示的内容
-                    sortable: true,                                     // 是否启用排序
-                    sortStable: true,                                   // 设置为 true 将获得稳定的排序
-                    sortName: options.sortName,                         // 排序列名称
+                    striped: options.striped,                           // 是否顯示行間隔色
+                    undefinedText: options.undefinedText,               // 數據值為空時顯示的內容
+                    sortable: true,                                     // 是否啟用排序
+                    sortStable: true,                                   // 設置為 true 將獲得穩定的排序
+                    sortName: options.sortName,                         // 排序列名稱
                     sortOrder: options.sortOrder,                       // 排序方式  asc 或者 desc
-                    pagination: options.pagination,                     // 是否显示分页（*）
-                    paginationLoop: options.paginationLoop,             // 是否启用分页条无限循环的功能
-                    pageNumber: 1,                                      // 初始化加载第一页，默认第一页
-                    pageSize: options.pageSize,                         // 每页的记录行数（*） 
-                    pageList: options.pageList,                         // 可供选择的每页的行数（*）
-                    firstLoad: options.firstLoad,                       // 是否首次请求加载数据，对于数据较大可以配置false
-                    escape: options.escape,                             // 转义HTML字符串
-                    showFooter: options.showFooter,                     // 是否显示表尾
-                    iconSize: 'outline',                                // 图标大小：undefined默认的按钮尺寸 xs超小按钮sm小按钮lg大按钮
-                    toolbar: '#' + options.toolbar,                     // 指定工作栏
-                    virtualScroll: options.virtualScroll,               // 是否启动虚拟滚动（大量数据纯展示时使用)
-                    loadingFontSize: options.loadingFontSize,           // 自定义加载文本的字体大小
-                    sidePagination: options.sidePagination,             // server启用服务端分页client客户端分页
-                    search: options.search,                             // 是否显示搜索框功能
-                    searchText: options.searchText,                     // 搜索框初始显示的内容，默认为空
-                    showSearch: options.showSearch,                     // 是否显示检索信息
-                    showPageGo: options.showPageGo,                     // 是否显示跳转页
-                    showRefresh: options.showRefresh,                   // 是否显示刷新按钮
-                    showColumns: options.showColumns,                   // 是否显示隐藏某列下拉框
-                    showToggle: options.showToggle,                     // 是否显示详细视图和列表视图的切换按钮
-                    showExport: options.showExport,                     // 是否支持导出文件
-                    showPrint: options.showPrint,                       // 是否支持打印页面
-                    showHeader: options.showHeader,                     // 是否显示表头
-                    showFullscreen: options.showFullscreen,             // 是否显示全屏按钮
-                    uniqueId: options.uniqueId,                         // 唯一的标识符
-                    clickToSelect: options.clickToSelect,               // 是否启用点击选中行
-                    singleSelect: options.singleSelect,                 // 是否单选checkbox
-                    mobileResponsive: options.mobileResponsive,         // 是否支持移动端适配
-                    cardView: options.cardView,                         // 是否启用显示卡片视图
-                    detailView: options.detailView,                     // 是否启用显示细节视图
-                    onCheck: options.onCheck,                           // 当选择此行时触发
-                    onUncheck: options.onUncheck,                       // 当取消此行时触发
-                    onCheckAll: options.onCheckAll,                     // 当全选行时触发
-                    onUncheckAll: options.onUncheckAll,                 // 当取消全选行时触发
-                    onClickRow: options.onClickRow,                     // 点击某行触发的事件
-                    onDblClickRow: options.onDblClickRow,               // 双击某行触发的事件
-                    onClickCell: options.onClickCell,                   // 单击某格触发的事件
-                    onDblClickCell: options.onDblClickCell,             // 双击某格触发的事件
-                    onEditableSave: options.onEditableSave,             // 行内编辑保存的事件
-                    onExpandRow: options.onExpandRow,                   // 点击详细视图的事件
-                    onPostBody: options.onPostBody,                     // 渲染完成后执行的事件
-                    maintainSelected: options.maintainSelected,         // 前端翻页时保留所选行
-                    rememberSelected: options.rememberSelected,         // 启用翻页记住前面的选择
-                    fixedColumns: options.fixedColumns,                 // 是否启用冻结列（左侧）
-                    fixedNumber: options.fixedNumber,                   // 列冻结的个数（左侧）
-                    fixedRightNumber: options.fixedRightNumber,         // 列冻结的个数（右侧）
-                    onReorderRow: options.onReorderRow,                 // 当拖拽结束后处理函数
-                    queryParams: options.queryParams,                   // 传递参数（*）
-                    rowStyle: options.rowStyle,                         // 通过自定义函数设置行样式
-                    footerStyle: options.footerStyle,                   // 通过自定义函数设置页脚样式
-                    headerStyle: options.headerStyle,                   // 通过自定义函数设置标题样式
-                    columns: options.columns,                           // 显示列信息（*）
-                    data: options.data,                                 // 被加载的数据
-                    responseHandler: $.table.responseHandler,           // 在加载服务器发送来的数据之前处理函数
-                    onLoadSuccess: $.table.onLoadSuccess,               // 当所有数据被加载时触发处理函数
-                    exportOptions: options.exportOptions,               // 前端导出忽略列索引
-                    exportDataType: options.exportDataType,             // 导出方式（默认all：导出所有数据；basic：导出当前页的数据；selected：导出选中的数据）
-                    exportTypes: options.exportTypes,                   // 导出文件类型 （json、xml、png、csv、txt、sql、doc、excel、xlsx、powerpoint、pdf）
-                    printPageBuilder: options.printPageBuilder,         // 自定义打印页面模板
-                    detailFormatter: options.detailFormatter,           // 在行下面展示其他数据列表
+                    pagination: options.pagination,                     // 是否顯示分頁（*）
+                    paginationLoop: options.paginationLoop,             // 是否啟用分頁條無限循環的功能
+                    pageNumber: 1,                                      // 初始化載入第一頁，默認第一頁
+                    pageSize: options.pageSize,                         // 每頁的紀錄行數（*） 
+                    pageList: options.pageList,                         // 可供選擇的每頁的行數（*）
+                    firstLoad: options.firstLoad,                       // 是否首次請求載入數據，對於數據較大可以配置false
+                    escape: options.escape,                             // 轉義HTML字串
+                    showFooter: options.showFooter,                     // 是否顯示錶尾
+                    iconSize: 'outline',                                // 圖示大小：undefined預設的按鈕尺寸 xs超小按鈕sm小按鈕lg大按鈕
+                    toolbar: '#' + options.toolbar,                     // 指定工作欄
+                    virtualScroll: options.virtualScroll,               // 是否啟動虛擬滾動（大量數據純展示時使用)
+                    loadingFontSize: options.loadingFontSize,           // 自訂載入文本的字體大小
+                    sidePagination: options.sidePagination,             // server啟用服務端分頁client用戶端分頁
+                    search: options.search,                             // 是否顯示搜索框功能
+                    searchText: options.searchText,                     // 搜索框初始顯示的內容，預設為空
+                    showSearch: options.showSearch,                     // 是否顯示檢索資訊
+                    showPageGo: options.showPageGo,                     // 是否顯示跳轉頁
+                    showRefresh: options.showRefresh,                   // 是否顯示刷新按鈕
+                    showColumns: options.showColumns,                   // 是否顯示隱藏某列下拉框
+                    showToggle: options.showToggle,                     // 是否顯示詳細視圖和列表視圖的切換按鈕
+                    showExport: options.showExport,                     // 是否支持導出文件
+                    showPrint: options.showPrint,                       // 是否支持列印頁面
+                    showHeader: options.showHeader,                     // 是否顯示表頭
+                    showFullscreen: options.showFullscreen,             // 是否顯示全螢幕按鈕
+                    uniqueId: options.uniqueId,                         // 唯一的標識符
+                    clickToSelect: options.clickToSelect,               // 是否啟用點擊選中行
+                    singleSelect: options.singleSelect,                 // 是否單選checkbox
+                    mobileResponsive: options.mobileResponsive,         // 是否支持行動端適配
+                    cardView: options.cardView,                         // 是否啟用顯示卡片視圖
+                    detailView: options.detailView,                     // 是否啟用顯示細節視圖
+                    onCheck: options.onCheck,                           // 當選擇此行時觸發
+                    onUncheck: options.onUncheck,                       // 當取消此行時觸發
+                    onCheckAll: options.onCheckAll,                     // 當全選行時觸發
+                    onUncheckAll: options.onUncheckAll,                 // 當取消全選行時觸發
+                    onClickRow: options.onClickRow,                     // 點擊某行觸發的事件
+                    onDblClickRow: options.onDblClickRow,               // 雙擊某行觸發的事件
+                    onClickCell: options.onClickCell,                   // 單擊某格觸發的事件
+                    onDblClickCell: options.onDblClickCell,             // 雙擊某格觸發的事件
+                    onEditableSave: options.onEditableSave,             // 行內編輯保存的事件
+                    onExpandRow: options.onExpandRow,                   // 點擊詳細視圖的事件
+                    onPostBody: options.onPostBody,                     // 渲染完成後執行的事件
+                    maintainSelected: options.maintainSelected,         // 前端翻頁時保留所選行
+                    rememberSelected: options.rememberSelected,         // 啟用翻頁記住前面的選擇
+                    fixedColumns: options.fixedColumns,                 // 是否啟用凍結列（左側）
+                    fixedNumber: options.fixedNumber,                   // 列凍結的個數（左側）
+                    fixedRightNumber: options.fixedRightNumber,         // 列凍結的個數（右側）
+                    onReorderRow: options.onReorderRow,                 // 當拖拽結束後處理函數
+                    queryParams: options.queryParams,                   // 傳遞參數（*）
+                    rowStyle: options.rowStyle,                         // 通過自訂函數設置行樣式
+                    footerStyle: options.footerStyle,                   // 通過自訂函數設置頁尾樣式
+                    headerStyle: options.headerStyle,                   // 通過自訂函數設置標題樣式
+                    columns: options.columns,                           // 顯示列資訊（*）
+                    data: options.data,                                 // 被載入的數據
+                    responseHandler: $.table.responseHandler,           // 在載入伺服器發送來的數據之前處理函數
+                    onLoadSuccess: $.table.onLoadSuccess,               // 當所有數據被載入時觸發處理函數
+                    exportOptions: options.exportOptions,               // 前端導出忽略列索引
+                    exportDataType: options.exportDataType,             // 導出方式（默認all：導出所有數據；basic：導出當前頁的數據；selected：導出選中的數據）
+                    exportTypes: options.exportTypes,                   // 導出文件類型 （json、xml、png、csv、txt、sql、doc、excel、xlsx、powerpoint、pdf）
+                    printPageBuilder: options.printPageBuilder,         // 自訂列印頁面模板
+                    detailFormatter: options.detailFormatter,           // 在行下面展示其他數據列表
                 });
             },
-            // 获取实例ID，如存在多个返回#id1,#id2 delimeter分隔符
+            // 獲取實例ID，如存在多個返回#id1,#id2 delimeter分隔符號
             getOptionsIds: function(separator) {
                 var _separator = $.common.isEmpty(separator) ? "," : separator;
                 var optionsIds = "";  
@@ -164,11 +164,11 @@ var table = {
                 });
                 return optionsIds.substring(0, optionsIds.length - 1);
             },
-            // 查询条件
+            // 查詢條件
             queryParams: function(params) {
                 table.set();
                 var curParams = {
-                    // 传递参数查询参数
+                    // 傳遞參數查詢參數
                     pageSize:       params.limit,
                     pageNum:        params.offset / params.limit + 1,
                     searchValue:    params.search,
@@ -178,7 +178,7 @@ var table = {
                 var currentId = $.common.isEmpty(table.options.formId) ? $('form').attr('id') : table.options.formId;
                 return $.extend(curParams, $.common.formToJSON(currentId)); 
             },
-            // 请求获取数据后处理回调函数
+            // 請求獲取數據後處理回調函數
             responseHandler: function(res) {
                 if (typeof table.get(this.id).responseHandler == "function") {
                     table.get(this.id).responseHandler(res);
@@ -203,22 +203,22 @@ var table = {
             },
             // 初始化事件
             initEvent: function() {
-                // 实例ID信息
+                // 實例ID資訊
                 var optionsIds = $.table.getOptionsIds();
-                // 监听事件处理
+                // 監聽事件處理
                 $(optionsIds).on(TABLE_EVENTS, function () {
                     table.set($(this).attr("id"));
                 });
-                // 在表格体渲染完成，并在 DOM 中可见后触发（事件）
+                // 在表格體渲染完成，並在 DOM 中可見後觸發（事件）
                 $(optionsIds).on("post-body.bs.table", function (e, args) {
-                    // 浮动提示框特效
+                    // 浮動提示框特效
                     $(".table [data-toggle='tooltip']").tooltip();
-                    // 气泡弹出框特效
+                    // 氣泡彈出框特效
                     $('.table [data-toggle="popover"]').popover();
                 });
-                // 选中、取消、全部选中、全部取消（事件）
+                // 選中、取消、全部選中、全部取消（事件）
                 $(optionsIds).on("check.bs.table check-all.bs.table uncheck.bs.table uncheck-all.bs.table", function (e, rowsAfter, rowsBefore) {
-                    // 复选框分页保留保存选中数组
+                    // 複選框分頁保留保存選中數組
                     var rows = $.common.equals("uncheck-all", e.type) ? rowsBefore : rowsAfter;
                     var rowIds = $.table.affectedRowIds(rows);
                     if ($.common.isNotEmpty(table.options.rememberSelected) && table.options.rememberSelected) {
@@ -237,18 +237,18 @@ var table = {
                         }
                     }
                 });
-                // 加载成功、选中、取消、全部选中、全部取消（事件）
+                // 載入成功、選中、取消、全部選中、全部取消（事件）
                 $(optionsIds).on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table load-success.bs.table", function () {
                     var toolbar = table.options.toolbar;
                     var uniqueId = table.options.uniqueId;
-                    // 工具栏按钮控制
+                    // 工具欄按鈕控制
                     var rows = $.common.isEmpty(uniqueId) ? $.table.selectFirstColumns() : $.table.selectColumns(uniqueId);
-                    // 非多个禁用
+                    // 非多個禁用
                     $('#' + toolbar + ' .multiple').toggleClass('disabled', !rows.length);
-                    // 非单个禁用
+                    // 非單個禁用
                     $('#' + toolbar + ' .single').toggleClass('disabled', rows.length!=1);
                 });
-                // 图片预览事件
+                // 圖片預覽事件
                 $(optionsIds).off("click").on("click", '.img-circle', function() {
                     var src = $(this).attr('src');
                     var target = $(this).data('target');
@@ -266,7 +266,7 @@ var table = {
                         window.open(src);
                     }
                 });
-                // 单击tooltip事件
+                // 單擊tooltip事件
                 $(optionsIds).on("click", '.tooltip-show', function() {
                     var target = $(this).data('target');
                     var input = $(this).prev();
@@ -275,28 +275,28 @@ var table = {
                         document.execCommand("copy");
                     } else if ($.common.equals("open", target)) {
                         top.layer.alert(input.val(), {
-                            title: "信息内容",
+                            title: "資訊內容",
                             shadeClose: true,
-                            btn: ['确认'],
+                            btn: ['確認'],
                             btnclass: ['btn btn-primary'],
                         });
                     }
                 });
             },
-            // 当所有数据被加载时触发
+            // 當所有數據被載入時觸發
             onLoadSuccess: function(data) {
                 if (typeof table.options.onLoadSuccess == "function") {
                     table.options.onLoadSuccess(data);
                 }
             },
-            // 表格销毁
+            // 表格銷毀
             destroy: function (tableId) {
                 var currentId = $.common.isEmpty(tableId) ? table.options.id : tableId;
                 $("#" + currentId).bootstrapTable('destroy');
                 delete table.rememberSelectedIds[currentId];
                 delete table.rememberSelecteds[currentId];
             },
-            // 序列号生成
+            // 序號生成
             serialNumber: function (index, tableId) {
                 var currentId = $.common.isEmpty(tableId) ? table.options.id : tableId;
                 var tableParams = $("#" + currentId).bootstrapTable('getOptions');
@@ -307,7 +307,7 @@ var table = {
                 }
                 return pageSize * (pageNumber - 1) + index + 1;
             },
-            // 列超出指定长度浮动提示 target（copy单击复制文本 open弹窗打开文本）
+            // 列超出指定長度浮動提示 target（copy單擊複製文本 open彈出視窗打開文本）
             tooltip: function (value, length, target) {
                 var _length = $.common.isEmpty(length) ? 20 : length;
                 var _text = "";
@@ -326,7 +326,7 @@ var table = {
                     return _text;
                 }
             },
-            // 下拉按钮切换
+            // 下拉按鈕切換
             dropdownToggle: function (value) {
                 var actions = [];
                 actions.push('<div class="btn-group">');
@@ -338,7 +338,7 @@ var table = {
                 actions.push('</div>');
                 return actions.join('');
             },
-            // 图片预览
+            // 圖片預覽
             imageView: function (value, height, width, target) {
                 if ($.common.isEmpty(width)) {
                     width = 'auto';
@@ -354,7 +354,7 @@ var table = {
                     return $.common.nullToStr(value);
                 }
             },
-            // 搜索-默认第一个form
+            // 搜索-默認第一個form
             search: function(formId, tableId, pageNumber, pageSize) {
                 table.set(tableId);
                 table.options.formId = $.common.isEmpty(formId) ? $('form').attr('id') : formId;
@@ -371,16 +371,16 @@ var table = {
                     $("#" + table.options.id).bootstrapTable('refresh', params);
                 }
             },
-            // 导出数据
+            // 導出數據
             exportExcel: function(formId) {
                 table.set();
-                $.modal.confirm("确定导出所有" + table.options.modalName + "吗？", function() {
+                $.modal.confirm("確定導出所有" + table.options.modalName + "嗎？", function() {
                     var currentId = $.common.isEmpty(formId) ? $('form').attr('id') : formId;
                     var params = $("#" + table.options.id).bootstrapTable('getOptions');
                     var dataParam = $("#" + currentId).serializeArray();
                     dataParam.push({ "name": "orderByColumn", "value": params.sortName });
                     dataParam.push({ "name": "isAsc", "value": params.sortOrder });
-                    $.modal.loading("正在导出数据，请稍候...");
+                    $.modal.loading("正在導出數據，請稍候...");
                     $.post(table.options.exportUrl, dataParam, function(result) {
                         if (result.code == web_status.SUCCESS) {
                             window.location.href = ctx + "common/download?fileName=" + encodeURI(result.msg) + "&delete=" + true;
@@ -393,7 +393,7 @@ var table = {
                     });
                 });
             },
-            // 下载模板
+            // 下載模板
             importTemplate: function() {
                 $.get(activeWindow().table.options.importTemplateUrl, function(result) {
                     if (result.code == web_status.SUCCESS) {
@@ -405,7 +405,7 @@ var table = {
                     }
                 });
             },
-            // 导入数据
+            // 導入數據
             importExcel: function(formId, width, height) {
                 table.set();
                 var currentId = $.common.isEmpty(formId) ? 'importTpl' : formId;
@@ -418,15 +418,15 @@ var table = {
                     //不固定
                     maxmin: true,
                     shade: 0.3,
-                    title: '导入' + table.options.modalName + '数据',
+                    title: '導入' + table.options.modalName + '數據',
                     content: $('#' + currentId).html(),
-                    btn: ['<i class="fa fa-check"></i> 导入', '<i class="fa fa-remove"></i> 取消'],
-                    // 弹层外区域关闭
+                    btn: ['<i class="fa fa-check"></i> 導入', '<i class="fa fa-remove"></i> 取消'],
+                    // 彈層外區域關閉
                     shadeClose: true,
                     btn1: function(index, layero){
                         var file = layero.find('#file').val();
                         if (file == '' || (!$.common.endWith(file, '.xls') && !$.common.endWith(file, '.xlsx'))) {
-                            $.modal.msgWarning("请选择后缀为 “xls”或“xlsx”的文件。");
+                            $.modal.msgWarning("請選擇後綴為 “xls”或“xlsx”的文件。");
                             return false;
                         }
                         var index = top.layer.load(2, {shade: false});
@@ -487,7 +487,7 @@ var table = {
                 var currentId = $.common.isEmpty(tableId) ? table.options.id : tableId;
                 $("#" + currentId).bootstrapTable('refreshOptions', options);
             },
-            // 查询表格指定列值 deDuplication（ true去重、false不去重）
+            // 查詢表格指定列值 deDuplication（ true去重、false不去重）
             selectColumns: function(column, deDuplication) {
                 var distinct = $.common.isEmpty(deDuplication) ? true : deDuplication;
                 var rows = $.map($("#" + table.options.id).bootstrapTable('getSelections'), function (row) {
@@ -503,7 +503,7 @@ var table = {
                 }
                 return distinct ? $.common.uniqueFn(rows) : rows;
             },
-            // 获取当前页选中或者取消的行ID
+            // 獲取當前頁選中或者取消的行ID
             affectedRowIds: function(rows) {
                 var column = $.common.isEmpty(table.options.uniqueId) ? table.options.columns[1].field : table.options.uniqueId;
                 var rowIds;
@@ -516,7 +516,7 @@ var table = {
                 }
                 return rowIds;
             },
-            // 查询表格首列值deDuplication（ true去重、false不去重）
+            // 查詢表格首列值deDuplication（ true去重、false不去重）
             selectFirstColumns: function(deDuplication) {
                 var distinct = $.common.isEmpty(deDuplication) ? true : deDuplication;
                 var rows = $.map($("#" + table.options.id).bootstrapTable('getSelections'), function (row) {
@@ -532,7 +532,7 @@ var table = {
                 }
                 return distinct ? $.common.uniqueFn(rows) : rows;
             },
-            // 回显数据字典
+            // 回顯數據字典
             selectDictLabel: function(datas, value) {
                 if ($.common.isEmpty(datas) || $.common.isEmpty(value)) {
                     return '';
@@ -551,7 +551,7 @@ var table = {
                 }
                 return actions.join('');
             },
-            // 回显数据字典（字符串数组）
+            // 回顯數據字典（字串數組）
             selectDictLabels: function(datas, value, separator) {
                 if ($.common.isEmpty(datas) || $.common.isEmpty(value)) {
                     return '';
@@ -574,28 +574,28 @@ var table = {
                 });
                 return actions.join('');
             },
-            // 显示表格指定列
+            // 顯示表格指定列
             showColumn: function(column, tableId) {
                 var currentId = $.common.isEmpty(tableId) ? table.options.id : tableId;
                 $("#" + currentId).bootstrapTable('showColumn', column);
             },
-            // 隐藏表格指定列
+            // 隱藏表格指定列
             hideColumn: function(column, tableId) {
                 var currentId = $.common.isEmpty(tableId) ? table.options.id : tableId;
                 $("#" + currentId).bootstrapTable('hideColumn', column);
             },
-            // 显示所有表格列
+            // 顯示所有表格列
             showAllColumns: function(tableId) {
                 var currentId = $.common.isEmpty(tableId) ? table.options.id : tableId;
                 $("#" + currentId).bootstrapTable('showAllColumns');
             },
-            // 隐藏所有表格列
+            // 隱藏所有表格列
             hideAllColumns: function(tableId) {
                 var currentId = $.common.isEmpty(tableId) ? table.options.id : tableId;
                 $("#" + currentId).bootstrapTable('hideAllColumns');
             }
         },
-        // 表格树封装处理
+        // 表格樹封裝處理
         treeTable: {
             // 初始化表格
             init: function(options) {
@@ -622,34 +622,34 @@ var table = {
                 table.config[options.id] = options;
                 $.table.initEvent();
                 $.bttTable = $('#' + options.id).bootstrapTreeTable({
-                    code: options.code,                                 // 用于设置父子关系
-                    parentCode: options.parentCode,                     // 用于设置父子关系
-                    type: 'post',                                       // 请求方式（*）
-                    url: options.url,                                   // 请求后台的URL（*）
-                    data: options.data,                                 // 无url时用于渲染的数据
-                    ajaxParams: options.ajaxParams,                     // 请求数据的ajax的data属性
-                    rootIdValue: options.rootIdValue,                   // 设置指定根节点id值
-                    height: options.height,                             // 表格树的高度
-                    pagination: options.pagination,                     // 是否显示分页
-                    dataUrl: options.dataUrl,                           // 加载子节点异步请求数据url
-                    pageSize: options.pageSize,                         // 每页的记录行数
-                    pageList: options.pageList,                         // 可供选择的每页的行数
-                    expandColumn: options.expandColumn,                 // 在哪一列上面显示展开按钮
-                    striped: options.striped,                           // 是否显示行间隔色
-                    bordered: options.bordered,                         // 是否显示边框
-                    toolbar: '#' + options.toolbar,                     // 指定工作栏
-                    showSearch: options.showSearch,                     // 是否显示检索信息
-                    showRefresh: options.showRefresh,                   // 是否显示刷新按钮
-                    showColumns: options.showColumns,                   // 是否显示隐藏某列下拉框
-                    expandAll: options.expandAll,                       // 是否全部展开
-                    expandFirst: options.expandFirst,                   // 是否默认第一级展开--expandAll为false时生效
-                    columns: options.columns,                           // 显示列信息（*）
-                    onClickRow: options.onClickRow,                     // 单击某行事件
-                    responseHandler: $.treeTable.responseHandler,       // 在加载服务器发送来的数据之前处理函数
-                    onLoadSuccess: $.treeTable.onLoadSuccess            // 当所有数据被加载时触发处理函数
+                    code: options.code,                                 // 用於設置父子關係
+                    parentCode: options.parentCode,                     // 用於設置父子關係
+                    type: 'post',                                       // 請求方式（*）
+                    url: options.url,                                   // 請求後台的URL（*）
+                    data: options.data,                                 // 無url時用於渲染的數據
+                    ajaxParams: options.ajaxParams,                     // 請求數據的ajax的data屬性
+                    rootIdValue: options.rootIdValue,                   // 設置指定根節點id值
+                    height: options.height,                             // 表格樹的高度
+                    pagination: options.pagination,                     // 是否顯示分頁
+                    dataUrl: options.dataUrl,                           // 載入子節點非同步請求數據url
+                    pageSize: options.pageSize,                         // 每頁的紀錄行數
+                    pageList: options.pageList,                         // 可供選擇的每頁的行數
+                    expandColumn: options.expandColumn,                 // 在哪一列上面顯示展開按鈕
+                    striped: options.striped,                           // 是否顯示行間隔色
+                    bordered: options.bordered,                         // 是否顯示邊框
+                    toolbar: '#' + options.toolbar,                     // 指定工作欄
+                    showSearch: options.showSearch,                     // 是否顯示檢索資訊
+                    showRefresh: options.showRefresh,                   // 是否顯示刷新按鈕
+                    showColumns: options.showColumns,                   // 是否顯示隱藏某列下拉框
+                    expandAll: options.expandAll,                       // 是否全部展開
+                    expandFirst: options.expandFirst,                   // 是否默認第一級展開--expandAll為false時生效
+                    columns: options.columns,                           // 顯示列資訊（*）
+                    onClickRow: options.onClickRow,                     // 單擊某行事件
+                    responseHandler: $.treeTable.responseHandler,       // 在載入伺服器發送來的數據之前處理函數
+                    onLoadSuccess: $.treeTable.onLoadSuccess            // 當所有數據被載入時觸發處理函數
                 });
             },
-            // 条件查询
+            // 條件查詢
             search: function(formId) {
                 var currentId = $.common.isEmpty(formId) ? $('form').attr('id') : formId;
                 var params = $.common.formToJSON(currentId);
@@ -659,7 +659,7 @@ var table = {
             refresh: function() {
                 $.bttTable.bootstrapTreeTable('refresh');
             },
-            // 查询表格树指定列值deDuplication（ true去重、false不去重）
+            // 查詢表格樹指定列值deDuplication（ true去重、false不去重）
             selectColumns: function(column, deDuplication) {
                 var distinct = $.common.isEmpty(deDuplication) ? true : deDuplication;
                 var rows = $.map($.bttTable.bootstrapTreeTable('getSelections'), function (row) {
@@ -667,7 +667,7 @@ var table = {
                 });
                 return distinct ? $.common.uniqueFn(rows) : rows;
             },
-            // 请求获取数据后处理回调函数，校验异常状态提醒
+            // 請求獲取數據後處理回調函數，校驗異常狀態提醒
             responseHandler: function(res) {
                 if (typeof table.options.responseHandler == "function") {
                     table.options.responseHandler(res);
@@ -679,7 +679,7 @@ var table = {
                     return res;
                 }
             },
-            // 当所有数据被加载时触发
+            // 當所有數據被載入時觸發
             onLoadSuccess: function(data) {
                 if (typeof table.options.onLoadSuccess == "function") {
                     table.options.onLoadSuccess(data);
@@ -687,9 +687,9 @@ var table = {
                 $(".table [data-toggle='tooltip']").tooltip();
             },
         },
-        // 表单封装处理
+        // 表單封裝處理
         form: {
-            // 表单重置
+            // 表單重設
             reset: function(formId, tableId, pageNumber, pageSize) {
                 table.set(tableId);
                 formId = $.common.isEmpty(formId) ? $('form').attr('id') : formId;
@@ -707,7 +707,7 @@ var table = {
                 }
                 resetDate();
             },
-            // 获取选中复选框项
+            // 獲取選中複選框項
             selectCheckeds: function(name) {
                 var checkeds = "";
                 $('input:checkbox[name="' + name + '"]:checked').each(function(i) {
@@ -719,7 +719,7 @@ var table = {
                 });
                 return checkeds;
             },
-            // 获取选中下拉框项
+            // 獲取選中下拉框項
             selectSelects: function(name) {
                 var selects = "";
                 $('#' + name + ' option:selected').each(function (i) {
@@ -732,9 +732,9 @@ var table = {
                 return selects;
             }
         },
-        // 弹出层封装处理
+        // 彈出層封裝處理
         modal: {
-            // 显示图标
+            // 顯示圖示
             icon: function(type) {
                 var icon = "";
                 if (type == modal_status.WARNING) {
@@ -756,7 +756,7 @@ var table = {
                 	top.layer.msg(content);
                 }
             },
-            // 错误消息
+            // 錯誤消息
             msgError: function(content) {
                 $.modal.msg(content, modal_status.FAIL);
             },
@@ -768,16 +768,16 @@ var table = {
             msgWarning: function(content) {
                 $.modal.msg(content, modal_status.WARNING);
             },
-            // 弹出提示
+            // 彈出提示
             alert: function(content, type) {
                 top.layer.alert(content, {
                     icon: $.modal.icon(type),
-                    title: "系统提示",
-                    btn: ['确认'],
+                    title: "系統提示",
+                    btn: ['確認'],
                     btnclass: ['btn btn-primary'],
                 });
             },
-            // 错误提示
+            // 錯誤提示
             alertError: function(content) {
                 $.modal.alert(content, modal_status.FAIL);
             },
@@ -789,7 +789,7 @@ var table = {
             alertWarning: function(content) {
                 $.modal.alert(content, modal_status.WARNING);
             },
-            // 消息提示，重新加载页面
+            // 消息提示，重新載入頁面
             msgReload: function(msg, type) {
                 top.layer.msg(msg, {
                     icon: $.modal.icon(type),
@@ -800,11 +800,11 @@ var table = {
                     $.modal.reload();
                 });
             },
-            // 消息提示成功并刷新父窗体
+            // 消息提示成功並刷新父窗體
             msgSuccessReload: function(msg) {
             	$.modal.msgReload(msg, modal_status.SUCCESS);
             },
-            // 获取iframe页的DOM
+            // 獲取iframe頁的DOM
             getChildFrame: function (index) {
                 if ($.common.isEmpty(index)) {
                     var index = parent.layer.getFrameIndex(window.name);
@@ -813,7 +813,7 @@ var table = {
                     return top.layer.getChildFrame('body', index);
                 }
             },
-            // 关闭窗体
+            // 關閉窗體
             close: function (index) {
                 if ($.common.isEmpty(index)) {
                     var index = parent.layer.getFrameIndex(window.name);
@@ -822,24 +822,24 @@ var table = {
                     top.layer.close(index);
                 }
             },
-            // 关闭全部窗体
+            // 關閉全部窗體
             closeAll: function () {
                 top.layer.closeAll();
             },
-            // 确认窗体
+            // 確認窗體
             confirm: function (content, callBack) {
                 top.layer.confirm(content, {
                     icon: 3,
-                    title: "系统提示",
-                    btn: ['确认', '取消']
+                    title: "系統提示",
+                    btn: ['確認', '取消']
                 }, function (index) {
                     $.modal.close(index);
                     callBack(true);
                 });
             },
-            // 弹出层指定宽度
+            // 彈出層指定寬度
             open: function (title, url, width, height, callback) {
-                // 如果是移动端，就使用自适应大小弹窗
+                // 如果是行動端，就使用自適應大小彈出視窗
                 if ($.common.isMobile()) {
                     width = 'auto';
                     height = 'auto';
@@ -871,8 +871,8 @@ var table = {
                     shade: 0.3,
                     title: title,
                     content: url,
-                    btn: ['确定', '关闭'],
-                    // 弹层外区域关闭
+                    btn: ['確定', '關閉'],
+                    // 彈層外區域關閉
                     shadeClose: true,
                     yes: callback,
                     cancel: function(index) {
@@ -883,14 +883,14 @@ var table = {
                     }
                 });
             },
-            // 弹出层指定参数选项
+            // 彈出層指定參數選項
             openOptions: function (options) {
                 var _url = $.common.isEmpty(options.url) ? "/404.html" : options.url; 
-                var _title = $.common.isEmpty(options.title) ? "系统窗口" : options.title; 
+                var _title = $.common.isEmpty(options.title) ? "系統窗口" : options.title; 
                 var _width = $.common.isEmpty(options.width) ? "800" : options.width; 
                 var _height = $.common.isEmpty(options.height) ? ($(window).height() - 50) : options.height;
-                var _btn = ['<i class="fa fa-check"></i> 确认', '<i class="fa fa-close"></i> 关闭'];
-                // 如果是移动端，就使用自适应大小弹窗
+                var _btn = ['<i class="fa fa-check"></i> 確認', '<i class="fa fa-close"></i> 關閉'];
+                // 如果是行動端，就使用自適應大小彈出視窗
                 if ($.common.isMobile()) {
                     _width = 'auto';
                     _height = 'auto';
@@ -911,7 +911,7 @@ var table = {
                 }
                 var index = top.layer.open($.extend({
                     id: options.id,       // 唯一id
-                    anim: options.anim,   // 弹出动画 0-6
+                    anim: options.anim,   // 彈出動畫 0-6
                     type: 2,
                     maxmin: $.common.isEmpty(options.maxmin) ? true : options.maxmin,
                     shade: 0.3,
@@ -922,7 +922,7 @@ var table = {
                     closeBtn: $.common.isEmpty(options.closeBtn) ? 1 : options.closeBtn,
                     shadeClose: $.common.isEmpty(options.shadeClose) ? true : options.shadeClose,
                     skin: options.skin,
-                    // options.btn设置为0表示不显示按钮
+                    // options.btn設置為0表示不顯示按鈕
                     btn: $.common.isEmpty(options.btn) ? _btn : options.btn,
                     yes: options.yes,
                     cancel: function () {
@@ -936,9 +936,9 @@ var table = {
                     top.layer.full(index);
                 }
             },
-            // 弹出层全屏
+            // 彈出層全螢幕
             openFull: function (title, url, width, height) {
-                // 如果是移动端，就使用自适应大小弹窗
+                // 如果是行動端，就使用自適應大小彈出視窗
                 if ($.common.isMobile()) {
                     width = 'auto';
                     height = 'auto';
@@ -964,8 +964,8 @@ var table = {
                     shade: 0.3,
                     title: title,
                     content: url,
-                    btn: ['确定', '关闭'],
-                    // 弹层外区域关闭
+                    btn: ['確定', '關閉'],
+                    // 彈層外區域關閉
                     shadeClose: true,
                     yes: function(index, layero) {
                         var iframeWin = layero.find('iframe')[0];
@@ -980,17 +980,17 @@ var table = {
                 });
                 top.layer.full(index);
             },
-            // 选卡页方式打开
+            // 選卡頁方式打開
             openTab: function (title, url, isRefresh) {
                 createMenuItem(url, title, isRefresh);
             },
-            // 选卡页同一页签打开
+            // 選卡頁同一頁簽打開
             parentTab: function (title, url) {
                 var dataId = window.frameElement.getAttribute('data-id');
                 createMenuItem(url, title);
                 closeItem(dataId);
             },
-            // 右侧弹出窗口打开
+            // 右側彈出窗口打開
             popupRight: function(title, url){
                 var width = 150;
                 if (top.location !== self.location) {
@@ -1010,38 +1010,38 @@ var table = {
                     content: url
                 });
             },
-            // 关闭选项卡
+            // 關閉選項卡
             closeTab: function (dataId) {
                 closeItem(dataId);
             },
-            // 禁用按钮
+            // 禁用按鈕
             disable: function() {
                 var doc = window.top == window.parent ? top.window.document : window.parent.document;
                 $("a[class*=layui-layer-btn]", doc).addClass("layer-disabled");
             },
-            // 启用按钮
+            // 啟用按鈕
             enable: function() {
                 var doc = window.top == window.parent ? top.window.document : window.parent.document;
                 $("a[class*=layui-layer-btn]", doc).removeClass("layer-disabled");
             },
-            // 打开遮罩层
+            // 打開遮罩層
             loading: function (message) {
                 $.blockUI({ message: '<div class="loaderbox"><div class="loading-activity"></div> ' + message + '</div>' });
             },
-            // 关闭遮罩层
+            // 關閉遮罩層
             closeLoading: function () {
                 setTimeout(function(){
                     $.unblockUI();
                 }, 50);
             },
-            // 重新加载
+            // 重新載入
             reload: function () {
                 parent.location.reload();
             }
         },
-        // 操作封装处理
+        // 操作封裝處理
         operate: {
-            // 提交数据
+            // 提交數據
             submit: function(url, type, dataType, data, callback) {
                 var config = {
                     url: url,
@@ -1049,7 +1049,7 @@ var table = {
                     dataType: dataType,
                     data: data,
                     beforeSend: function () {
-                        $.modal.loading("正在处理中，请稍候...");
+                        $.modal.loading("正在處理中，請稍候...");
                     },
                     success: function(result) {
                         if (typeof callback == "function") {
@@ -1060,20 +1060,20 @@ var table = {
                 };
                 $.ajax(config)
             },
-            // post请求传输
+            // post請求傳輸
             post: function(url, data, callback) {
                 $.operate.submit(url, "post", "json", data, callback);
             },
-            // get请求传输
+            // get請求傳輸
             get: function(url, callback) {
                 $.operate.submit(url, "get", "json", "", callback);
             },
-            // 详细信息
+            // 詳細資訊
             detail: function(id, width, height) {
                 table.set();
                 var _url = $.operate.detailUrl(id);
                 var options = {
-                    title: table.options.modalName + "详细",
+                    title: table.options.modalName + "詳細",
                     width: width,
                     height: height,
                     url: _url,
@@ -1084,12 +1084,12 @@ var table = {
                 };
                 $.modal.openOptions(options);
             },
-            // 详细信息，以tab页展现
+            // 詳細資訊，以tab頁展現
             detailTab: function(id) {
                 table.set();
-                $.modal.openTab("详细" + table.options.modalName, $.operate.detailUrl(id));
+                $.modal.openTab("詳細" + table.options.modalName, $.operate.detailUrl(id));
             },
-            // 详细访问地址
+            // 詳細訪問地址
             detailUrl: function(id) {
                 var url = "/404.html";
                 if ($.common.isNotEmpty(id)) {
@@ -1097,17 +1097,17 @@ var table = {
                 } else {
                     var id = $.common.isEmpty(table.options.uniqueId) ? $.table.selectFirstColumns() : $.table.selectColumns(table.options.uniqueId);
                     if (id.length == 0) {
-                        $.modal.alertWarning("请至少选择一条记录");
+                        $.modal.alertWarning("請至少選擇一條紀錄");
                         return;
                     }
                     url = table.options.detailUrl.replace("{id}", id);
                 }
                 return url;
             },
-            // 删除信息
+            // 刪除資訊
             remove: function(id) {
                 table.set();
-                $.modal.confirm("确定删除该条" + table.options.modalName + "信息吗？", function() {
+                $.modal.confirm("確定刪除該條" + table.options.modalName + "資訊嗎？", function() {
                     var url = $.common.isEmpty(id) ? table.options.removeUrl : table.options.removeUrl.replace("{id}", id);
                     if (table.options.type == table_type.bootstrapTreeTable) {
                         $.operate.get(url);
@@ -1117,55 +1117,55 @@ var table = {
                     }
                 });
             },
-            // 批量删除信息
+            // 批次刪除資訊
             removeAll: function() {
                 table.set();
                 var rows = $.common.isEmpty(table.options.uniqueId) ? $.table.selectFirstColumns() : $.table.selectColumns(table.options.uniqueId);
                 if (rows.length == 0) {
-                    $.modal.alertWarning("请至少选择一条记录");
+                    $.modal.alertWarning("請至少選擇一條紀錄");
                     return;
                 }
-                $.modal.confirm("确认要删除选中的" + rows.length + "条数据吗?", function() {
+                $.modal.confirm("確認要刪除選中的" + rows.length + "條數據嗎?", function() {
                     var url = table.options.removeUrl;
                     var data = { "ids": rows.join() };
                     $.operate.submit(url, "post", "json", data);
                 });
             },
-            // 清空信息
+            // 清空資訊
             clean: function() {
                 table.set();
-                $.modal.confirm("确定清空所有" + table.options.modalName + "吗？", function() {
+                $.modal.confirm("確定清空所有" + table.options.modalName + "嗎？", function() {
                     var url = table.options.cleanUrl;
                     $.operate.submit(url, "post", "json", "");
                 });
             },
-            // 添加信息
+            // 添加資訊
             add: function(id) {
                 table.set();
                 $.modal.open("添加" + table.options.modalName, $.operate.addUrl(id));
             },
-            // 添加信息，以tab页展现
+            // 添加資訊，以tab頁展現
             addTab: function (id) {
                 table.set();
                 $.modal.openTab("添加" + table.options.modalName, $.operate.addUrl(id));
             },
-            // 添加信息 全屏
+            // 添加資訊 全螢幕
             addFull: function(id) {
                 table.set();
                 $.modal.openFull("添加" + table.options.modalName, $.operate.addUrl(id));
             },
-            // 添加访问地址
+            // 添加訪問地址
             addUrl: function(id) {
                 var url = $.common.isEmpty(id) ? table.options.createUrl.replace("{id}", "") : table.options.createUrl.replace("{id}", id);
                 return url;
             },
-            // 修改信息
+            // 修改資訊
             edit: function(id) {
                 table.set();
                 if ($.common.isEmpty(id) && table.options.type == table_type.bootstrapTreeTable) {
                     var row = $("#" + table.options.id).bootstrapTreeTable('getSelections')[0];
                     if ($.common.isEmpty(row)) {
-                        $.modal.alertWarning("请至少选择一条记录");
+                        $.modal.alertWarning("請至少選擇一條紀錄");
                         return;
                     }
                     var url = table.options.updateUrl.replace("{id}", row[table.options.uniqueId]);
@@ -1174,12 +1174,12 @@ var table = {
                     $.modal.open("修改" + table.options.modalName, $.operate.editUrl(id));
                 }
             },
-            // 修改信息，以tab页展现
+            // 修改資訊，以tab頁展現
             editTab: function(id) {
                 table.set();
                 $.modal.openTab("修改" + table.options.modalName, $.operate.editUrl(id));
             },
-            // 修改信息 全屏
+            // 修改資訊 全螢幕
             editFull: function(id) {
                 table.set();
                 var url = "/404.html";
@@ -1189,7 +1189,7 @@ var table = {
                     if (table.options.type == table_type.bootstrapTreeTable) {
                         var row = $("#" + table.options.id).bootstrapTreeTable('getSelections')[0];
                         if ($.common.isEmpty(row)) {
-                            $.modal.alertWarning("请至少选择一条记录");
+                            $.modal.alertWarning("請至少選擇一條紀錄");
                             return;
                         }
                         url = table.options.updateUrl.replace("{id}", row[table.options.uniqueId]);
@@ -1200,7 +1200,7 @@ var table = {
                 }
                 $.modal.openFull("修改" + table.options.modalName, url);
             },
-            // 修改访问地址
+            // 修改訪問地址
             editUrl: function(id) {
                 var url = "/404.html";
                 if ($.common.isNotEmpty(id)) {
@@ -1208,20 +1208,20 @@ var table = {
                 } else {
                     var id = $.common.isEmpty(table.options.uniqueId) ? $.table.selectFirstColumns() : $.table.selectColumns(table.options.uniqueId);
                     if (id.length == 0) {
-                        $.modal.alertWarning("请至少选择一条记录");
+                        $.modal.alertWarning("請至少選擇一條紀錄");
                         return;
                     }
                     url = table.options.updateUrl.replace("{id}", id);
                 }
                 return url;
             },
-            // 右侧弹出详情
+            // 右側彈出詳情
             view: function(id){
                 table.set();
                 var url = table.options.viewUrl.replace("{id}", id);
-                $.modal.popupRight(table.options.modalName + "信息详情", url);
+                $.modal.popupRight(table.options.modalName + "資訊詳情", url);
             },
-            // 保存信息 刷新表格
+            // 保存資訊 刷新表格
             save: function(url, data, callback) {
                 var config = {
                     url: url,
@@ -1229,7 +1229,7 @@ var table = {
                     dataType: "json",
                     data: data,
                     beforeSend: function () {
-                        $.modal.loading("正在处理中，请稍候...");
+                        $.modal.loading("正在處理中，請稍候...");
                         $.modal.disable();
                     },
                     success: function(result) {
@@ -1241,7 +1241,7 @@ var table = {
                 };
                 $.ajax(config)
             },
-            // 保存信息 弹出结果提示框
+            // 保存資訊 彈出結果提示框
             saveModal: function(url, data, callback) {
                 var config = {
                     url: url,
@@ -1249,7 +1249,7 @@ var table = {
                     dataType: "json",
                     data: data,
                     beforeSend: function () {
-                        $.modal.loading("正在处理中，请稍候...");
+                        $.modal.loading("正在處理中，請稍候...");
                     },
                     success: function(result) {
                         if (typeof callback == "function") {
@@ -1267,7 +1267,7 @@ var table = {
                 };
                 $.ajax(config)
             },
-            // 保存选项卡信息
+            // 保存選項卡資訊
             saveTab: function(url, data, callback) {
                 var config = {
                     url: url,
@@ -1275,7 +1275,7 @@ var table = {
                     dataType: "json",
                     data: data,
                     beforeSend: function () {
-                        $.modal.loading("正在处理中，请稍候...");
+                        $.modal.loading("正在處理中，請稍候...");
                     },
                     success: function(result) {
                         if (typeof callback == "function") {
@@ -1286,7 +1286,7 @@ var table = {
                 };
                 $.ajax(config)
             },
-            // 保存结果弹出msg刷新table表格
+            // 保存結果彈出msg刷新table表格
             ajaxSuccess: function (result) {
                 if (result.code == web_status.SUCCESS && table.options.type == table_type.bootstrapTable) {
                     $.modal.msgSuccess(result.msg);
@@ -1303,7 +1303,7 @@ var table = {
                 }
                 $.modal.closeLoading();
             },
-            // 保存结果重新加载页面
+            // 保存結果重新載入頁面
             saveReload: function (result) {
                 if (result.code == web_status.SUCCESS) {
                     $.modal.msgSuccessReload(result.msg);
@@ -1314,7 +1314,7 @@ var table = {
                 }
                 $.modal.closeLoading();
             },
-            // 成功回调执行事件（父窗体静默更新）
+            // 成功回調執行事件（父窗體靜默更新）
             successCallback: function(result) {
                 if (result.code == web_status.SUCCESS) {
                     var parent = activeWindow();
@@ -1337,7 +1337,7 @@ var table = {
                 $.modal.closeLoading();
                 $.modal.enable();
             },
-            // 选项卡成功回调执行事件（父窗体静默更新）
+            // 選項卡成功回調執行事件（父窗體靜默更新）
             successTabCallback: function(result) {
                 if (result.code == web_status.SUCCESS) {
                     var topWindow = $(window.parent.document);
@@ -1365,54 +1365,54 @@ var table = {
                 $.modal.closeLoading();
             }
         },
-        // 校验封装处理
+        // 校驗封裝處理
         validate: {
-            // 表单验证
+            // 表單驗證
             form: function (formId) {
                 var currentId = $.common.isEmpty(formId) ? $('form').attr('id') : formId;
                 return $("#" + currentId).validate().form();
             },
-            // 重置表单验证（清除提示信息）
+            // 重設表單驗證（清除提示資訊）
             reset: function (formId) {
                 var currentId = $.common.isEmpty(formId) ? $('form').attr('id') : formId;
                 return $("#" + currentId).validate().resetForm();
             }
         },
-        // 树插件封装处理
+        // 樹插件封裝處理
         tree: {
             _option: {},
             _lastValue: {},
-            // 初始化树结构
+            // 初始化樹結構
             init: function(options) {
                 var defaults = {
-                    id: "tree",                    // 属性ID
-                    expandLevel: 0,                // 展开等级节点
+                    id: "tree",                    // 屬性ID
+                    expandLevel: 0,                // 展開等級節點
                     view: {
-                        selectedMulti: false,      // 设置是否允许同时选中多个节点
-                        nameIsHTML: true           // 设置 name 属性是否支持 HTML 脚本
+                        selectedMulti: false,      // 設置是否允許同時選中多個節點
+                        nameIsHTML: true           // 設置 name 屬性是否支持 HTML 腳本
                     },
                     check: {
-                        enable: false,             // 置 zTree 的节点上是否显示 checkbox / radio
-                        nocheckInherit: true,      // 设置子节点是否自动继承
-                        chkboxType: { "Y": "ps", "N": "ps" } // 父子节点的关联关系
+                        enable: false,             // 置 zTree 的節點上是否顯示 checkbox / radio
+                        nocheckInherit: true,      // 設置子節點是否自動繼承
+                        chkboxType: { "Y": "ps", "N": "ps" } // 父子節點的關聯關係
                     },
                     data: {
                         key: {
-                            title: "title"         // 节点数据保存节点提示信息的属性名称
+                            title: "title"         // 節點數據保存節點提示資訊的屬性名稱
                         },
                         simpleData: {
-                            enable: true           // true / false 分别表示 使用 / 不使用 简单数据模式
+                            enable: true           // true / false 分別表示 使用 / 不使用 簡單數據模式
                         }
                     },
                 };
                 var options = $.extend(defaults, options);
                 $.tree._option = options;
-                // 树结构初始化加载
+                // 樹結構初始化載入
                 var setting = {
                     callback: {
-                        onClick: options.onClick,                      // 用于捕获节点被点击的事件回调函数
-                        onCheck: options.onCheck,                      // 用于捕获 checkbox / radio 被勾选 或 取消勾选的事件回调函数
-                        onDblClick: options.onDblClick                 // 用于捕获鼠标双击之后的事件回调函数
+                        onClick: options.onClick,                      // 用於捕獲節點被點擊的事件回調函數
+                        onCheck: options.onCheck,                      // 用於捕獲 checkbox / radio 被勾選 或 取消勾選的事件回調函數
+                        onDblClick: options.onDblClick                 // 用於捕獲滑鼠雙擊之後的事件回調函數
                     },
                     check: options.check,
                     view: options.view,
@@ -1430,20 +1430,20 @@ var table = {
                     }
                     var node = tree.getNodesByParam("id", treeId, null)[0];
                     $.tree.selectByIdName(treeId, node);
-                    // 回调tree方法
+                    // 回調tree方法
                     if (typeof(options.callBack) === "function"){
                         options.callBack(tree);
                     }
                 });
             },
-            // 搜索节点
+            // 搜索節點
             searchNode: function() {
-                // 取得输入的关键字的值
+                // 取得輸入的關鍵字的值
                 var value = $.common.trim($("#keyword").val());
                 if ($.tree._lastValue == value) {
                     return;
                 }
-                // 保存最后一次搜索名称
+                // 保存最後一次搜索名稱
                 $.tree._lastValue = value;
                 var nodes = $._tree.getNodes();
                 // 如果要查空字串，就退出不查了。
@@ -1452,16 +1452,16 @@ var table = {
                     return;
                 }
                 $.tree.hideAllNode(nodes);
-                // 根据搜索值模糊匹配
+                // 根據搜索值模糊匹配
                 $.tree.updateNodes($._tree.getNodesByParamFuzzy("name", value));
             },
-            // 根据Id和Name选中指定节点
+            // 根據Id和Name選中指定節點
             selectByIdName: function(treeId, node) {
                 if ($.common.isNotEmpty(treeId) && node && treeId == node.id) {
                     $._tree.selectNode(node, true);
                 }
             },
-            // 显示所有节点
+            // 顯示所有節點
             showAllNode: function(nodes) {
                 nodes = $._tree.transformToArray(nodes);
                 for (var i = nodes.length - 1; i >= 0; i--) {
@@ -1474,14 +1474,14 @@ var table = {
                     $.tree.showAllNode(nodes[i].children);
                 }
             },
-            // 隐藏所有节点
+            // 隱藏所有節點
             hideAllNode: function(nodes) {
                 var nodes = $._tree.transformToArray(nodes);
                 for (var i = nodes.length - 1; i >= 0; i--) {
                     $._tree.hideNode(nodes[i]);
                 }
             },
-            // 显示所有父节点
+            // 顯示所有父節點
             showParent: function(treeNode) {
                 var parentNode;
                 while ((parentNode = treeNode.getParentNode()) != null) {
@@ -1490,7 +1490,7 @@ var table = {
                     treeNode = parentNode;
                 }
             },
-            // 显示所有孩子节点
+            // 顯示所有孩子節點
             showChildren: function(treeNode) {
                 if (treeNode.isParent) {
                     for (var idx in treeNode.children) {
@@ -1500,7 +1500,7 @@ var table = {
                     }
                 }
             },
-            // 更新节点状态
+            // 更新節點狀態
             updateNodes: function(nodeList) {
                 $._tree.showNodes(nodeList);
                 for (var i = 0, l = nodeList.length; i < l; i++) {
@@ -1509,7 +1509,7 @@ var table = {
                     $.tree.showParent(treeNode)
                 }
             },
-            // 获取当前被勾选集合
+            // 獲取當前被勾選集合
             getCheckedNodes: function(column) {
                 var _column = $.common.isEmpty(column) ? "id" : column;
                 var nodes = $._tree.getCheckedNodes(true);
@@ -1517,77 +1517,77 @@ var table = {
                     return row[_column];
                 }).join();
             },
-            // 不允许根父节点选择
+            // 不允許根父節點選擇
             notAllowParents: function(_tree) {
                 var nodes = _tree.getSelectedNodes();
                 if (nodes.length == 0){
-                    $.modal.msgError("请选择节点后提交");
+                    $.modal.msgError("請選擇節點後提交");
                     return false;
                 }
                 for (var i = 0; i < nodes.length; i++) {
                     if (nodes[i].level == 0) {
-                        $.modal.msgError("不能选择根节点（" + nodes[i].name + "）");
+                        $.modal.msgError("不能選擇根節點（" + nodes[i].name + "）");
                         return false;
                     }
                     if (nodes[i].isParent) {
-                        $.modal.msgError("不能选择父节点（" + nodes[i].name + "）");
+                        $.modal.msgError("不能選擇父節點（" + nodes[i].name + "）");
                         return false;
                     }
                 }
                 return true;
             },
-            // 不允许最后层级节点选择
+            // 不允許最後層級節點選擇
             notAllowLastLevel: function(_tree) {
                 var nodes = _tree.getSelectedNodes();
                 for (var i = 0; i < nodes.length; i++) {
                     if (!nodes[i].isParent) {
-                        $.modal.msgError("不能选择最后层级节点（" + nodes[i].name + "）");
+                        $.modal.msgError("不能選擇最後層級節點（" + nodes[i].name + "）");
                         return false;
                     }
                 }
                 return true;
             },
-            // 隐藏/显示搜索栏
+            // 隱藏/顯示搜索欄
             toggleSearch: function() {
                 $('#search').slideToggle(200);
                 $('#btnShow').toggle();
                 $('#btnHide').toggle();
                 $('#keyword').focus();
             },
-            // 折叠
+            // 摺疊
             collapse: function() {
                 $._tree.expandAll(false);
             },
-            // 展开
+            // 展開
             expand: function() {
                 $._tree.expandAll(true);
             }
         },
-        // 通用方法封装处理
+        // 通用方法封裝處理
         common: {
-            // 判断字符串是否为空
+            // 判斷字串是否為空
             isEmpty: function (value) {
                 if (value == null || this.trim(value) == "" || value == undefined || value == "undefined") {
                     return true;
                 }
                 return false;
             },
-            // 判断一个字符串是否为非空串
+            // 判斷一個字串是否為非空串
             isNotEmpty: function (value) {
                 return !$.common.isEmpty(value);
             },
-            // 如果值是空，则返回指定默认字符串，否则返回字符串本身
+            // 如果值是空，則返回指定默認字串，否則返回字串本身
             nullToDefault: function (value, defaultValue) {
                 return $.common.isEmpty(value) ? defaultValue : value;
             },
-            // 空对象转字符串
+            // 空對象轉字串
             nullToStr: function(value) {
                 if ($.common.isEmpty(value)) {
                     return "-";
                 }
                 return value;
             },
-            // 是否显示数据 为空默认为显示
+            // 是否顯示數據 為空預設為顯示
             visible: function (value) {
                 if ($.common.isEmpty(value) || value == true) {
                     return true;
@@ -1601,15 +1601,15 @@ var table = {
                 }
                 return value.toString().replace(/(^\s*)|(\s*$)|\r|\n/g, "");
             },
-            // 比较两个字符串（大小写敏感）
+            // 比較兩個字串（大小寫敏感）
             equals: function (str, that) {
                 return str == that;
             },
-            // 比较两个字符串（大小写不敏感）
+            // 比較兩個字串（大小寫不敏感）
             equalsIgnoreCase: function (str, that) {
                 return String(str).toUpperCase() === String(that).toUpperCase();
             },
-            // 将字符串按指定字符分割
+            // 將字串按指定字元分割
             split: function (str, sep, maxLen) {
                 if ($.common.isEmpty(str)) {
                     return null;
@@ -1617,7 +1617,7 @@ var table = {
                 var value = String(str).split(sep);
                 return maxLen ? value.slice(0, maxLen - 1) : value;
             },
-            // 字符串格式化(%s )
+            // 字串格式化(%s )
             sprintf: function (str) {
                 var args = arguments, flag = true, i = 1;
                 str = str.replace(/%s/g, function () {
@@ -1630,7 +1630,7 @@ var table = {
                 });
                 return flag ? str : '';
             },
-            // 日期格式化 时间戳  -> yyyy-MM-dd HH-mm-ss
+            // 日期格式化 時間戳  -> yyyy-MM-dd HH-mm-ss
             dateFormat: function(date, format) {
                 var that = this;
                 if (that.isEmpty(date)) return "";
@@ -1663,7 +1663,7 @@ var table = {
                     return dict[arguments[0]];
                 });
             },
-            // 获取节点数据，支持多层级访问
+            // 獲取節點數據，支持多層級訪問
             getItemField: function (item, field) {
                 var value = item;
                 if (typeof field !== 'string' || item.hasOwnProperty(field)) {
@@ -1675,21 +1675,21 @@ var table = {
                 }
                 return value;
             },
-            // 指定随机数返回
+            // 指定隨機數返回
             random: function (min, max) {
                 return Math.floor((Math.random() * max) + min);
             },
-            // 判断字符串是否是以start开头
+            // 判斷字串是否是以start開頭
             startWith: function(value, start) {
                 var reg = new RegExp("^" + start);
                 return reg.test(value)
             },
-            // 判断字符串是否是以end结尾
+            // 判斷字串是否是以end結尾
             endWith: function(value, end) {
                 var reg = new RegExp(end + "$");
                 return reg.test(value)
             },
-            // 数组去重
+            // 數組去重
             uniqueFn: function(array) {
                 var result = [];
                 var hashObj = {};
@@ -1701,14 +1701,14 @@ var table = {
                 }
                 return result;
             },
-            // 数组中的所有元素放入一个字符串
+            // 數組中的所有元素放入一個字串
             join: function(array, separator) {
                 if ($.common.isEmpty(array)) {
                     return null;
                 }
                 return array.join(separator);
             },
-            // 获取form下所有的字段并转换为json对象
+            // 獲取form下所有的欄位並轉換為json對象
             formToJSON: function(formId) {
                 var json = {};
                 $.each($("#" + formId).serializeArray(), function(i, field) {
@@ -1720,7 +1720,7 @@ var table = {
                 });
                 return json;
             },
-            // 数据字典转下拉框
+            // 數據字典轉下拉框
             dictToSelect: function(datas, value, name) {
                 var actions = [];
                 actions.push($.common.sprintf("<select class='form-control' name='%s'>", name));
@@ -1734,7 +1734,7 @@ var table = {
                 actions.push('</select>');
                 return actions.join('');
             },
-            // 获取obj对象长度
+            // 獲取obj對象長度
             getLength: function(obj) {
                 var count = 0;　　
                 for (var i in obj) {
@@ -1744,26 +1744,26 @@ var table = {
                 }
                 return count;
             },
-            // 判断移动端
+            // 判斷行動端
             isMobile: function () {
                 return navigator.userAgent.match(/(Android|iPhone|SymbianOS|Windows Phone|iPad|iPod)/i);
             },
-            // 数字正则表达式，只能为0-9数字
+            // 數字正則表達式，只能為0-9數字
             numValid : function(text){
                 var patten = new RegExp(/^[0-9]+$/);
                 return patten.test(text);
             },
-            // 英文正则表达式，只能为a-z和A-Z字母
+            // 英文正則表達式，只能為a-z和A-Z字母
             enValid : function(text){
                 var patten = new RegExp(/^[a-zA-Z]+$/);
                 return patten.test(text);
             },
-            // 英文、数字正则表达式，必须包含（字母，数字）
+            // 英文、數字正則表達式，必須包含（字母，數字）
             enNumValid : function(text){
                 var patten = new RegExp(/^(?=.*[a-zA-Z]+)(?=.*[0-9]+)[a-zA-Z0-9]+$/);
                 return patten.test(text);
             },
-            // 英文、数字、特殊字符正则表达式，必须包含（字母，数字，特殊字符!@#$%^&*()-=_+）
+            // 英文、數字、特殊字元正則表達式，必須包含（字母，數字，特殊字元!@#$%^&*()-=_+）
             charValid : function(text){
                 var patten = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[~!@#\$%\^&\*\(\)\-=_\+])[A-Za-z\d~!@#\$%\^&\*\(\)\-=_\+]{6,}$/);
                 return patten.test(text);
@@ -1772,20 +1772,20 @@ var table = {
     });
 })(jQuery);
 
-/** 表格类型 */
+/** 表格類型 */
 table_type = {
     bootstrapTable: 0,
     bootstrapTreeTable: 1
 };
 
-/** 消息状态码 */
+/** 消息狀態碼 */
 web_status = {
     SUCCESS: 0,
     FAIL: 500,
     WARNING: 301
 };
 
-/** 弹窗状态码 */
+/** 彈出視窗狀態碼 */
 modal_status = {
     SUCCESS: "success",
     FAIL: "error",

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('参数列表')" />
+	<th:block th:include="include :: header('參數列表')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -11,26 +11,26 @@
 					<div class="select-list">
 						<ul>
 							<li>
-								参数名称：<input type="text" name="configName"/>
+								參數名稱：<input type="text" name="configName"/>
 							</li>
 							<li>
-								参数键名：<input type="text" name="configKey"/>
+								參數鍵名：<input type="text" name="configKey"/>
 							</li>
 							<li>
-								系统内置：<select name="configType" th:with="type=${@dict.getType('sys_yes_no')}">
+								系統內建：<select name="configType" th:with="type=${@dict.getType('sys_yes_no')}">
 									<option value="">所有</option>
 									<option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
 								</select>
 							</li>
 							<li class="select-time">
-								<label>创建时间： </label>
-								<input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginTime]"/>
+								<label>創建時間： </label>
+								<input type="text" class="time-input" id="startTime" placeholder="開始時間" name="params[beginTime]"/>
 								<span>-</span>
-								<input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]"/>
+								<input type="text" class="time-input" id="endTime" placeholder="結束時間" name="params[endTime]"/>
 							</li>
 							<li>
 								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
-								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重設</a>
 							</li>
 						</ul>
 					</div>
@@ -45,13 +45,13 @@
 		            <i class="fa fa-edit"></i> 修改
 		        </a>
 		        <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="system:config:remove">
-		            <i class="fa fa-remove"></i> 删除
+		            <i class="fa fa-remove"></i> 刪除
 		        </a>
 		        <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="system:config:export">
-		            <i class="fa fa-download"></i> 导出
+		            <i class="fa fa-download"></i> 導出
 		        </a>
 		        <a class="btn btn-danger" onclick="refreshCache()" shiro:hasPermission="system:config:remove">
-		            <i class="fa fa-refresh"></i> 刷新缓存
+		            <i class="fa fa-refresh"></i> 刷新快取
 		        </a>
 	        </div>
 	        <div class="col-sm-12 select-table table-striped">
@@ -75,31 +75,31 @@
                 exportUrl: prefix + "/export",
                 sortName: "configId",
 		        sortOrder: "asc",
-                modalName: "参数",
+                modalName: "參數",
                 columns: [{
                     checkbox: true
                 },
                 {
                     field: 'configId',
-                    title: '参数主键'
+                    title: '參數主鍵'
                 },
                 {
                     field: 'configName',
-                    title: '参数名称',
+                    title: '參數名稱',
                     formatter: function(value, row, index) {
                         return $.table.tooltip(value);
                     }
                 },
                 {
                     field: 'configKey',
-                    title: '参数键名',
+                    title: '參數鍵名',
                     formatter: function(value, row, index) {
                         return $.table.tooltip(value);
                     }
                 },
                 {
                     field: 'configValue',
-                    title: '参数键值',
+                    title: '參數鍵值',
                     align: 'center',
                     formatter: function(value, row, index) {
                         return $.table.tooltip(value, 10, "open");
@@ -107,7 +107,7 @@
                 },
                 {
                     field: 'configType',
-                    title: '系统内置',
+                    title: '系統內建',
                     align: 'center',
                     formatter: function(value, row, index) {
                         return $.table.selectDictLabel(datas, value);
@@ -115,7 +115,7 @@
                 },
                 {
                     field: 'remark',
-                    title: '备注',
+                    title: '備註',
                     align: 'center',
                     formatter: function(value, row, index) {
                         return $.table.tooltip(value, 10, "open");
@@ -123,15 +123,15 @@
                 },
                 {
                     field: 'createTime',
-                    title: '创建时间'
+                    title: '創建時間'
                 },
                 {
                     title: '操作',
                     align: 'center',
                     formatter: function(value, row, index) {
                         var actions = [];
-                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.configId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.configId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.configId + '\')"><i class="fa fa-edit"></i>編輯</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.configId + '\')"><i class="fa fa-remove"></i>刪除</a>');
                         return actions.join('');
                     }
                 }]
@@ -139,7 +139,7 @@
             $.table.init(options);
         });
         
-        /** 刷新参数缓存 */
+        /** 刷新參數快取 */
         function refreshCache() {
             $.operate.get(prefix + "/refreshCache");
         }

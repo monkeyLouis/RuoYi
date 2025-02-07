@@ -15,7 +15,7 @@ import com.ruoyi.system.mapper.SysConfigMapper;
 import com.ruoyi.system.service.ISysConfigService;
 
 /**
- * 参数配置 服务层实现
+ * 參數配置 服務層實現
  * 
  * @author ruoyi
  */
@@ -26,7 +26,7 @@ public class SysConfigServiceImpl implements ISysConfigService
     private SysConfigMapper configMapper;
 
     /**
-     * 项目启动时，初始化参数到缓存
+     * 項目啟動時，初始化參數到快取
      */
     @PostConstruct
     public void init()
@@ -35,10 +35,10 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 查询参数配置信息
+     * 查詢參數配置資訊
      * 
-     * @param configId 参数配置ID
-     * @return 参数配置信息
+     * @param configId 參數配置ID
+     * @return 參數配置資訊
      */
     @Override
     public SysConfig selectConfigById(Long configId)
@@ -49,10 +49,10 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 根据键名查询参数配置信息
+     * 根據鍵名查詢參數配置資訊
      * 
-     * @param configKey 参数key
-     * @return 参数键值
+     * @param configKey 參數key
+     * @return 參數鍵值
      */
     @Override
     public String selectConfigByKey(String configKey)
@@ -74,10 +74,10 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 查询参数配置列表
+     * 查詢參數配置列表
      * 
-     * @param config 参数配置信息
-     * @return 参数配置集合
+     * @param config 參數配置資訊
+     * @return 參數配置集合
      */
     @Override
     public List<SysConfig> selectConfigList(SysConfig config)
@@ -86,10 +86,10 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 新增参数配置
+     * 新增參數配置
      * 
-     * @param config 参数配置信息
-     * @return 结果
+     * @param config 參數配置資訊
+     * @return 結果
      */
     @Override
     public int insertConfig(SysConfig config)
@@ -103,10 +103,10 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 修改参数配置
+     * 修改參數配置
      * 
-     * @param config 参数配置信息
-     * @return 结果
+     * @param config 參數配置資訊
+     * @return 結果
      */
     @Override
     public int updateConfig(SysConfig config)
@@ -126,9 +126,9 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 批量删除参数配置对象
+     * 批次刪除參數配置對象
      * 
-     * @param ids 需要删除的数据ID
+     * @param ids 需要刪除的數據ID
      */
     @Override
     public void deleteConfigByIds(String ids)
@@ -139,7 +139,7 @@ public class SysConfigServiceImpl implements ISysConfigService
             SysConfig config = selectConfigById(configId);
             if (StringUtils.equals(UserConstants.YES, config.getConfigType()))
             {
-                throw new ServiceException(String.format("内置参数【%1$s】不能删除 ", config.getConfigKey()));
+                throw new ServiceException(String.format("內建參數【%1$s】不能刪除 ", config.getConfigKey()));
             }
             configMapper.deleteConfigById(configId);
             CacheUtils.remove(getCacheName(), getCacheKey(config.getConfigKey()));
@@ -147,7 +147,7 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 加载参数缓存数据
+     * 載入參數快取數據
      */
     @Override
     public void loadingConfigCache()
@@ -160,7 +160,7 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 清空参数缓存数据
+     * 清空參數快取數據
      */
     @Override
     public void clearConfigCache()
@@ -169,7 +169,7 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 重置参数缓存数据
+     * 重設參數快取數據
      */
     @Override
     public void resetConfigCache()
@@ -179,10 +179,10 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 校验参数键名是否唯一
+     * 校驗參數鍵名是否唯一
      * 
-     * @param config 参数配置信息
-     * @return 结果
+     * @param config 參數配置資訊
+     * @return 結果
      */
     @Override
     public boolean checkConfigKeyUnique(SysConfig config)
@@ -197,9 +197,9 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 获取cache name
+     * 獲取cache name
      * 
-     * @return 缓存名
+     * @return 快取名
      */
     private String getCacheName()
     {
@@ -207,10 +207,10 @@ public class SysConfigServiceImpl implements ISysConfigService
     }
 
     /**
-     * 设置cache key
+     * 設置cache key
      * 
-     * @param configKey 参数键
-     * @return 缓存键key
+     * @param configKey 參數鍵
+     * @return 快取鍵key
      */
     private String getCacheKey(String configKey)
     {

@@ -4,57 +4,57 @@ import java.util.List;
 import com.ruoyi.generator.domain.GenTableColumn;
 
 /**
- * 业务字段 数据层
+ * 業務欄位 數據層
  * 
  * @author ruoyi
  */
 public interface GenTableColumnMapper
 {
     /**
-     * 根据表名称查询列信息
+     * 根據表名稱查詢列資訊
      * 
-     * @param tableName 表名称
-     * @return 列信息
+     * @param tableName 表名稱
+     * @return 列資訊
      */
     public List<GenTableColumn> selectDbTableColumnsByName(String tableName);
 
     /**
-     * 查询业务字段列表
+     * 查詢業務欄位列表
      * 
-     * @param genTableColumn 业务字段信息
-     * @return 业务字段集合
+     * @param genTableColumn 業務欄位資訊
+     * @return 業務欄位集合
      */
     public List<GenTableColumn> selectGenTableColumnListByTableId(GenTableColumn genTableColumn);
 
     /**
-     * 新增业务字段
+     * 新增業務欄位
      * 
-     * @param genTableColumn 业务字段信息
-     * @return 结果
+     * @param genTableColumn 業務欄位資訊
+     * @return 結果
      */
     public int insertGenTableColumn(GenTableColumn genTableColumn);
 
     /**
-     * 修改业务字段
+     * 修改業務欄位
      * 
-     * @param genTableColumn 业务字段信息
-     * @return 结果
+     * @param genTableColumn 業務欄位資訊
+     * @return 結果
      */
     public int updateGenTableColumn(GenTableColumn genTableColumn);
 
     /**
-     * 删除业务字段
+     * 刪除業務欄位
      * 
-     * @param genTableColumns 列数据
-     * @return 结果
+     * @param genTableColumns 列數據
+     * @return 結果
      */
     public int deleteGenTableColumns(List<GenTableColumn> genTableColumns);
 
     /**
-     * 批量删除业务字段
+     * 批次刪除業務欄位
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     public int deleteGenTableColumnByIds(Long[] ids);
 }

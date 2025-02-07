@@ -10,19 +10,19 @@
 <body class="gray-bg">
     <div class="main-content">
         <form id="form-add" class="form-horizontal">
-            <h4 class="form-header h4">客户信息</h4>
+            <h4 class="form-header h4">客戶資訊</h4>
             <div class="row">
             	<div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label is-required">客户名称：</label>
+                        <label class="col-sm-4 control-label is-required">客戶名稱：</label>
                         <div class="col-sm-8">
-                            <input name="name" placeholder="请输入客户名称" class="form-control" type="text" maxlength="30" required>
+                            <input name="name" placeholder="請輸入客戶名稱" class="form-control" type="text" maxlength="30" required>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label is-required">用户性别：</label>
+                        <label class="col-sm-4 control-label is-required">用戶性別：</label>
                         <div class="col-sm-8">
                             <select name="sex" class="form-control" th:with="type=${@dict.getType('sys_user_sex')}">
 				                <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
@@ -34,9 +34,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">手机号码：</label>
+                        <label class="col-sm-4 control-label">手機號碼：</label>
                         <div class="col-sm-8">
-                            <input id="phonenumber" name="phonenumber" placeholder="请输入手机号码" class="form-control isPhone" type="text" maxlength="11">
+                            <input id="phonenumber" name="phonenumber" placeholder="請輸入手機號碼" class="form-control isPhone" type="text" maxlength="11">
                         </div>
                     </div>
                 </div>
@@ -55,18 +55,18 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">备注：</label>
+                        <label class="col-xs-2 control-label">備註：</label>
                         <div class="col-xs-10">
                             <textarea name="remark" maxlength="500" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
-            <h4 class="form-header h4">商品数据</h4>
+            <h4 class="form-header h4">商品數據</h4>
             <div class="row">
                 <div class="col-sm-12">
                     <button type="button" class="btn btn-white btn-sm" onclick="addRow()"><i class="fa fa-plus"> 增加</i></button>
-                    <button type="button" class="btn btn-white btn-sm" onclick="sub.delRow()"><i class="fa fa-minus"> 删除</i></button>
+                    <button type="button" class="btn btn-white btn-sm" onclick="sub.delRow()"><i class="fa fa-minus"> 刪除</i></button>
                     <div class="col-sm-12 select-table table-striped">
 					    <table id="bootstrap-table"></table>
 					</div>
@@ -78,7 +78,7 @@
     <div class="row">
         <div class="col-sm-offset-5 col-sm-10">
             <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>保 存</button>&nbsp;
-            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
+            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>關 閉 </button>
         </div>
     </div>
     <th:block th:include="include :: footer" />
@@ -86,11 +86,11 @@
     <script th:src="@{/js/jquery.tmpl.js}"></script>
 	<script th:inline="javascript">
 	    $(function() {
-	    	// 初始化数据, 可以由后台传过来
+	    	// 初始化數據, 可以由後台傳過來
 	    	var data = [
 	    	{
 	    		id: "100",
-	    		name: "商品名称",
+	    		name: "商品名稱",
             	weight: "100",
             	price: "12.5",
             	date: "2021-02-01",
@@ -98,7 +98,7 @@
 	    	},
 	    	{
 	    		id: "101",
-	    		name: "商品名称2",
+	    		name: "商品名稱2",
             	weight: "50",
             	price: "10.8",
             	date: "2021-02-01",
@@ -118,7 +118,7 @@
 		        {
 		        	field: 'index',
 		        	align: 'center',
-		        	title: "序号",
+		        	title: "序號",
                     formatter: function (value, row, index) {
                     	var columnIndex = $.common.sprintf("<input type='hidden' name='index' value='%s'>", $.table.serialNumber(index));
                     	var columnId = $.common.sprintf("<input type='hidden' name='goods[%s].id' value='%s'>", index, row.id);
@@ -128,7 +128,7 @@
 		        {
 		            field: 'name',
 		            align: 'center',
-		            title: '商品名称',
+		            title: '商品名稱',
 		            formatter: function(value, row, index) {
 		            	var html = $.common.sprintf("<input class='form-control goodsName' type='text' name='goods[%s].name' value='%s'>", index, value);
 		        		return html;
@@ -155,7 +155,7 @@
 		        {
 		            field: 'price',
 		            align: 'center',
-		            title: '商品价格',
+		            title: '商品價格',
 		            formatter: function(value, row, index) {
 		            	var html = $.common.sprintf("<input class='form-control' type='text' name='goods[%s].price' value='%s'>", index, value);
 		        		return html;
@@ -164,7 +164,7 @@
 		        {
 		            field: 'type',
 		            align: 'center',
-		            title: '商品种类',
+		            title: '商品種類',
 		            formatter: function(value, row, index) {
 		        		var data = [{ index: index, type: value }];
 		                return $("#goodsTypeTpl").tmpl(data).html();
@@ -175,7 +175,7 @@
                     align: 'center',
                     formatter: function(value, row, index) {
                     	var value = $.common.isNotEmpty(row.index) ? row.index : $.table.serialNumber(index);
-                        return '<a class="btn btn-danger btn-xs" href="javascript:void(0)" onclick="sub.delRowByIndex(\'' + value + '\')"><i class="fa fa-remove"></i>删除</a>';
+                        return '<a class="btn btn-danger btn-xs" href="javascript:void(0)" onclick="sub.delRowByIndex(\'' + value + '\')"><i class="fa fa-remove"></i>刪除</a>';
                     }
                 }]
 		    };
@@ -184,11 +184,11 @@
 	    
         $.validator.addMethod("goodsName", function(value, element) {
             return !this.optional(element);
-        }, "商品名称必填。");
+        }, "商品名稱必填。");
         
         $.validator.addMethod("goodsWeight", function(value, element) {
             return !this.optional(element) && (value <= 100 && value >= 0);
-        }, "商品重量长度区间0-100。");
+        }, "商品重量長度區間0-100。");
         
         /* 主子表-提交 */
         function submitHandler(index, layero){
@@ -230,13 +230,13 @@
 </body>
 </html>
 
-<!-- 商品类型 -->
+<!-- 商品類型 -->
 <script id="goodsTypeTpl" type="text/x-jquery-tmpl">
 <div>
 <select class='form-control' name='goods[${index}].type'>
     <option value="">所有</option>
     <option value="0" {{if type==="0"}}selected{{/if}}>寒性</option>
-    <option value="1" {{if type==="1"}}selected{{/if}}>热性</option>
+    <option value="1" {{if type==="1"}}selected{{/if}}>熱性</option>
 </select>
 </div>
 </script>

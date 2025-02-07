@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import com.ruoyi.common.utils.Threads;
 
 /**
- * 自定义任务调度器完成
+ * 自訂任務調度器完成
  * 
  * @author ruoyi
  */
@@ -27,7 +27,7 @@ public class SpringSessionValidationScheduler implements SessionValidationSchedu
     public static final long DEFAULT_SESSION_VALIDATION_INTERVAL = DefaultSessionManager.DEFAULT_SESSION_VALIDATION_INTERVAL;
 
     /**
-     * 定时器，用于处理超时的挂起请求，也用于连接断开时的重连。
+     * 定時器，用於處理超時的掛起請求，也用於連接斷開時的重連。
      */
     @Autowired
     @Qualifier("scheduledExecutorService")
@@ -36,14 +36,14 @@ public class SpringSessionValidationScheduler implements SessionValidationSchedu
     private volatile boolean enabled = false;
 
     /**
-     * 会话验证管理器
+     * 會話驗證管理器
      */
     @Autowired
     @Qualifier("sessionManager")
     @Lazy
     private ValidatingSessionManager sessionManager;
 
-    // 相隔多久检查一次session的有效性，单位毫秒，默认就是10分钟
+    // 相隔多久檢查一次session的有效性，單位毫秒，默認就是10分鐘
     @Value("${shiro.session.validationInterval}")
     private long sessionValidationInterval;
 

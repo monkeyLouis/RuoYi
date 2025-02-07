@@ -22,7 +22,7 @@ import com.ruoyi.system.domain.SysUserOnline;
 import com.ruoyi.system.service.ISysUserOnlineService;
 
 /**
- * 主要是在此如果会话的属性修改了 就标识下其修改了 然后方便 OnlineSessionDao同步
+ * 主要是在此如果會話的屬性修改了 就標識一下其修改了 然後方便 OnlineSessionDao同步
  * 
  * @author ruoyi
  */
@@ -48,7 +48,7 @@ public class OnlineWebSessionManager extends DefaultWebSessionManager
             return false;
         }
         String attributeKeyStr = attributeKey.toString();
-        // 优化 flash属性没必要持久化
+        // 最佳化 flash屬性沒必要持久化
         if (attributeKeyStr.startsWith("org.springframework"))
         {
             return false;
@@ -90,7 +90,7 @@ public class OnlineWebSessionManager extends DefaultWebSessionManager
     }
 
     /**
-     * 验证session是否有效 用于删除过期session
+     * 驗證session是否有效 用於刪除過期session
      */
     @Override
     public void validateSessions()
@@ -105,13 +105,13 @@ public class OnlineWebSessionManager extends DefaultWebSessionManager
         int timeout = (int) this.getGlobalSessionTimeout();
         if (timeout < 0)
         {
-            // 永不过期不进行处理
+            // 永不過期不進行處理
             return;
         }
         Date expiredDate = DateUtils.addMilliseconds(new Date(), 0 - timeout);
         ISysUserOnlineService userOnlineService = SpringUtils.getBean(ISysUserOnlineService.class);
         List<SysUserOnline> userOnlineList = userOnlineService.selectOnlineByExpired(expiredDate);
-        // 批量过期删除
+        // 批次過期刪除
         List<String> needOfflineIdList = new ArrayList<String>();
         for (SysUserOnline userOnline : userOnlineList)
         {

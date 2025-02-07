@@ -4,64 +4,64 @@ import com.ruoyi.quartz.domain.SysJob;
 import java.util.List;
 
 /**
- * 调度任务信息 数据层
+ * 調度任務資訊 數據層
  * 
  * @author ruoyi
  */
 public interface SysJobMapper
 {
     /**
-     * 查询调度任务日志集合
+     * 查詢調度任務日誌集合
      * 
-     * @param job 调度信息
-     * @return 操作日志集合
+     * @param job 調度資訊
+     * @return 操作日誌集合
      */
     public List<SysJob> selectJobList(SysJob job);
 
     /**
-     * 查询所有调度任务
+     * 查詢所有調度任務
      * 
-     * @return 调度任务列表
+     * @return 調度任務列表
      */
     public List<SysJob> selectJobAll();
 
     /**
-     * 通过调度ID查询调度任务信息
+     * 通過調度ID查詢調度任務資訊
      * 
-     * @param jobId 调度ID
-     * @return 角色对象信息
+     * @param jobId 調度ID
+     * @return 角色對象資訊
      */
     public SysJob selectJobById(Long jobId);
 
     /**
-     * 通过调度ID删除调度任务信息
+     * 通過調度ID刪除調度任務資訊
      * 
-     * @param jobId 调度ID
-     * @return 结果
+     * @param jobId 調度ID
+     * @return 結果
      */
     public int deleteJobById(Long jobId);
 
     /**
-     * 批量删除调度任务信息
+     * 批次刪除調度任務資訊
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     public int deleteJobByIds(Long[] ids);
 
     /**
-     * 修改调度任务信息
+     * 修改調度任務資訊
      * 
-     * @param job 调度任务信息
-     * @return 结果
+     * @param job 調度任務資訊
+     * @return 結果
      */
     public int updateJob(SysJob job);
 
     /**
-     * 新增调度任务信息
+     * 新增調度任務資訊
      * 
-     * @param job 调度任务信息
-     * @return 结果
+     * @param job 調度任務資訊
+     * @return 結果
      */
     public int insertJob(SysJob job);
 }

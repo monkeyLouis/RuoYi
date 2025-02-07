@@ -4,7 +4,7 @@ import com.ruoyi.common.utils.MessageUtils;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * 基础异常
+ * 基礎異常
  * 
  * @author ruoyi
  */
@@ -13,22 +13,22 @@ public class BaseException extends RuntimeException
     private static final long serialVersionUID = 1L;
 
     /**
-     * 所属模块
+     * 所屬模組
      */
     private String module;
 
     /**
-     * 错误码
+     * 錯誤碼
      */
     private String code;
 
     /**
-     * 错误码对应的参数
+     * 錯誤碼對應的參數
      */
     private Object[] args;
 
     /**
-     * 错误消息
+     * 錯誤消息
      */
     private String defaultMessage;
 

@@ -17,7 +17,7 @@ import com.ruoyi.system.mapper.SysUserOnlineMapper;
 import com.ruoyi.system.service.ISysUserOnlineService;
 
 /**
- * 在线用户 服务层处理
+ * 在線用戶 服務層處理
  * 
  * @author ruoyi
  */
@@ -28,10 +28,10 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService
     private SysUserOnlineMapper userOnlineDao;
 
     /**
-     * 通过会话序号查询信息
+     * 通過會話序號查詢資訊
      * 
-     * @param sessionId 会话ID
-     * @return 在线用户信息
+     * @param sessionId 會話ID
+     * @return 在線用戶資訊
      */
     @Override
     public SysUserOnline selectOnlineById(String sessionId)
@@ -40,10 +40,10 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService
     }
 
     /**
-     * 通过会话序号删除信息
+     * 通過會話序號刪除資訊
      * 
-     * @param sessionId 会话ID
-     * @return 在线用户信息
+     * @param sessionId 會話ID
+     * @return 在線用戶資訊
      */
     @Override
     public void deleteOnlineById(String sessionId)
@@ -56,10 +56,10 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService
     }
 
     /**
-     * 通过会话序号删除信息
+     * 通過會話序號刪除資訊
      * 
-     * @param sessions 会话ID集合
-     * @return 在线用户信息
+     * @param sessions 會話ID集合
+     * @return 在線用戶資訊
      */
     @Override
     public void batchDeleteOnline(List<String> sessions)
@@ -75,9 +75,9 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService
     }
 
     /**
-     * 保存会话信息
+     * 保存會話資訊
      * 
-     * @param online 会话信息
+     * @param online 會話資訊
      */
     @Override
     public void saveOnline(SysUserOnline online)
@@ -86,9 +86,9 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService
     }
 
     /**
-     * 查询会话集合
+     * 查詢會話集合
      * 
-     * @param userOnline 在线用户
+     * @param userOnline 在線用戶
      */
     @Override
     public List<SysUserOnline> selectUserOnlineList(SysUserOnline userOnline)
@@ -97,9 +97,9 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService
     }
 
     /**
-     * 强退用户
+     * 強退用戶
      * 
-     * @param sessionId 会话ID
+     * @param sessionId 會話ID
      */
     @Override
     public void forceLogout(String sessionId)
@@ -108,10 +108,10 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService
     }
 
     /**
-     * 清理用户缓存
+     * 清理用戶快取
      * 
-     * @param loginName 登录名称
-     * @param sessionId 会话ID
+     * @param loginName 登錄名稱
+     * @param sessionId 會話ID
      */
     @Override
     public void removeUserCache(String loginName, String sessionId)
@@ -127,7 +127,7 @@ public class SysUserOnlineServiceImpl implements ISysUserOnlineService
     }
 
     /**
-     * 查询会话集合
+     * 查詢會話集合
      * 
      * @param expiredDate 失效日期
      */

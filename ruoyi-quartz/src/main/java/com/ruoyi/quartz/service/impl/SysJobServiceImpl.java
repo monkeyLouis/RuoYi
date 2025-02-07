@@ -19,7 +19,7 @@ import com.ruoyi.quartz.util.CronUtils;
 import com.ruoyi.quartz.util.ScheduleUtils;
 
 /**
- * 定时任务调度信息 服务层
+ * 定時任務調度資訊 服務層
  * 
  * @author ruoyi
  */
@@ -33,8 +33,8 @@ public class SysJobServiceImpl implements ISysJobService
     private SysJobMapper jobMapper;
 
     /**
-     * 项目启动时，初始化定时器 
-     * 主要是防止手动修改数据库导致未同步到定时任务处理（注：不能手动修改数据库ID和任务组名，否则会导致脏数据）
+     * 項目啟動時，初始化定時器 
+     * 主要是防止手動修改資料庫導致未同步到定時任務處理（註：不能手動修改資料庫ID和任務組名，否則會導致髒數據）
      */
     @PostConstruct
     public void init() throws SchedulerException, TaskException
@@ -48,9 +48,9 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 获取quartz调度器的计划任务列表
+     * 獲取quartz調度器的計劃任務列表
      * 
-     * @param job 调度信息
+     * @param job 調度資訊
      * @return
      */
     @Override
@@ -60,10 +60,10 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 通过调度任务ID查询调度信息
+     * 通過調度任務ID查詢調度資訊
      * 
-     * @param jobId 调度任务ID
-     * @return 调度任务对象信息
+     * @param jobId 調度任務ID
+     * @return 調度任務對象資訊
      */
     @Override
     public SysJob selectJobById(Long jobId)
@@ -72,9 +72,9 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 暂停任务
+     * 暫停任務
      * 
-     * @param job 调度信息
+     * @param job 調度資訊
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -92,9 +92,9 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 恢复任务
+     * 恢復任務
      * 
-     * @param job 调度信息
+     * @param job 調度資訊
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -112,9 +112,9 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 删除任务后，所对应的trigger也将被删除
+     * 刪除任務後，所對應的trigger也將被刪除
      * 
-     * @param job 调度信息
+     * @param job 調度資訊
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -131,10 +131,10 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 批量删除调度信息
+     * 批次刪除調度資訊
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -149,9 +149,9 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 任务调度状态修改
+     * 任務調度狀態修改
      * 
-     * @param job 调度信息
+     * @param job 調度資訊
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -171,9 +171,9 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 立即运行任务
+     * 立即運行任務
      * 
-     * @param job 调度信息
+     * @param job 調度資訊
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -182,7 +182,7 @@ public class SysJobServiceImpl implements ISysJobService
         boolean result = false;
         Long jobId = job.getJobId();
         SysJob tmpObj = selectJobById(job.getJobId());
-        // 参数
+        // 參數
         JobDataMap dataMap = new JobDataMap();
         dataMap.put(ScheduleConstants.TASK_PROPERTIES, tmpObj);
         JobKey jobKey = ScheduleUtils.getJobKey(jobId, tmpObj.getJobGroup());
@@ -195,9 +195,9 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 新增任务
+     * 新增任務
      * 
-     * @param job 调度信息 调度信息
+     * @param job 調度資訊 調度資訊
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -213,9 +213,9 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 更新任务的时间表达式
+     * 更新任務的時間表達式
      * 
-     * @param job 调度信息
+     * @param job 調度資訊
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -231,29 +231,29 @@ public class SysJobServiceImpl implements ISysJobService
     }
 
     /**
-     * 更新任务
+     * 更新任務
      * 
-     * @param job 任务对象
-     * @param jobGroup 任务组名
+     * @param job 任務對象
+     * @param jobGroup 任務組名
      */
     public void updateSchedulerJob(SysJob job, String jobGroup) throws SchedulerException, TaskException
     {
         Long jobId = job.getJobId();
-        // 判断是否存在
+        // 判斷是否存在
         JobKey jobKey = ScheduleUtils.getJobKey(jobId, jobGroup);
         if (scheduler.checkExists(jobKey))
         {
-            // 防止创建时存在数据问题 先移除，然后在执行创建操作
+            // 防止創建時存在數據問題 先移除，然後在執行創建操作
             scheduler.deleteJob(jobKey);
         }
         ScheduleUtils.createScheduleJob(scheduler, job);
     }
 
     /**
-     * 校验cron表达式是否有效
+     * 校驗cron表達式是否有效
      * 
-     * @param cronExpression 表达式
-     * @return 结果
+     * @param cronExpression 表達式
+     * @return 結果
      */
     @Override
     public boolean checkCronExpressionIsValid(String cronExpression)

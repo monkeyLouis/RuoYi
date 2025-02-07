@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception.user;
 
 /**
- * 用户错误最大次数异常类
+ * 使用者密碼錯誤輸入次數過多例外
  * 
  * @author ruoyi
  */

@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception.user;
 
 /**
- * 用户密码不正确或不符合规范异常类
+ * 使用者密碼不正確或不合規範例外
  * 
  * @author ruoyi
  */

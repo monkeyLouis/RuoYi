@@ -13,7 +13,7 @@ import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.framework.web.service.CacheService;
 
 /**
- * 缓存监控
+ * 快取監控
  * 
  * @author ruoyi
  */

@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception.user;
 
 /**
- * 用户不存在异常类
+ * 使用者不存在例外
  * 
  * @author ruoyi
  */

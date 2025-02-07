@@ -4,81 +4,81 @@ import java.util.List;
 import com.ruoyi.common.core.domain.entity.SysRole;
 
 /**
- * 角色表 数据层
+ * 角色表 數據層
  * 
  * @author ruoyi
  */
 public interface SysRoleMapper
 {
     /**
-     * 根据条件分页查询角色数据
+     * 根據條件分頁查詢角色數據
      * 
-     * @param role 角色信息
-     * @return 角色数据集合信息
+     * @param role 角色資訊
+     * @return 角色數據集合資訊
      */
     public List<SysRole> selectRoleList(SysRole role);
 
     /**
-     * 根据用户ID查询角色
+     * 根據用戶ID查詢角色
      * 
-     * @param userId 用户ID
+     * @param userId 用戶ID
      * @return 角色列表
      */
     public List<SysRole> selectRolesByUserId(Long userId);
 
     /**
-     * 通过角色ID查询角色
+     * 通過角色ID查詢角色
      * 
      * @param roleId 角色ID
-     * @return 角色对象信息
+     * @return 角色對象資訊
      */
     public SysRole selectRoleById(Long roleId);
 
     /**
-     * 通过角色ID删除角色
+     * 通過角色ID刪除角色
      * 
      * @param roleId 角色ID
-     * @return 结果
+     * @return 結果
      */
     public int deleteRoleById(Long roleId);
 
     /**
-     * 批量角色用户信息
+     * 批次角色用戶資訊
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     public int deleteRoleByIds(Long[] ids);
 
     /**
-     * 修改角色信息
+     * 修改角色資訊
      * 
-     * @param role 角色信息
-     * @return 结果
+     * @param role 角色資訊
+     * @return 結果
      */
     public int updateRole(SysRole role);
 
     /**
-     * 新增角色信息
+     * 新增角色資訊
      * 
-     * @param role 角色信息
-     * @return 结果
+     * @param role 角色資訊
+     * @return 結果
      */
     public int insertRole(SysRole role);
 
     /**
-     * 校验角色名称是否唯一
+     * 校驗角色名稱是否唯一
      * 
-     * @param roleName 角色名称
-     * @return 角色信息
+     * @param roleName 角色名稱
+     * @return 角色資訊
      */
     public SysRole checkRoleNameUnique(String roleName);
     
     /**
-     * 校验角色权限是否唯一
+     * 校驗角色權限是否唯一
      * 
-     * @param roleKey 角色权限
-     * @return 角色信息
+     * @param roleKey 角色權限
+     * @return 角色資訊
      */
     public SysRole checkRoleKeyUnique(String roleKey);
 }

@@ -14,20 +14,20 @@ import com.ruoyi.common.utils.spring.SpringUtils;
 import com.ruoyi.framework.shiro.service.SysLoginService;
 
 /**
- * 自定义CookieRememberMeManager
+ * 自訂CookieRememberMeManager
  *
  * @author ruoyi
  */
 public class CustomCookieRememberMeManager extends CookieRememberMeManager
 {
     /**
-     * 记住我时去掉角色的permissions权限字符串，防止http请求头过大。
+     * 記住我時去掉角色的permissions權限字串，防止http請求頭過大。
      */
     @Override
     protected void rememberIdentity(Subject subject, PrincipalCollection principalCollection)
     {
         Map<SysRole, Set<String>> rolePermissions = new HashMap<>();
-        // 清除角色的permissions权限字符串
+        // 清除角色的permissions權限字串
         for (Object principal : principalCollection)
         {
             if (principal instanceof SysUser)
@@ -41,7 +41,7 @@ public class CustomCookieRememberMeManager extends CookieRememberMeManager
             }
         }
         byte[] bytes = convertPrincipalsToBytes(principalCollection);
-        // 恢复角色的permissions权限字符串
+        // 恢復角色的permissions權限字串
         for (Object principal : principalCollection)
         {
             if (principal instanceof SysUser)
@@ -57,7 +57,7 @@ public class CustomCookieRememberMeManager extends CookieRememberMeManager
     }
 
     /**
-     * 取记住我身份时恢复角色permissions权限字符串。
+     * 取記住我身份時恢復角色permissions權限字串。
      */
     @Override
     public PrincipalCollection getRememberedPrincipals(SubjectContext subjectContext)

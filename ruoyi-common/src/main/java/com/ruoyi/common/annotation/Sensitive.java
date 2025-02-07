@@ -10,7 +10,7 @@ import com.ruoyi.common.config.serializer.SensitiveJsonSerializer;
 import com.ruoyi.common.enums.DesensitizedType;
 
 /**
- * 数据脱敏注解
+ * 數據脫敏註解
  *
  * @author ruoyi
  */

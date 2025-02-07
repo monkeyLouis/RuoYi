@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('多层窗口A')" />
+	<th:block th:include="include :: header('多層窗口A')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -10,11 +10,11 @@
 	            <div class="row">
 	            	<div class="col-sm-12" style="margin-top: 50px">
 	                    <div class="form-group">
-	                        <label class="col-sm-4 control-label">用户名称：</label>
+	                        <label class="col-sm-4 control-label">使用者名稱：</label>
 	                        <div class="col-sm-4">
-	                            <input id="name" placeholder="请输入用户名称" class="form-control" type="text">
+	                            <input id="name" placeholder="請輸入使用者名稱" class="form-control" type="text">
 	                        </div>
-	                        <button type="button" class="btn btn-primary" onclick="selectUserToParentId()">选择</button>
+	                        <button type="button" class="btn btn-primary" onclick="selectUserToParentId()">選擇</button>
 	                    </div>
 	                </div>
 	           </div>
@@ -30,13 +30,13 @@
 			$.modal.close();
 		}
         
-		// 根据父窗口ID获取
+		// 根據父窗口ID獲取
 		function selectUserToParentId(){
 			var prefix = ctx + "demo/modal";
             var options = {
                 width: '100px',
                 height: '100px',
-                title: '多层窗口B',
+                title: '多層窗口B',
                 url: prefix + "/frame2",
                 callBack: doSubmit
             };

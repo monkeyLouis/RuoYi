@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('动态增删改查')" />
+	<th:block th:include="include :: header('動態增刪改查')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -10,28 +10,28 @@
 	            <i class="fa fa-plus"></i> 新增行
 	        </a>
 	        <a class="btn btn-danger multiple disabled" onclick="removeRow()">
-	            <i class="fa fa-remove"></i> 删除选择行
+	            <i class="fa fa-remove"></i> 刪除選擇行
 	        </a>
 	        <a class="btn btn-danger" onclick="removeRowByUniqueId()">
-	            <i class="fa fa-remove"></i> 根据值删除行
+	            <i class="fa fa-remove"></i> 根據值刪除行
 	        </a>
 	        <a class="btn btn-danger" onclick="removeRowAll()">
-	            <i class="fa fa-remove"></i> 删除所有行
+	            <i class="fa fa-remove"></i> 刪除所有行
 	        </a>
 	        <a class="btn btn-info" onclick="updateRow()">
 	            <i class="fa fa-edit"></i> 修改行
 	        </a>
 	        <a class="btn btn-info" onclick="updateRowByUniqueId()">
-	            <i class="fa fa-edit"></i> 根据值修改行
+	            <i class="fa fa-edit"></i> 根據值修改行
 	        </a>
 	        <a class="btn btn-info" onclick="getSelections()">
-	            <i class="fa fa-search"></i> 查询选择数据
+	            <i class="fa fa-search"></i> 查詢選擇數據
 	        </a>
 	        <a class="btn btn-info" onclick="getRowByUniqueId()">
-	            <i class="fa fa-search"></i> 根据值查询行
+	            <i class="fa fa-search"></i> 根據值查詢行
 	        </a>
 	        <a class="btn btn-primary" onclick="getData()">
-	            <i class="fa fa-search"></i> 查询所有数据
+	            <i class="fa fa-search"></i> 查詢所有數據
 	        </a>
         </div>
 		<div class="row">
@@ -59,27 +59,27 @@
 		        },
 				{
 					field : 'userId', 
-					title : '用户ID'
+					title : '用戶ID'
 				},
 				{
 					field : 'userCode', 
-					title : '用户编号'
+					title : '用戶編號'
 				},
 				{
 					field : 'userName', 
-					title : '用户姓名'
+					title : '用戶姓名'
 				},
 				{
 					field : 'userPhone', 
-					title : '用户手机'
+					title : '用戶手機'
 				},
 				{
 					field : 'userEmail', 
-					title : '用户邮箱'
+					title : '用戶信箱'
 				},
 				{
 				    field : 'userBalance',
-				    title : '用户余额'
+				    title : '用戶餘額'
 				}]
             };
             $.table.init(options);
@@ -93,7 +93,7 @@
                 row: {
                 	userId: randomId,
                 	userCode: 2000000 + randomId,
-                	userName: '测试' + randomId,
+                	userName: '測試' + randomId,
                 	userPhone: '1588888888',
                 	userEmail: 'ry1@qq.com',
                 	userBalance: 10 + randomId,
@@ -101,11 +101,11 @@
         	})
         }
         
-        /* 删除指定表格行 */
+        /* 刪除指定表格行 */
         function removeRow(){
         	var ids = $.table.selectColumns("userId");
         	if (ids.length == 0) {
-    			$.modal.alertWarning("请至少选择一条记录");
+    			$.modal.alertWarning("請至少選擇一條紀錄");
     			return;
     		}
         	$("#" + table.options.id).bootstrapTable('remove', {
@@ -114,12 +114,12 @@
         	})
         }
         
-        /* 删除行ID值为1的数据 */
+        /* 刪除行ID值為1的數據 */
         function removeRowByUniqueId(){
         	$("#" + table.options.id).bootstrapTable('removeByUniqueId', 1)
         }
         
-        /* 删除所有表格行 */
+        /* 刪除所有表格行 */
         function removeRowAll(){
         	$("#" + table.options.id).bootstrapTable('removeAll')
         }
@@ -132,7 +132,7 @@
                 row: {
                 	userId: randomId,
                 	userCode: 3000000 + randomId,
-                	userName: '测试' + randomId,
+                	userName: '測試' + randomId,
                 	userPhone: '1599999999',
                 	userEmail: 'ry2@qq.com',
                 	userBalance: 50 + randomId,
@@ -140,7 +140,7 @@
         	})
         }
         
-        /* 修改行ID值为1的数据 */
+        /* 修改行ID值為1的數據 */
         function updateRowByUniqueId(){
         	var randomId = 100 + ~~(Math.random() * 100)
         	$("#" + table.options.id).bootstrapTable('updateByUniqueId', {
@@ -148,7 +148,7 @@
                 row: {
                 	userId: randomId,
                 	userCode: 3000000 + randomId,
-                	userName: '测试' + randomId,
+                	userName: '測試' + randomId,
                 	userPhone: '1599999999',
                 	userEmail: 'ry2@qq.com',
                 	userBalance: 50 + randomId,
@@ -156,19 +156,19 @@
         	})
         }
         
-        /* 查询表格所有数据值 */
+        /* 查詢表格所有數據值 */
         function getData(){
         	var data = $("#" + table.options.id).bootstrapTable('getData');
             alert(JSON.stringify(data))
         }
         
-        /* 查询行ID值为1的数据 */
+        /* 查詢行ID值為1的數據 */
         function getRowByUniqueId(){
         	var data = $("#" + table.options.id).bootstrapTable('getRowByUniqueId', 1);
             alert(JSON.stringify(data))
         }
         
-        /* 查询表格选择行数据值 */
+        /* 查詢表格選擇行數據值 */
         function getSelections(){
         	var data = $("#" + table.options.id).bootstrapTable('getSelections');
         	alert(JSON.stringify(data))

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('表格虚拟滚动')" />
+	<th:block th:include="include :: header('表格虛擬滾動')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
         <div class="btn-group-sm" id="toolbar" role="group">
 	        <a class="btn btn-success" onclick="loadRows()">
-	            <i class="fa fa-plus"></i> 加载10000行数据
+	            <i class="fa fa-plus"></i> 載入10000行數據
 	        </a>
 	        <a class="btn btn-info" onclick="appendRows()">
-	            <i class="fa fa-edit"></i> 追加10000行数据
+	            <i class="fa fa-edit"></i> 追加10000行數據
 	        </a>
 	        &nbsp;&nbsp;<span id="total" class="badge badge-success"></span>
         </div>
@@ -34,27 +34,27 @@
 		        virtualScroll: true,
                 columns: [{
 					field : 'userId', 
-					title : '用户ID'
+					title : '用戶ID'
 				},
 				{
 					field : 'userCode', 
-					title : '用户编号'
+					title : '用戶編號'
 				},
 				{
 					field : 'userName', 
-					title : '用户姓名'
+					title : '用戶姓名'
 				},
 				{
 					field : 'userPhone', 
-					title : '用户手机'
+					title : '用戶手機'
 				},
 				{
 					field : 'userEmail', 
-					title : '用户邮箱'
+					title : '用戶信箱'
 				},
 				{
 				    field : 'userBalance',
-				    title : '用户余额'
+				    title : '用戶餘額'
 				}]
 		    };
 		    $.table.init(options);
@@ -70,7 +70,7 @@
                 data.push({
                     userId: i + 1,
                     userCode: 2000000 + randomId,
-                    userName: '测试' + randomId,
+                    userName: '測試' + randomId,
                     userPhone: '1588888888',
                     userEmail: 'ry1@qq.com',
                     userBalance: 10 + randomId,

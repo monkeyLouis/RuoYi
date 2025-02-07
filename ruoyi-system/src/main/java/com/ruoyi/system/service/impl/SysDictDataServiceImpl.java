@@ -10,7 +10,7 @@ import com.ruoyi.system.mapper.SysDictDataMapper;
 import com.ruoyi.system.service.ISysDictDataService;
 
 /**
- * 字典 业务层处理
+ * 字典 業務層處理
  * 
  * @author ruoyi
  */
@@ -21,10 +21,10 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     private SysDictDataMapper dictDataMapper;
 
     /**
-     * 根据条件分页查询字典数据
+     * 根據條件分頁查詢字典數據
      * 
-     * @param dictData 字典数据信息
-     * @return 字典数据集合信息
+     * @param dictData 字典數據資訊
+     * @return 字典數據集合資訊
      */
     @Override
     public List<SysDictData> selectDictDataList(SysDictData dictData)
@@ -33,11 +33,11 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     }
 
     /**
-     * 根据字典类型和字典键值查询字典数据信息
+     * 根據字典類型和字典鍵值查詢字典數據資訊
      * 
-     * @param dictType 字典类型
-     * @param dictValue 字典键值
-     * @return 字典标签
+     * @param dictType 字典類型
+     * @param dictValue 字典鍵值
+     * @return 字典標籤
      */
     @Override
     public String selectDictLabel(String dictType, String dictValue)
@@ -46,10 +46,10 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     }
 
     /**
-     * 根据字典数据ID查询信息
+     * 根據字典數據ID查詢資訊
      * 
-     * @param dictCode 字典数据ID
-     * @return 字典数据
+     * @param dictCode 字典數據ID
+     * @return 字典數據
      */
     @Override
     public SysDictData selectDictDataById(Long dictCode)
@@ -58,9 +58,9 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     }
 
     /**
-     * 批量删除字典数据
+     * 批次刪除字典數據
      * 
-     * @param ids 需要删除的数据
+     * @param ids 需要刪除的數據
      */
     @Override
     public void deleteDictDataByIds(String ids)
@@ -76,10 +76,10 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     }
 
     /**
-     * 新增保存字典数据信息
+     * 新增保存字典數據資訊
      * 
-     * @param data 字典数据信息
-     * @return 结果
+     * @param data 字典數據資訊
+     * @return 結果
      */
     @Override
     public int insertDictData(SysDictData data)
@@ -94,10 +94,10 @@ public class SysDictDataServiceImpl implements ISysDictDataService
     }
 
     /**
-     * 修改保存字典数据信息
+     * 修改保存字典數據資訊
      * 
-     * @param data 字典数据信息
-     * @return 结果
+     * @param data 字典數據資訊
+     * @return 結果
      */
     @Override
     public int updateDictData(SysDictData data)

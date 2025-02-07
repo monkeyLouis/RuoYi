@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('自定义视图分页')" />
+	<th:block th:include="include :: header('自訂視圖分頁')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -59,31 +59,31 @@
 		        },
 				{
 					field : 'userId', 
-					title : '用户ID'
+					title : '用戶ID'
 				},
 				{
 					field : 'userCode', 
-					title : '用户编号'
+					title : '用戶編號'
 				},
 				{
 					field : 'userName', 
-					title : '用户姓名'
+					title : '用戶姓名'
 				},
 				{
 					field : 'userPhone', 
-					title : '用户手机'
+					title : '用戶手機'
 				},
 				{
 					field : 'userEmail', 
-					title : '用户邮箱'
+					title : '用戶信箱'
 				},
 				{
 				    field : 'userBalance',
-				    title : '用户余额'
+				    title : '用戶餘額'
 				},
 				{
                     field: 'status',
-                    title: '用户状态',
+                    title: '用戶狀態',
                     align: 'center',
                     formatter: function(value, row, index) {
                     	return $.table.selectDictLabel(datas, value);
@@ -94,8 +94,8 @@
 		            align: 'center',
 		            formatter: function(value, row, index) {
 		            	var actions = [];
-		            	actions.push('<a class="btn btn-success btn-xs" href="javascript:;"><i class="fa fa-edit"></i>编辑</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs" href="javascript:;"><i class="fa fa-remove"></i>删除</a>');
+		            	actions.push('<a class="btn btn-success btn-xs" href="javascript:;"><i class="fa fa-edit"></i>編輯</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs" href="javascript:;"><i class="fa fa-remove"></i>刪除</a>');
 						return actions.join('');
 		            }
 		        }]

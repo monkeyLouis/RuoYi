@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--360浏览器优先以webkit内核解析-->
-    <title>锁定屏幕</title>
+    <!--360瀏覽器優先以webkit內核解析-->
+    <title>鎖定螢幕</title>
     <link th:href="@{favicon.ico}" rel="shortcut icon"/>
     <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
     <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
@@ -21,7 +21,7 @@
         </div>
         <form class="lockscreen-credentials" method="post" action="#" onsubmit="return false;">
             <div class="input-group">
-                <input type="password" name="password" autocomplete="off" class="form-control" placeholder="密码">
+                <input type="password" name="password" autocomplete="off" class="form-control" placeholder="密碼">
                 <div class="input-group-btn">
                     <button type="button" class="btn" onclick="unlock()"><i class="fa fa-arrow-right text-muted"></i></button>
                 </div>
@@ -29,9 +29,9 @@
         </form>
     </div>
     
-    <div class="help-block text-center" style="margin-top: 50px;">系统锁屏,请输入密码登录!</div>
+    <div class="help-block text-center" style="margin-top: 50px;">系統鎖定螢幕,請輸入密碼登入!</div>
     <div class="text-center">
-        <a th:href="@{logout}">退出重新登录</a>
+        <a th:href="@{logout}">登出</a>
     </div>
 </div>
 <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
@@ -46,7 +46,7 @@
 	  var o = {
 	    "M+" : this.getMonth()+1,                 //月份
 	    "d+" : this.getDate(),                    //日
-	    "h+" : this.getHours(),                   //小时
+	    "h+" : this.getHours(),                   //小時
 	    "m+" : this.getMinutes(),                 //分
 	    "s+" : this.getSeconds(),                 //秒
 	    "q+" : Math.floor((this.getMonth()+3)/3), //季度
@@ -84,7 +84,7 @@
         var username = $("input[name='username']").val();
         var password = $("input[name='password']").val();
         if ($.common.isEmpty(password)) {
-        	$.modal.msg("请输入密码");
+        	$.modal.msg("請輸入密碼");
             return;
         }
         

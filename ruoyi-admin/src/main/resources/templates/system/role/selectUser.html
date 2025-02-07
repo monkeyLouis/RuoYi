@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('分配角色选择用户')" />
+	<th:block th:include="include :: header('分配角色選擇用戶')" />
 </head>
 
 <body class="gray-bg">
@@ -13,14 +13,14 @@
 					<div class="select-list">
 						<ul>
 							<li>
-								登录名称：<input type="text" name="loginName"/>
+								登錄名稱：<input type="text" name="loginName"/>
 							</li>
 							<li>
-								手机号码：<input type="text" name="phonenumber"/>
+								手機號碼：<input type="text" name="phonenumber"/>
 							</li>
 							<li>
 								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
-							    <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+							    <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重設</a>
 							</li>
 						</ul>
 					</div>
@@ -55,29 +55,29 @@
 		        },
 		        {
 		            field: 'userId',
-		            title: '用户ID',
+		            title: '用戶ID',
 		            visible: false
 		        },
 		        {
 		            field: 'loginName',
-		            title: '登录名称',
+		            title: '登錄名稱',
 		            sortable: true
 		        },
 		        {
 		            field: 'userName',
-		            title: '用户名称'
+		            title: '使用者名稱'
 		        },
 		        {
 		            field: 'email',
-		            title: '邮箱'
+		            title: '信箱'
 		        },
 		        {
 		            field: 'phonenumber',
-		            title: '手机'
+		            title: '手機'
 		        },
 		        {
 		        	field: 'status',
-		        	title: '用户状态',
+		        	title: '用戶狀態',
 		        	align: 'center',
 		        	formatter: function (value, row, index) {
 		        		return $.table.selectDictLabel(datas, value);
@@ -85,7 +85,7 @@
 		        },
 		        {
 		            field: 'createTime',
-		            title: '创建时间',
+		            title: '創建時間',
 		            sortable: true
 		        }]
 		    };
@@ -98,11 +98,11 @@
 			return search;
 		}
 		
-		/* 添加用户-选择用户-提交 */
+		/* 添加用戶-選擇用戶-提交 */
 		function submitHandler() {
 			var rows = $.table.selectFirstColumns();
 			if (rows.length == 0) {
-       			$.modal.alertWarning("请至少选择一条记录");
+       			$.modal.alertWarning("請至少選擇一條紀錄");
        			return;
        		}
 			var data = { "roleId": $("#roleId").val(), "userIds": rows.join() };

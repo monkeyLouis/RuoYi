@@ -10,7 +10,7 @@ import com.ruoyi.common.utils.IpUtils;
 import eu.bitwalker.useragentutils.UserAgent;
 
 /**
- * 自定义sessionFactory会话
+ * 自訂sessionFactory會話
  * 
  * @author ruoyi
  */
@@ -28,9 +28,9 @@ public class OnlineSessionFactory implements SessionFactory
             if (request != null)
             {
                 UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
-                // 获取客户端操作系统
+                // 獲取用戶端操作系統
                 String os = userAgent.getOperatingSystem().getName();
-                // 获取客户端浏览器
+                // 獲取用戶端瀏覽器
                 String browser = userAgent.getBrowser().getName();
                 session.setHost(IpUtils.getIpAddr(request));
                 session.setBrowser(browser);

@@ -13,7 +13,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.quartz.util.CronUtils;
 
 /**
- * 定时任务调度表 sys_job
+ * 定時任務調度表 sys_job
  * 
  * @author ruoyi
  */
@@ -21,36 +21,36 @@ public class SysJob extends BaseEntity implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    /** 任务ID */
-    @Excel(name = "任务序号", cellType = ColumnType.NUMERIC)
+    /** 任務ID */
+    @Excel(name = "任務序號", cellType = ColumnType.NUMERIC)
     private Long jobId;
 
-    /** 任务名称 */
-    @Excel(name = "任务名称")
+    /** 任務名稱 */
+    @Excel(name = "任務名稱")
     private String jobName;
 
-    /** 任务组名 */
-    @Excel(name = "任务组名")
+    /** 任務組名 */
+    @Excel(name = "任務組名")
     private String jobGroup;
 
-    /** 调用目标字符串 */
-    @Excel(name = "调用目标字符串")
+    /** 調用目標字串 */
+    @Excel(name = "調用目標字串")
     private String invokeTarget;
 
-    /** cron执行表达式 */
-    @Excel(name = "执行表达式 ")
+    /** cron執行表達式 */
+    @Excel(name = "執行表達式 ")
     private String cronExpression;
 
-    /** cron计划策略 */
-    @Excel(name = "计划策略 ", readConverterExp = "0=默认,1=立即触发执行,2=触发一次执行,3=不触发立即执行")
+    /** cron計劃策略 */
+    @Excel(name = "計劃策略 ", readConverterExp = "0=默認,1=立即觸發執行,2=觸發一次執行,3=不觸發立即執行")
     private String misfirePolicy = ScheduleConstants.MISFIRE_DEFAULT;
 
-    /** 是否并发执行（0允许 1禁止） */
-    @Excel(name = "并发执行", readConverterExp = "0=允许,1=禁止")
+    /** 是否並發執行（0允許 1禁止） */
+    @Excel(name = "並發執行", readConverterExp = "0=允許,1=禁止")
     private String concurrent;
 
-    /** 任务状态（0正常 1暂停） */
-    @Excel(name = "任务状态", readConverterExp = "0=正常,1=暂停")
+    /** 任務狀態（0正常 1暫停） */
+    @Excel(name = "任務狀態", readConverterExp = "0=正常,1=暫停")
     private String status;
 
     public Long getJobId()
@@ -63,8 +63,8 @@ public class SysJob extends BaseEntity implements Serializable
         this.jobId = jobId;
     }
 
-    @NotBlank(message = "任务名称不能为空")
-    @Size(min = 0, max = 64, message = "任务名称不能超过64个字符")
+    @NotBlank(message = "任務名稱不能為空")
+    @Size(min = 0, max = 64, message = "任務名稱不能超過64個字元")
     public String getJobName()
     {
         return jobName;
@@ -85,8 +85,8 @@ public class SysJob extends BaseEntity implements Serializable
         this.jobGroup = jobGroup;
     }
 
-    @NotBlank(message = "调用目标字符串不能为空")
-    @Size(min = 0, max = 1000, message = "调用目标字符串长度不能超过500个字符")
+    @NotBlank(message = "調用目標字串不能為空")
+    @Size(min = 0, max = 1000, message = "調用目標字串長度不能超過500個字元")
     public String getInvokeTarget()
     {
         return invokeTarget;
@@ -97,8 +97,8 @@ public class SysJob extends BaseEntity implements Serializable
         this.invokeTarget = invokeTarget;
     }
 
-    @NotBlank(message = "Cron执行表达式不能为空")
-    @Size(min = 0, max = 255, message = "Cron执行表达式不能超过255个字符")
+    @NotBlank(message = "Cron執行表達式不能為空")
+    @Size(min = 0, max = 255, message = "Cron執行表達式不能超過255個字元")
     public String getCronExpression()
     {
         return cronExpression;

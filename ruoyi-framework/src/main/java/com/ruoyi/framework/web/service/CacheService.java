@@ -8,7 +8,7 @@ import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.utils.CacheUtils;
 
 /**
- * 缓存操作处理
+ * 快取操作處理
  * 
  * @author ruoyi
  */
@@ -16,9 +16,9 @@ import com.ruoyi.common.utils.CacheUtils;
 public class CacheService
 {
     /**
-     * 获取所有缓存名称
+     * 獲取所有快取名稱
      * 
-     * @return 缓存列表
+     * @return 快取列表
      */
     public String[] getCacheNames()
     {
@@ -27,10 +27,10 @@ public class CacheService
     }
 
     /**
-     * 根据缓存名称获取所有键名
+     * 根據快取名稱獲取所有鍵名
      * 
-     * @param cacheName 缓存名称
-     * @return 键名列表
+     * @param cacheName 快取名稱
+     * @return 鍵名列表
      */
     public Set<String> getCacheKeys(String cacheName)
     {
@@ -38,11 +38,11 @@ public class CacheService
     }
 
     /**
-     * 根据缓存名称和键名获取内容值
+     * 根據快取名稱和鍵名獲取內容值
      * 
-     * @param cacheName 缓存名称
-     * @param cacheKey 键名
-     * @return 键值
+     * @param cacheName 快取名稱
+     * @param cacheKey 鍵名
+     * @return 鍵值
      */
     public Object getCacheValue(String cacheName, String cacheKey)
     {
@@ -50,9 +50,9 @@ public class CacheService
     }
 
     /**
-     * 根据名称删除缓存信息
+     * 根據名稱刪除快取資訊
      * 
-     * @param cacheName 缓存名称
+     * @param cacheName 快取名稱
      */
     public void clearCacheName(String cacheName)
     {
@@ -60,10 +60,10 @@ public class CacheService
     }
 
     /**
-     * 根据名称和键名删除缓存信息
+     * 根據名稱和鍵名刪除快取資訊
      * 
-     * @param cacheName 缓存名称
-     * @param cacheKey 键名
+     * @param cacheName 快取名稱
+     * @param cacheKey 鍵名
      */
     public void clearCacheKey(String cacheName, String cacheKey)
     {
@@ -71,7 +71,7 @@ public class CacheService
     }
 
     /**
-     * 清理所有缓存
+     * 清理所有快取
      */
     public void clearAll()
     {

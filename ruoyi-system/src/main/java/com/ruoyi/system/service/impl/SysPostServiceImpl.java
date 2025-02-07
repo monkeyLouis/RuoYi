@@ -13,7 +13,7 @@ import com.ruoyi.system.mapper.SysUserPostMapper;
 import com.ruoyi.system.service.ISysPostService;
 
 /**
- * 岗位信息 服务层处理
+ * 崗位資訊 服務層處理
  * 
  * @author ruoyi
  */
@@ -27,10 +27,10 @@ public class SysPostServiceImpl implements ISysPostService
     private SysUserPostMapper userPostMapper;
 
     /**
-     * 查询岗位信息集合
+     * 查詢崗位資訊集合
      * 
-     * @param post 岗位信息
-     * @return 岗位信息集合
+     * @param post 崗位資訊
+     * @return 崗位資訊集合
      */
     @Override
     public List<SysPost> selectPostList(SysPost post)
@@ -39,9 +39,9 @@ public class SysPostServiceImpl implements ISysPostService
     }
 
     /**
-     * 查询所有岗位
+     * 查詢所有崗位
      * 
-     * @return 岗位列表
+     * @return 崗位列表
      */
     @Override
     public List<SysPost> selectPostAll()
@@ -50,10 +50,10 @@ public class SysPostServiceImpl implements ISysPostService
     }
 
     /**
-     * 根据用户ID查询岗位
+     * 根據用戶ID查詢崗位
      * 
-     * @param userId 用户ID
-     * @return 岗位列表
+     * @param userId 用戶ID
+     * @return 崗位列表
      */
     @Override
     public List<SysPost> selectPostsByUserId(Long userId)
@@ -75,10 +75,10 @@ public class SysPostServiceImpl implements ISysPostService
     }
 
     /**
-     * 通过岗位ID查询岗位信息
+     * 通過崗位ID查詢崗位資訊
      * 
-     * @param postId 岗位ID
-     * @return 角色对象信息
+     * @param postId 崗位ID
+     * @return 角色對象資訊
      */
     @Override
     public SysPost selectPostById(Long postId)
@@ -87,10 +87,10 @@ public class SysPostServiceImpl implements ISysPostService
     }
 
     /**
-     * 批量删除岗位信息
+     * 批次刪除崗位資訊
      * 
-     * @param ids 需要删除的数据ID
-     * @return 结果
+     * @param ids 需要刪除的數據ID
+     * @return 結果
      */
     @Override
     public int deletePostByIds(String ids)
@@ -101,17 +101,17 @@ public class SysPostServiceImpl implements ISysPostService
             SysPost post = selectPostById(postId);
             if (countUserPostById(postId) > 0)
             {
-                throw new ServiceException(String.format("%1$s已分配,不能删除", post.getPostName()));
+                throw new ServiceException(String.format("%1$s已分配,不能刪除", post.getPostName()));
             }
         }
         return postMapper.deletePostByIds(postIds);
     }
 
     /**
-     * 新增保存岗位信息
+     * 新增保存崗位資訊
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     @Override
     public int insertPost(SysPost post)
@@ -120,10 +120,10 @@ public class SysPostServiceImpl implements ISysPostService
     }
 
     /**
-     * 修改保存岗位信息
+     * 修改保存崗位資訊
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     @Override
     public int updatePost(SysPost post)
@@ -132,10 +132,10 @@ public class SysPostServiceImpl implements ISysPostService
     }
 
     /**
-     * 通过岗位ID查询岗位使用数量
+     * 透過崗位ID查詢崗位使用數量
      * 
-     * @param postId 岗位ID
-     * @return 结果
+     * @param postId 崗位ID
+     * @return 結果
      */
     @Override
     public int countUserPostById(Long postId)
@@ -144,10 +144,10 @@ public class SysPostServiceImpl implements ISysPostService
     }
 
     /**
-     * 校验岗位名称是否唯一
+     * 校驗崗位名稱是否唯一
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     @Override
     public boolean checkPostNameUnique(SysPost post)
@@ -162,10 +162,10 @@ public class SysPostServiceImpl implements ISysPostService
     }
 
     /**
-     * 校验岗位编码是否唯一
+     * 校驗崗位編碼是否唯一
      * 
-     * @param post 岗位信息
-     * @return 结果
+     * @param post 崗位資訊
+     * @return 結果
      */
     @Override
     public boolean checkPostCodeUnique(SysPost post)

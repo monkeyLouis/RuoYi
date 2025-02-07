@@ -29,7 +29,7 @@ import com.ruoyi.framework.manager.factory.AsyncFactory;
 import com.ruoyi.system.domain.SysOperLog;
 
 /**
- * 操作日志记录处理
+ * 操作日誌記錄處理
  * 
  * @author ruoyi
  */
@@ -39,14 +39,14 @@ public class LogAspect
 {
     private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
 
-    /** 排除敏感属性字段 */
+    /** 排除敏感屬性欄位 */
     public static final String[] EXCLUDE_PROPERTIES = { "password", "oldPassword", "newPassword", "confirmPassword" };
 
-    /** 计算操作消耗时间 */
+    /** 計算操作消耗時間 */
     private static final ThreadLocal<Long> TIME_THREADLOCAL = new NamedThreadLocal<Long>("Cost Time");
 
     /**
-     * 处理请求前执行
+     * 處理請求前執行
      */
     @Before(value = "@annotation(controllerLog)")
     public void boBefore(JoinPoint joinPoint, Log controllerLog)
@@ -55,9 +55,9 @@ public class LogAspect
     }
 
     /**
-     * 处理完请求后执行
+     * 處理完請求後執行
      *
-     * @param joinPoint 切点
+     * @param joinPoint 切點
      */
     @AfterReturning(pointcut = "@annotation(controllerLog)", returning = "jsonResult")
     public void doAfterReturning(JoinPoint joinPoint, Log controllerLog, Object jsonResult)
@@ -66,10 +66,10 @@ public class LogAspect
     }
 
     /**
-     * 拦截异常操作
+     * 攔截異常操作
      * 
-     * @param joinPoint 切点
-     * @param e 异常
+     * @param joinPoint 切點
+     * @param e 異常
      */
     @AfterThrowing(value = "@annotation(controllerLog)", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Log controllerLog, Exception e)
@@ -81,13 +81,13 @@ public class LogAspect
     {
         try
         {
-            // 获取当前的用户
+            // 獲取當前的用戶
             SysUser currentUser = ShiroUtils.getSysUser();
 
-            // *========数据库日志=========*//
+            // *========資料庫日誌=========*//
             SysOperLog operLog = new SysOperLog();
             operLog.setStatus(BusinessStatus.SUCCESS.ordinal());
-            // 请求的地址
+            // 請求的地址
             String ip = ShiroUtils.getIp();
             operLog.setOperIp(ip);
             operLog.setOperUrl(StringUtils.substring(ServletUtils.getRequest().getRequestURI(), 0, 255));
@@ -106,23 +106,23 @@ public class LogAspect
                 operLog.setStatus(BusinessStatus.FAIL.ordinal());
                 operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
             }
-            // 设置方法名称
+            // 設置方法名稱
             String className = joinPoint.getTarget().getClass().getName();
             String methodName = joinPoint.getSignature().getName();
             operLog.setMethod(className + "." + methodName + "()");
-            // 设置请求方式
+            // 設置請求方式
             operLog.setRequestMethod(ServletUtils.getRequest().getMethod());
-            // 处理设置注解上的参数
+            // 處理設置註解上的參數
             getControllerMethodDescription(joinPoint, controllerLog, operLog, jsonResult);
-            // 设置消耗时间
+            // 設置消耗時間
             operLog.setCostTime(System.currentTimeMillis() - TIME_THREADLOCAL.get());
-            // 保存数据库
+            // 保存資料庫
             AsyncManager.me().execute(AsyncFactory.recordOper(operLog));
         }
         catch (Exception exp)
         {
-            // 记录本地异常日志
-            log.error("异常信息:{}", exp.getMessage());
+            // 記錄本地異常日誌
+            log.error("異常資訊:{}", exp.getMessage());
             exp.printStackTrace();
         }
         finally
@@ -132,27 +132,27 @@ public class LogAspect
     }
 
     /**
-     * 获取注解中对方法的描述信息 用于Controller层注解
+     * 獲取註解中對方法的描述資訊 用於Controller層註解
      * 
-     * @param log 日志
-     * @param operLog 操作日志
+     * @param log 日誌
+     * @param operLog 操作日誌
      * @throws Exception
      */
     public void getControllerMethodDescription(JoinPoint joinPoint, Log log, SysOperLog operLog, Object jsonResult) throws Exception
     {
-        // 设置action动作
+        // 設置action動作
         operLog.setBusinessType(log.businessType().ordinal());
-        // 设置标题
+        // 設置標題
         operLog.setTitle(log.title());
-        // 设置操作人类别
+        // 設置操作人類別
         operLog.setOperatorType(log.operatorType().ordinal());
-        // 是否需要保存request，参数和值
+        // 是否需要保存request，參數和值
         if (log.isSaveRequestData())
         {
-            // 获取参数的信息，传入到数据库中。
+            // 獲取參數的資訊，傳入到資料庫中。
             setRequestValue(joinPoint, operLog, log.excludeParamNames());
         }
-        // 是否需要保存response，参数和值
+        // 是否需要保存response，參數和值
         if (log.isSaveResponseData() && StringUtils.isNotNull(jsonResult))
         {
             operLog.setJsonResult(StringUtils.substring(JSONObject.toJSONString(jsonResult), 0, 2000));
@@ -160,10 +160,10 @@ public class LogAspect
     }
 
     /**
-     * 获取请求的参数，放到log中
+     * 獲取請求的參數，放到log中
      * 
-     * @param operLog 操作日志
-     * @throws Exception 异常
+     * @param operLog 操作日誌
+     * @throws Exception 異常
      */
     private void setRequestValue(JoinPoint joinPoint, SysOperLog operLog, String[] excludeParamNames) throws Exception
     {
@@ -185,7 +185,7 @@ public class LogAspect
     }
 
     /**
-     * 忽略敏感属性
+     * 忽略敏感屬性
      */
     public PropertyPreFilters.MySimplePropertyPreFilter excludePropertyPreFilter(String[] excludeParamNames)
     {
@@ -193,7 +193,7 @@ public class LogAspect
     }
 
     /**
-     * 参数拼装
+     * 參數拼裝
      */
     private String argsArrayToString(Object[] paramsArray, String[] excludeParamNames)
     {
@@ -219,10 +219,10 @@ public class LogAspect
     }
 
     /**
-     * 判断是否需要过滤的对象。
+     * 判斷是否需要過濾的對象。
      * 
-     * @param o 对象信息。
-     * @return 如果是需要过滤的对象，则返回true；否则返回false。
+     * @param o 對象資訊。
+     * @return 如果是需要過濾的對象，則返回true；否則返回false。
      */
     @SuppressWarnings("rawtypes")
     public boolean isFilterObject(final Object o)

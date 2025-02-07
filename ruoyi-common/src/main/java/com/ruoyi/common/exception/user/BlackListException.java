@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception.user;
 
 /**
- * 黑名单IP异常类
+ * 黑名單IP 例外
  * 
  * @author ruoyi
  */

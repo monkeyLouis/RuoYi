@@ -22,7 +22,7 @@ import oshi.software.os.OperatingSystem;
 import oshi.util.Util;
 
 /**
- * 服务器相关信息
+ * 伺服器相關資訊
  * 
  * @author ruoyi
  */
@@ -32,27 +32,27 @@ public class Server
     private static final int OSHI_WAIT_SECOND = 1000;
     
     /**
-     * CPU相关信息
+     * CPU相關資訊
      */
     private Cpu cpu = new Cpu();
 
     /**
-     * 內存相关信息
+     * 記憶體相關資訊
      */
     private Mem mem = new Mem();
 
     /**
-     * JVM相关信息
+     * JVM相關資訊
      */
     private Jvm jvm = new Jvm();
 
     /**
-     * 服务器相关信息
+     * 伺服器相關資訊
      */
     private Sys sys = new Sys();
 
     /**
-     * 磁盘相关信息
+     * 磁碟相關資訊
      */
     private List<SysFile> sysFiles = new LinkedList<SysFile>();
 
@@ -123,11 +123,11 @@ public class Server
     }
 
     /**
-     * 设置CPU信息
+     * 設置CPU資訊
      */
     private void setCpuInfo(CentralProcessor processor)
     {
-        // CPU信息
+        // CPU資訊
         long[] prevTicks = processor.getSystemCpuLoadTicks();
         Util.sleep(OSHI_WAIT_SECOND);
         long[] ticks = processor.getSystemCpuLoadTicks();
@@ -149,7 +149,7 @@ public class Server
     }
 
     /**
-     * 设置内存信息
+     * 設置記憶體資訊
      */
     private void setMemInfo(GlobalMemory memory)
     {
@@ -159,7 +159,7 @@ public class Server
     }
 
     /**
-     * 设置服务器信息
+     * 設置伺服器資訊
      */
     private void setSysInfo()
     {
@@ -172,7 +172,7 @@ public class Server
     }
 
     /**
-     * 设置Java虚拟机
+     * 設置Java虛擬機
      */
     private void setJvmInfo() throws UnknownHostException
     {
@@ -185,7 +185,7 @@ public class Server
     }
 
     /**
-     * 设置磁盘信息
+     * 設置磁碟資訊
      */
     private void setSysFiles(OperatingSystem os)
     {
@@ -209,10 +209,10 @@ public class Server
     }
 
     /**
-     * 字节转换
+     * 位元組轉換
      * 
-     * @param size 字节大小
-     * @return 转换后值
+     * @param size 位元組大小
+     * @return 轉換後值
      */
     public String convertFileSize(long size)
     {

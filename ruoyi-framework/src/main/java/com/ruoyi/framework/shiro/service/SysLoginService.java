@@ -29,7 +29,7 @@ import com.ruoyi.system.service.ISysMenuService;
 import com.ruoyi.system.service.ISysUserService;
 
 /**
- * 登录校验方法
+ * 登錄校驗方法
  * 
  * @author ruoyi
  */
@@ -49,23 +49,23 @@ public class SysLoginService
     private ISysConfigService configService;
 
     /**
-     * 登录
+     * 登錄
      */
     public SysUser login(String username, String password)
     {
-        // 验证码校验
+        // 驗證碼校驗
         if (ShiroConstants.CAPTCHA_ERROR.equals(ServletUtils.getRequest().getAttribute(ShiroConstants.CURRENT_CAPTCHA)))
         {
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
             throw new CaptchaException();
         }
-        // 用户名或密码为空 错误
+        // 使用者名稱或密碼為空 錯誤
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password))
         {
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("not.null")));
             throw new UserNotExistsException();
         }
-        // 密码如果不在指定范围内 错误
+        // 密碼如果不在指定範圍內 錯誤
         if (password.length() < UserConstants.PASSWORD_MIN_LENGTH
                 || password.length() > UserConstants.PASSWORD_MAX_LENGTH)
         {
@@ -73,7 +73,7 @@ public class SysLoginService
             throw new UserPasswordNotMatchException();
         }
 
-        // 用户名不在指定范围内 错误
+        // 使用者名稱不在指定範圍內 錯誤
         if (username.length() < UserConstants.USERNAME_MIN_LENGTH
                 || username.length() > UserConstants.USERNAME_MAX_LENGTH)
         {
@@ -81,7 +81,7 @@ public class SysLoginService
             throw new UserPasswordNotMatchException();
         }
 
-        // IP黑名单校验
+        // IP黑名單校驗
         String blackStr = configService.selectConfigByKey("sys.login.blackIPList");
         if (IpUtils.isMatchedIp(blackStr, ShiroUtils.getIp()))
         {
@@ -89,15 +89,16 @@ public class SysLoginService
             throw new BlackListException();
         }
 
-        // 查询用户信息
+        // 查詢用戶資訊
         SysUser user = userService.selectUserByLoginName(username);
 
-        /**
+        // 可用手機登入
         if (user == null && maybeMobilePhoneNumber(username))
         {
             user = userService.selectUserByPhoneNumber(username);
         }
 
+        /**
         if (user == null && maybeEmail(username))
         {
             user = userService.selectUserByEmail(username);
@@ -139,6 +140,7 @@ public class SysLoginService
         }
         return true;
     }
+        */
 
     private boolean maybeMobilePhoneNumber(String username)
     {
@@ -148,19 +150,19 @@ public class SysLoginService
         }
         return true;
     }
-    */
+
 
     /**
-     * 设置角色权限
+     * 設置角色權限
      *
-     * @param user 用户信息
+     * @param user 用戶資訊
      */
     public void setRolePermission(SysUser user)
     {
         List<SysRole> roles = user.getRoles();
         if (!roles.isEmpty())
         {
-            // 设置permissions属性，以便数据权限匹配权限
+            // 設置permissions屬性，以便數據權限匹配權限
             for (SysRole role : roles)
             {
                 if (StringUtils.equals(role.getStatus(), UserConstants.ROLE_NORMAL))
@@ -173,9 +175,9 @@ public class SysLoginService
     }
 
     /**
-     * 记录登录信息
+     * 記錄登錄資訊
      *
-     * @param userId 用户ID
+     * @param userId 用戶ID
      */
     public void recordLoginInfo(Long userId)
     {

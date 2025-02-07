@@ -20,7 +20,7 @@ import com.ruoyi.system.domain.SysNotice;
 import com.ruoyi.system.service.ISysNoticeService;
 
 /**
- * 公告 信息操作处理
+ * 公告 資訊操作處理
  * 
  * @author ruoyi
  */
@@ -41,7 +41,7 @@ public class SysNoticeController extends BaseController
     }
 
     /**
-     * 查询公告列表
+     * 查詢公告列表
      */
     @RequiresPermissions("system:notice:list")
     @PostMapping("/list")
@@ -101,7 +101,7 @@ public class SysNoticeController extends BaseController
     }
 
     /**
-     * 查询公告详细
+     * 查詢公告詳細
      */
     @RequiresPermissions("system:notice:list")
     @GetMapping("/view/{noticeId}")
@@ -112,7 +112,7 @@ public class SysNoticeController extends BaseController
     }
 
     /**
-     * 删除公告
+     * 刪除公告
      */
     @RequiresPermissions("system:notice:remove")
     @Log(title = "通知公告", businessType = BusinessType.DELETE)

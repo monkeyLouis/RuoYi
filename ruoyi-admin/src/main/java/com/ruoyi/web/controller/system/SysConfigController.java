@@ -21,7 +21,7 @@ import com.ruoyi.system.domain.SysConfig;
 import com.ruoyi.system.service.ISysConfigService;
 
 /**
- * 参数配置 信息操作处理
+ * 參數配置 資訊操作處理
  * 
  * @author ruoyi
  */
@@ -42,7 +42,7 @@ public class SysConfigController extends BaseController
     }
 
     /**
-     * 查询参数配置列表
+     * 查詢參數配置列表
      */
     @RequiresPermissions("system:config:list")
     @PostMapping("/list")
@@ -54,7 +54,7 @@ public class SysConfigController extends BaseController
         return getDataTable(list);
     }
 
-    @Log(title = "参数管理", businessType = BusinessType.EXPORT)
+    @Log(title = "參數管理", businessType = BusinessType.EXPORT)
     @RequiresPermissions("system:config:export")
     @PostMapping("/export")
     @ResponseBody
@@ -62,11 +62,11 @@ public class SysConfigController extends BaseController
     {
         List<SysConfig> list = configService.selectConfigList(config);
         ExcelUtil<SysConfig> util = new ExcelUtil<SysConfig>(SysConfig.class);
-        return util.exportExcel(list, "参数数据");
+        return util.exportExcel(list, "參數數據");
     }
 
     /**
-     * 新增参数配置
+     * 新增參數配置
      */
     @RequiresPermissions("system:config:add")
     @GetMapping("/add")
@@ -76,24 +76,24 @@ public class SysConfigController extends BaseController
     }
 
     /**
-     * 新增保存参数配置
+     * 新增保存參數配置
      */
     @RequiresPermissions("system:config:add")
-    @Log(title = "参数管理", businessType = BusinessType.INSERT)
+    @Log(title = "參數管理", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(@Validated SysConfig config)
     {
         if (!configService.checkConfigKeyUnique(config))
         {
-            return error("新增参数'" + config.getConfigName() + "'失败，参数键名已存在");
+            return error("新增參數'" + config.getConfigName() + "'失敗，參數鍵名已存在");
         }
         config.setCreateBy(getLoginName());
         return toAjax(configService.insertConfig(config));
     }
 
     /**
-     * 修改参数配置
+     * 修改參數配置
      */
     @RequiresPermissions("system:config:edit")
     @GetMapping("/edit/{configId}")
@@ -104,27 +104,27 @@ public class SysConfigController extends BaseController
     }
 
     /**
-     * 修改保存参数配置
+     * 修改保存參數配置
      */
     @RequiresPermissions("system:config:edit")
-    @Log(title = "参数管理", businessType = BusinessType.UPDATE)
+    @Log(title = "參數管理", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(@Validated SysConfig config)
     {
         if (!configService.checkConfigKeyUnique(config))
         {
-            return error("修改参数'" + config.getConfigName() + "'失败，参数键名已存在");
+            return error("修改參數'" + config.getConfigName() + "'失敗，參數鍵名已存在");
         }
         config.setUpdateBy(getLoginName());
         return toAjax(configService.updateConfig(config));
     }
 
     /**
-     * 删除参数配置
+     * 刪除參數配置
      */
     @RequiresPermissions("system:config:remove")
-    @Log(title = "参数管理", businessType = BusinessType.DELETE)
+    @Log(title = "參數管理", businessType = BusinessType.DELETE)
     @PostMapping("/remove")
     @ResponseBody
     public AjaxResult remove(String ids)
@@ -134,10 +134,10 @@ public class SysConfigController extends BaseController
     }
 
     /**
-     * 刷新参数缓存
+     * 刷新參數快取
      */
     @RequiresPermissions("system:config:remove")
-    @Log(title = "参数管理", businessType = BusinessType.CLEAN)
+    @Log(title = "參數管理", businessType = BusinessType.CLEAN)
     @GetMapping("/refreshCache")
     @ResponseBody
     public AjaxResult refreshCache()
@@ -147,7 +147,7 @@ public class SysConfigController extends BaseController
     }
 
     /**
-     * 校验参数键名
+     * 校驗參數鍵名
      */
     @PostMapping("/checkConfigKeyUnique")
     @ResponseBody

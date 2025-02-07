@@ -17,7 +17,7 @@ import com.google.code.kaptcha.Producer;
 import com.ruoyi.common.core.controller.BaseController;
 
 /**
- * 图片验证码（支持算术形式）
+ * 圖片驗證碼（支持算術形式）
  * 
  * @author ruoyi
  */
@@ -32,7 +32,7 @@ public class SysCaptchaController extends BaseController
     private Producer captchaProducerMath;
 
     /**
-     * 验证码生成
+     * 驗證碼生成
      */
     @GetMapping(value = "/captchaImage")
     public ModelAndView getKaptchaImage(HttpServletRequest request, HttpServletResponse response)

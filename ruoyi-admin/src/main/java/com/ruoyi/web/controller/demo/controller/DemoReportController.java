@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 报表
+ * 報表
  * 
  * @author ruoyi
  */
@@ -25,7 +25,7 @@ public class DemoReportController
     }
 
     /**
-     * 图表插件
+     * 圖表插件
      */
     @GetMapping("/peity")
     public String peity()
@@ -34,7 +34,7 @@ public class DemoReportController
     }
 
     /**
-     * 线状图插件
+     * 線狀圖插件
      */
     @GetMapping("/sparkline")
     public String sparkline()
@@ -43,7 +43,7 @@ public class DemoReportController
     }
 
     /**
-     * 图表组合
+     * 圖表組合
      */
     @GetMapping("/metrics")
     public String metrics()

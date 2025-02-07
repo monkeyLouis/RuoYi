@@ -25,7 +25,7 @@ import com.ruoyi.framework.config.properties.DruidProperties;
 import com.ruoyi.framework.datasource.DynamicDataSource;
 
 /**
- * druid 配置多数据源
+ * druid 配置多數據源
  * 
  * @author ruoyi
  */
@@ -60,11 +60,11 @@ public class DruidConfig
     }
 
     /**
-     * 设置数据源
+     * 設置數據源
      * 
-     * @param targetDataSources 备选数据源集合
-     * @param sourceName 数据源名称
-     * @param beanName bean名称
+     * @param targetDataSources 備選數據源集合
+     * @param sourceName 數據源名稱
+     * @param beanName bean名稱
      */
     public void setDataSource(Map<Object, Object> targetDataSources, String sourceName, String beanName)
     {
@@ -79,20 +79,20 @@ public class DruidConfig
     }
 
     /**
-     * 去除监控页面底部的广告
+     * 去除監控頁面底部的廣告
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @Bean
     @ConditionalOnProperty(name = "spring.datasource.druid.statViewServlet.enabled", havingValue = "true")
     public FilterRegistrationBean removeDruidFilterRegistrationBean(DruidStatProperties properties)
     {
-        // 获取web监控页面的参数
+        // 獲取web監控頁面的參數
         DruidStatProperties.StatViewServlet config = properties.getStatViewServlet();
-        // 提取common.js的配置路径
+        // 提取common.js的配置路徑
         String pattern = config.getUrlPattern() != null ? config.getUrlPattern() : "/druid/*";
         String commonJsPattern = pattern.replaceAll("\\*", "js/common.js");
         final String filePath = "support/http/resources/js/common.js";
-        // 创建filter进行过滤
+        // 創建filter進行過濾
         Filter filter = new Filter()
         {
             @Override
@@ -105,11 +105,11 @@ public class DruidConfig
                     throws IOException, ServletException
             {
                 chain.doFilter(request, response);
-                // 重置缓冲区，响应头不会被重置
+                // 重設緩衝區，響應頭不會被重設
                 response.resetBuffer();
-                // 获取common.js
+                // 獲取common.js
                 String text = Utils.readFromResource(filePath);
-                // 正则替换banner, 除去底部的广告信息
+                // 正則替換banner, 除去底部的廣告資訊
                 text = text.replaceAll("<a.*?banner\"></a><br/>", "");
                 text = text.replaceAll("powered.*?shrek.wang</a>", "");
                 response.getWriter().write(text);

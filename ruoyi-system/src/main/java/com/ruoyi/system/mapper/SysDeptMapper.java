@@ -5,113 +5,113 @@ import org.apache.ibatis.annotations.Param;
 import com.ruoyi.common.core.domain.entity.SysDept;
 
 /**
- * 部门管理 数据层
+ * 部門管理 數據層
  * 
  * @author ruoyi
  */
 public interface SysDeptMapper
 {
     /**
-     * 查询下级部门数量
+     * 查詢下級部門數量
      * 
-     * @param dept 部门信息
-     * @return 结果
+     * @param dept 部門資訊
+     * @return 結果
      */
     public int selectDeptCount(SysDept dept);
 
     /**
-     * 查询部门是否存在用户
+     * 查詢部門是否存在用戶
      * 
-     * @param deptId 部门ID
-     * @return 结果
+     * @param deptId 部門ID
+     * @return 結果
      */
     public int checkDeptExistUser(Long deptId);
 
     /**
-     * 查询部门管理数据
+     * 查詢部門管理數據
      * 
-     * @param dept 部门信息
-     * @return 部门信息集合
+     * @param dept 部門資訊
+     * @return 部門資訊集合
      */
     public List<SysDept> selectDeptList(SysDept dept);
 
     /**
-     * 删除部门管理信息
+     * 刪除部門管理資訊
      * 
-     * @param deptId 部门ID
-     * @return 结果
+     * @param deptId 部門ID
+     * @return 結果
      */
     public int deleteDeptById(Long deptId);
 
     /**
-     * 新增部门信息
+     * 新增部門資訊
      * 
-     * @param dept 部门信息
-     * @return 结果
+     * @param dept 部門資訊
+     * @return 結果
      */
     public int insertDept(SysDept dept);
 
     /**
-     * 修改部门信息
+     * 修改部門資訊
      * 
-     * @param dept 部门信息
-     * @return 结果
+     * @param dept 部門資訊
+     * @return 結果
      */
     public int updateDept(SysDept dept);
 
     /**
-     * 修改子元素关系
+     * 修改子元素關係
      * 
      * @param depts 子元素
-     * @return 结果
+     * @return 結果
      */
     public int updateDeptChildren(@Param("depts") List<SysDept> depts);
 
     /**
-     * 根据部门ID查询信息
+     * 根據部門ID查詢資訊
      * 
-     * @param deptId 部门ID
-     * @return 部门信息
+     * @param deptId 部門ID
+     * @return 部門資訊
      */
     public SysDept selectDeptById(Long deptId);
 
     /**
-     * 校验部门名称是否唯一
+     * 校驗部門名稱是否唯一
      * 
-     * @param deptName 部门名称
-     * @param parentId 父部门ID
-     * @return 结果
+     * @param deptName 部門名稱
+     * @param parentId 父部門ID
+     * @return 結果
      */
     public SysDept checkDeptNameUnique(@Param("deptName") String deptName, @Param("parentId") Long parentId);
 
     /**
-     * 根据角色ID查询部门
+     * 根據角色ID查詢部門
      *
      * @param roleId 角色ID
-     * @return 部门列表
+     * @return 部門列表
      */
     public List<String> selectRoleDeptTree(Long roleId);
 
     /**
-     * 修改所在部门正常状态
+     * 修改所在部門正常狀態
      * 
-     * @param deptIds 部门ID组
+     * @param deptIds 部門ID組
      */
     public void updateDeptStatusNormal(Long[] deptIds);
 
     /**
-     * 根据ID查询所有子部门
+     * 根據ID查詢所有子部門
      * 
-     * @param deptId 部门ID
-     * @return 部门列表
+     * @param deptId 部門ID
+     * @return 部門列表
      */
     public List<SysDept> selectChildrenDeptById(Long deptId);
 
     /**
-     * 根据ID查询所有子部门（正常状态）
+     * 根據ID查詢所有子部門（正常狀態）
      * 
-     * @param deptId 部门ID
-     * @return 子部门数
+     * @param deptId 部門ID
+     * @return 子部門數
      */
     public int selectNormalChildrenDeptById(Long deptId);
 }

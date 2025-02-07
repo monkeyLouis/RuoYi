@@ -10,7 +10,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import com.ruoyi.common.constant.Constants;
 
 /**
- * 资源文件配置加载
+ * 資源文件配置載入
  * 
  * @author ruoyi
  */
@@ -21,7 +21,7 @@ public class I18nConfig implements WebMvcConfigurer
     public LocaleResolver localeResolver()
     {
         SessionLocaleResolver slr = new SessionLocaleResolver();
-        // 默认语言
+        // 預設语言
         slr.setDefaultLocale(Constants.DEFAULT_LOCALE);
         return slr;
     }
@@ -30,7 +30,7 @@ public class I18nConfig implements WebMvcConfigurer
     public LocaleChangeInterceptor localeChangeInterceptor()
     {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        // 参数名
+        // 參數名
         lci.setParamName("lang");
         return lci;
     }

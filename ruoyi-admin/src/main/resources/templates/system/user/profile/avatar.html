@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('修改用户头像')" />
+	<th:block th:include="include :: header('修改用戶頭像')" />
 	<th:block th:include="include :: cropper-css" />
 	<style type='text/css'>
 	/* avator css start */
@@ -72,7 +72,7 @@
 		box-shadow: 0px 0px 5px #B0B0B0;
 		border: 0px #fff solid;
 	}
-    /*选择文件上传*/
+    /*選擇文件上傳*/
 	.new-contentarea {
 		width: 165px;
 		overflow: hidden;
@@ -138,7 +138,7 @@
 			</div>
 			<div class="action">
 				<div class="new-contentarea tc">
-					<a href="javascript:void(0)" class="upload-img"><label for="inputImage">上传图像</label> </a>
+					<a href="javascript:void(0)" class="upload-img"><label for="inputImage">上傳圖像</label> </a>
 					<input type="file" name="avatar" id="inputImage" accept="image/*"/>
 				</div>
 				<button type="button" class="btn-custom" data-method="zoom" data-option="0.1"><i class="fa fa-search-plus"></i></button>
@@ -192,13 +192,13 @@ $(window).on('load', function() {
 			}
 			reader.readAsDataURL(this.files[0]);
 		} else {
-			$.modal.alertWarning('请选择一个图片文件。');
+			$.modal.alertWarning('請選擇一個圖片文件。');
 		}
 	});
 
 	$('.btn-custom').on('click',function (e) {
 		if (!croppable) {
-			$.modal.alertWarning("裁剪框加载中,请稍候...");
+			$.modal.alertWarning("裁剪框載入中,請稍候...");
 			return;
 		}
 		var data = {
@@ -214,7 +214,7 @@ $(window).on('load', function() {
 
 function submitHandler() {
     if (!croppable) {
-        $.modal.alertWarning("裁剪框加载中,请稍候...");
+        $.modal.alertWarning("裁剪框載入中,請稍候...");
         return
     }
     cropper.getCroppedCanvas().toBlob(function(img) {

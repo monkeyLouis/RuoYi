@@ -9,26 +9,26 @@
 		<form class="form-horizontal m" id="form-role-edit" th:object="${role}">
 			<input id="roleId" name="roleId" type="hidden" th:field="*{roleId}"/>
 			<div class="form-group">
-				<label class="col-sm-3 control-label is-required">角色名称：</label>
+				<label class="col-sm-3 control-label is-required">角色名稱：</label>
 				<div class="col-sm-8">
 					<input class="form-control" type="text" name="roleName" id="roleName" th:field="*{roleName}" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label is-required">权限字符：</label>
+				<label class="col-sm-3 control-label is-required">權限字元：</label>
 				<div class="col-sm-8">
 					<input class="form-control" type="text" name="roleKey" id="roleKey" th:field="*{roleKey}" required>
-					<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 控制器中定义的权限字符，如：@RequiresRoles("")</span>
+					<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 控制器中定義的權限字元，如：@RequiresRoles("")</span>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label is-required">显示顺序：</label>
+				<label class="col-sm-3 control-label is-required">顯示順序：</label>
 				<div class="col-sm-8">
 					<input class="form-control" type="text" name="roleSort" id="roleSort" th:field="*{roleSort}" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">状态：</label>
+				<label class="col-sm-3 control-label">狀態：</label>
 				<div class="col-sm-8">
 					<label class="toggle-switch switch-solid">
                         <input type="checkbox" id="status" th:checked="${role.status == '0' ? true : false}">
@@ -37,20 +37,20 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">备注：</label>
+				<label class="col-sm-3 control-label">備註：</label>
 				<div class="col-sm-8">
 					<input id="remark" name="remark" class="form-control" type="text" th:field="*{remark}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">菜单权限：</label>
+				<label class="col-sm-3 control-label">選單權限：</label>
 				<div class="col-sm-8">
 				    <label class="check-box">
-				        <input type="checkbox" value="1">展开/折叠</label>
+				        <input type="checkbox" value="1">展開/摺疊</label>
 				    <label class="check-box">
-				        <input type="checkbox" value="2">全选/全不选</label>
+				        <input type="checkbox" value="2">全選/全不選</label>
 				    <label class="check-box">
-				        <input type="checkbox" value="3" checked>父子联动</label>
+				        <input type="checkbox" value="3" checked>父子同步</label>
 				    <div id="menuTrees" class="ztree ztree-border"></div>
 				</div>
 			</div>
@@ -109,10 +109,10 @@
 			},
 			messages: {
 		        "roleName": {
-		            remote: "角色名称已经存在"
+		            remote: "角色名稱已經存在"
 		        },
 		        "roleKey": {
-		            remote: "角色权限已经存在"
+		            remote: "角色權限已經存在"
 		        }
 		    },
 		    focusCleanup: true
@@ -165,7 +165,7 @@
 				},
 				async : false,
 				error : function(request) {
-					$.modal.alertError("系统错误");
+					$.modal.alertError("系統錯誤");
 				},
 				success : function(data) {
 					$.operate.successCallback(data);

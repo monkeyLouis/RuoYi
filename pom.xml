@@ -9,7 +9,7 @@
 
     <name>ruoyi</name>
     <url>http://www.ruoyi.vip</url>
-    <description>若依管理系统</description>
+    <description>若依管理系統</description>
     
     <properties>
         <ruoyi.version>4.8.0</ruoyi.version>
@@ -36,11 +36,11 @@
         <spring-framework.version>5.3.39</spring-framework.version>
     </properties>
 
-    <!-- 依赖声明 -->
+    <!-- 依賴聲明 -->
     <dependencyManagement>
         <dependencies>
 
-            <!-- 覆盖SpringFramework的依赖配置-->
+            <!-- 覆蓋SpringFramework的依賴配置-->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
@@ -49,7 +49,7 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- SpringBoot的依赖配置-->
+            <!-- SpringBoot的依賴配置-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -58,7 +58,7 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- 覆盖logback的依赖配置-->
+            <!-- 覆蓋logback的依賴配置-->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
@@ -71,7 +71,7 @@
                 <version>${logback.version}</version>
             </dependency>
 
-            <!-- 覆盖tomcat的依赖配置-->
+            <!-- 覆蓋tomcat的依賴配置-->
             <dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
@@ -90,14 +90,14 @@
                 <version>${tomcat.version}</version>
             </dependency>
 
-            <!-- 阿里数据库连接池 -->
+            <!-- 阿里資料庫連接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
             
-            <!-- 验证码 -->
+            <!-- 驗證碼 -->
             <dependency>
                 <groupId>pro.fessional</groupId>
                 <artifactId>kaptcha</artifactId>
@@ -118,7 +118,7 @@
                 <version>${shiro.version}</version>
             </dependency>
 
-            <!-- Shiro使用EhCache缓存框架 -->
+            <!-- Shiro使用EhCache快取框架 -->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-ehcache</artifactId>
@@ -132,28 +132,28 @@
                 <version>${thymeleaf.extras.shiro.version}</version>
             </dependency>
 
-            <!-- 解析客户端操作系统、浏览器等 -->
+            <!-- 解析用戶端操作系統、瀏覽器等 -->
             <dependency>
                 <groupId>eu.bitwalker</groupId>
                 <artifactId>UserAgentUtils</artifactId>
                 <version>${bitwalker.version}</version>
             </dependency>
 
-            <!-- pagehelper 分页插件 -->
+            <!-- pagehelper 分頁插件 -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.boot.version}</version>
             </dependency>
 
-            <!-- 获取系统信息 -->
+            <!-- 獲取系統資訊 -->
             <dependency>
                 <groupId>com.github.oshi</groupId>
                 <artifactId>oshi-core</artifactId>
                 <version>${oshi.version}</version>
             </dependency>
 
-            <!-- Swagger3依赖 -->
+            <!-- Swagger3依賴 -->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
@@ -165,8 +165,8 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-
-            <!-- io常用工具类 -->
+			
+            <!-- io常用工具類 -->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
@@ -180,7 +180,7 @@
                 <version>${poi.version}</version>
             </dependency>
 
-            <!-- velocity代码生成使用模板 -->
+            <!-- velocity代碼生成使用模板 -->
             <dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity-engine-core</artifactId>
@@ -194,28 +194,28 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
-            <!-- 定时任务-->
+            <!-- 定時任務-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-quartz</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 代码生成-->
+            <!-- 代碼生成-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-generator</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 核心模块-->
+            <!-- 核心模組-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-framework</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 系统模块-->
+            <!-- 系統模組-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>ruoyi-system</artifactId>

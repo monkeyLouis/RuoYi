@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<th:block th:include="include :: header('弹层表格')" />
+	<th:block th:include="include :: header('彈層表格')" />
 </head>
 <body class="gray-bg">
 	<div class="wrapper wrapper-content fadeInRight">
@@ -9,25 +9,25 @@
 	        <div class="col-sm-12">
 	            <div class="ibox">
 	                <div class="ibox-title">
-	                <h5>弹层框</h5>
+	                <h5>彈層框</h5>
 	                </div>
 	                <div class="ibox-content" id="test">
-	                    <p>弹出复选框表格及单选框表格（点击提交后得到数据）。 </p>
-	                    <button type="button" class="btn btn-primary" onclick="selectCheckUser()">弹出表格（复选框）</button>
-	                    <button type="button" class="btn btn-success" onclick="selectRadioUser()">弹出表格（单选框）</button>
+	                    <p>彈出複選框表格及單選框表格（點擊提交後得到數據）。 </p>
+	                    <button type="button" class="btn btn-primary" onclick="selectCheckUser()">彈出表格（複選框）</button>
+	                    <button type="button" class="btn btn-success" onclick="selectRadioUser()">彈出表格（單選框）</button>
 	                </div>
 	            </div>
 	        </div>
 	        <div class="col-sm-12">
 	            <div class="ibox">
 	                <div class="ibox-title">
-	                <h5>弹层框</h5>
+	                <h5>彈層框</h5>
 	                </div>
 	                <div class="ibox-content" id="test">
-	                    <p>弹出层，点击提交后得到数据并回显到父窗体。 </p>
-	                    <button type="button" class="btn btn-primary" onclick="selectUsersToParent()">弹出表格（方式一）</button>
-	                    <button type="button" class="btn btn-success" onclick="selectUsersToParentCallBack2()">弹出表格（方式二）</button>
-	                    <button type="button" class="btn btn-info" onclick="selectUsersToParentCallBack3()">弹出表格（方式三）</button>
+	                    <p>彈出層，點擊提交後得到數據並回顯到父窗體。 </p>
+	                    <button type="button" class="btn btn-primary" onclick="selectUsersToParent()">彈出表格（方式一）</button>
+	                    <button type="button" class="btn btn-success" onclick="selectUsersToParentCallBack2()">彈出表格（方式二）</button>
+	                    <button type="button" class="btn btn-info" onclick="selectUsersToParentCallBack3()">彈出表格（方式三）</button>
 	                    <p id="userids"> </p>
 	                </div>
 	            </div>
@@ -35,11 +35,11 @@
 	        <div class="col-sm-12">
 	            <div class="ibox">
 	                <div class="ibox-title">
-	                <h5>弹层框</h5>
+	                <h5>彈層框</h5>
 	                </div>
 	                <div class="ibox-content" id="test">
-	                    <p>多层弹出，点击提交后得到数据并回显到父窗体。 </p>
-	                    <button type="button" class="btn btn-primary" onclick="selectUsersToParent4()">弹出窗口（方式四）</button>
+	                    <p>多層彈出，點擊提交後得到數據並回顯到父窗體。 </p>
+	                    <button type="button" class="btn btn-primary" onclick="selectUsersToParent4()">彈出窗口（方式四）</button>
 	                    <p id="username"> </p>
 	                </div>
 	            </div>
@@ -51,43 +51,43 @@
         var prefix = ctx + "demo/modal";
 
         function selectCheckUser(){
-        	$.modal.open("选择用户", prefix + "/check");
+        	$.modal.open("選擇用戶", prefix + "/check");
         }
 
 		function selectRadioUser(){
-			$.modal.open("选择用户", prefix + "/radio");
+			$.modal.open("選擇用戶", prefix + "/radio");
         }
 
-		// 根据当前激活的选项卡获取（方式一）
+		// 根據當前啟用的選項卡獲取（方式一）
 		function selectUsersToParent(){
-			$.modal.open("选择用户", prefix + "/parent");
+			$.modal.open("選擇用戶", prefix + "/parent");
         }
 		
-		// callBack获取父窗口方法（方式二）
+		// callBack獲取父窗口方法（方式二）
 		function selectUsersToParentCallBack2(){
             var options = {
-                title: '选择用户',
+                title: '選擇用戶',
                 url: prefix + "/parent",
                 callBack: doSubmit2
              };
              $.modal.openOptions(options);
         }
 
-		// callBack获取父窗口值（方式三）
+		// callBack獲取父窗口值（方式三）
 		function selectUsersToParentCallBack3(){
             var options = {
-                title: '选择用户',
+                title: '選擇用戶',
                 url: prefix + "/parent",
                 callBack: doSubmit3
              };
              $.modal.openOptions(options);
         }
 		
-		// callBack获取父窗口值（方式四）
+		// callBack獲取父窗口值（方式四）
 		function selectUsersToParent4(){
 			var prefix = ctx + "demo/modal";
             var options = {
-                title: '多层窗口A',
+                title: '多層窗口A',
                 url: prefix + "/frame1",
                 callBack: doSubmit4
             };
@@ -97,22 +97,22 @@
 		function doSubmit2(index, layero){
 		    var rows = layero.find("iframe")[0].contentWindow.getSelections();
 		    if (rows.length == 0) {
-                $.modal.alertWarning("请至少选择一条记录");
+                $.modal.alertWarning("請至少選擇一條紀錄");
                 return;
             }
-		    $('#userids').html('我是通过方式二来的：' + rows.join())
+		    $('#userids').html('我是透過方式二來的：' + rows.join())
 		    $.modal.close(index);
 		}
 
 		function doSubmit3(index, layero){
 			var body = $.modal.getChildFrame(index);
-   			$("#userids").html('我是通过方式三来的：' + body.find('#rowIds').val());
+   			$("#userids").html('我是透過方式三來的：' + body.find('#rowIds').val());
    			$.modal.close(index);
 		}
 		
 		function doSubmit4(index, layero){
 			var body = $.modal.getChildFrame(index);
-   			$("#username").html('我是通过方式四来的：' + body.find('#name').val());
+   			$("#username").html('我是透過方式四來的：' + body.find('#name').val());
    			$.modal.close(index);
 		}
 		

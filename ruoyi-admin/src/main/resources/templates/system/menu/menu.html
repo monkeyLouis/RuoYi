@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('菜单列表')" />
+	<th:block th:include="include :: header('選單列表')" />
 </head>
 <body class="gray-bg">
     <div class="container-div">
@@ -11,17 +11,17 @@
 					<div class="select-list">
 						<ul>
 							<li>
-								菜单名称：<input type="text" name="menuName"/>
+								選單名稱：<input type="text" name="menuName"/>
 							</li>
 							<li>
-								菜单状态：<select name="visible" th:with="type=${@dict.getType('sys_show_hide')}">
+								選單狀態：<select name="visible" th:with="type=${@dict.getType('sys_show_hide')}">
 									<option value="">所有</option>
 									<option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
 								</select>
 							</li>
 							<li>
 								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.treeTable.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
-								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重設</a>
 							</li>
 						</ul>
 					</div>
@@ -36,7 +36,7 @@
 		            <i class="fa fa-edit"></i> 修改
 		        </a>
                 <a class="btn btn-info" id="expandAllBtn">
-                    <i class="fa fa-exchange"></i> 展开/折叠
+                    <i class="fa fa-exchange"></i> 展開/摺疊
                 </a>
 	        </div>
        		 <div class="col-sm-12 select-table table-striped">
@@ -64,13 +64,13 @@
 		        createUrl: prefix + "/add/{id}",
 		        updateUrl: prefix + "/edit/{id}",
 		        removeUrl: prefix + "/remove/{id}",
-		        modalName: "菜单",
+		        modalName: "選單",
 		        columns: [{
                     field: 'selectItem', 
                     radio: true
                  },
                  {
-		            title: '菜单名称',
+		            title: '選單名稱',
 		            field: 'menuName',
 		            width: '20',
 		            widthUnit: '%',
@@ -91,7 +91,7 @@
 		        },
 		        {
 		            field: 'url',
-		            title: '请求地址',
+		            title: '請求地址',
 		            width: '15',
 		            widthUnit: '%',
 		            align: "left",
@@ -100,26 +100,26 @@
                     }
 		        },
 		        {
-		            title: '类型',
+		            title: '類型',
 		            field: 'menuType',
 		            width: '10',
 		            widthUnit: '%',
 		            align: "left",
 		            formatter: function(value, item, index) {
 		                if (item.menuType == 'M') {
-		                    return '<span class="label label-success">目录</span>';
+		                    return '<span class="label label-success">目錄</span>';
 		                }
 		                else if (item.menuType == 'C') {
-		                    return '<span class="label label-primary">菜单</span>';
+		                    return '<span class="label label-primary">選單</span>';
 		                }
 		                else if (item.menuType == 'F') {
-		                    return '<span class="label label-warning">按钮</span>';
+		                    return '<span class="label label-warning">按鈕</span>';
 		                }
 		            }
 		        },
 		        {
 		            field: 'visible',
-		            title: '可见',
+		            title: '可見',
 		            width: '10',
 		            widthUnit: '%',
 		            align: "left",
@@ -132,7 +132,7 @@
 		        },
 		        {
 		            field: 'perms',
-		            title: '权限标识',
+		            title: '權限標識',
 		            width: '15',
 		            widthUnit: '%',
 		            align: "left",
@@ -147,9 +147,9 @@
 		            align: "left",
 		            formatter: function(value, row, index) {
 		                var actions = [];
-		                actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.menuId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+		                actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.menuId + '\')"><i class="fa fa-edit"></i>編輯</a> ');
 		                actions.push('<a class="btn btn-info btn-xs ' + addFlag + '" href="javascript:void(0)" onclick="$.operate.add(\'' + row.menuId + '\')"><i class="fa fa-plus"></i>新增</a> ');
-		                actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.menuId + '\')"><i class="fa fa-trash"></i>删除</a>');
+		                actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.menuId + '\')"><i class="fa fa-trash"></i>刪除</a>');
 		                return actions.join('');
 		            }
 		        }]

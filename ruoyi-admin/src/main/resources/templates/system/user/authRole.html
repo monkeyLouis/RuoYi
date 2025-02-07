@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('用户分配角色')" />
+	<th:block th:include="include :: header('用戶分配角色')" />
 </head>
 <body>
     <div class="main-content">
         <form id="form-user-add" class="form-horizontal">
             <input type="hidden" id="userId" name="userId" th:value="${user.userId}">
-            <h4 class="form-header h4">基本信息</h4>
+            <h4 class="form-header h4">基本資訊</h4>
             <div class="row">
             	<div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label is-required">用户名称：</label>
+                        <label class="col-sm-4 control-label is-required">使用者名稱：</label>
                         <div class="col-sm-8">
                             <input name="userName" class="form-control" type="text" disabled th:value="${user.userName}">
                         </div>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label is-required">登录账号：</label>
+                        <label class="col-sm-4 control-label is-required">登入帳號：</label>
                         <div class="col-sm-8">
                             <input name="loginName" class="form-control" type="text" disabled th:value="${user.loginName}">
                         </div>
@@ -41,7 +41,7 @@
     <div class="row">
         <div class="col-sm-offset-5 col-sm-10">
             <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>保 存</button>&nbsp;
-            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
+            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>關 閉 </button>
         </div>
     </div>
 	<th:block th:include="include :: footer" />
@@ -72,7 +72,7 @@
 		        },
 		        {
 		            field: 'roleId',
-		            title: '角色编号'
+		            title: '角色編號'
 		        },
 		        {
 		            field: 'roleSort',
@@ -82,16 +82,16 @@
 		        },
 		        {
 		            field: 'roleName',
-		            title: '角色名称'
+		            title: '角色名稱'
 		        },
 		        {
 		            field: 'roleKey',
-		            title: '权限字符',
+		            title: '權限字元',
 		            sortable: true
 		        },
 		        {
 		            field: 'createTime',
-		            title: '创建时间',
+		            title: '創建時間',
 		            sortable: true
 		        }]
 		    };

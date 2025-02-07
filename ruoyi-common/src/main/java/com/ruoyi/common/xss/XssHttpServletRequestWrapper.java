@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import com.ruoyi.common.utils.html.EscapeUtil;
 
 /**
- * XSS过滤处理
+ * XSS過濾處理
  * 
  * @author ruoyi
  */
@@ -29,7 +29,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper
             String[] escapseValues = new String[length];
             for (int i = 0; i < length; i++)
             {
-                // 防xss攻击和过滤前后空格
+                // 防xss攻擊和過濾前後空格
                 escapseValues[i] = EscapeUtil.clean(values[i]).trim();
             }
             return escapseValues;

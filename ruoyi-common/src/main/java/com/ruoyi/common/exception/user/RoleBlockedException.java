@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception.user;
 
 /**
- * 角色锁定异常类
+ * 角色已鎖定例外
  * 
  * @author ruoyi
  */

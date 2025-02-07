@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-	<th:block th:include="include :: header('修改部门')" />
+	<th:block th:include="include :: header('修改部門')" />
 </head>
 <body class="white-bg">
 	<div class="wrapper wrapper-content animated fadeInRight ibox-content">
@@ -9,7 +9,7 @@
 			<input name="deptId" type="hidden" th:field="*{deptId}" />
 			<input id="treeId" name="parentId" type="hidden" th:field="*{parentId}" />
 			<div class="form-group">
-				<label class="col-sm-3 control-label">上级部门：</label>
+				<label class="col-sm-3 control-label">上級部門：</label>
 				<div class="col-sm-8">
 				    <div class="input-group">
 						<input class="form-control" type="text" id="treeName" onclick="selectDeptTree()" readonly="true" th:field="*{parentName}">
@@ -18,37 +18,37 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label is-required">部门名称：</label>
+				<label class="col-sm-3 control-label is-required">部門名稱：</label>
 				<div class="col-sm-8">
 					<input class="form-control" type="text" name="deptName" th:field="*{deptName}" id="deptName" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label is-required">显示排序：</label>
+				<label class="col-sm-3 control-label is-required">顯示排序：</label>
 				<div class="col-sm-8">
 					<input class="form-control" type="text" name="orderNum" th:field="*{orderNum}" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">负责人：</label>
+				<label class="col-sm-3 control-label">負責人：</label>
 				<div class="col-sm-8">
 					<input class="form-control" type="text" name="leader" th:field="*{leader}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">联系电话：</label>
+				<label class="col-sm-3 control-label">聯絡電話：</label>
 				<div class="col-sm-8">
 					<input class="form-control" type="text" name="phone" th:field="*{phone}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">邮箱：</label>
+				<label class="col-sm-3 control-label">信箱：</label>
 				<div class="col-sm-8">
 					<input class="form-control" type="text" name="email" th:field="*{email}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">部门状态：</label>
+				<label class="col-sm-3 control-label">部門狀態：</label>
 				<div class="col-sm-8">
 					<div class="radio-box" th:each="dict : ${@dict.getType('sys_normal_disable')}">
 						<input type="radio" th:id="${dict.dictCode}" name="status" th:value="${dict.dictValue}" th:field="*{status}">
@@ -95,7 +95,7 @@
 			},
 			messages: {
 		        "deptName": {
-		            remote: "部门已经存在"
+		            remote: "部門已經存在"
 		        }
 		    },
 		    focusCleanup: true
@@ -107,20 +107,20 @@
 	        }
 	    }
 	
-		/*部门管理-修改-选择部门树*/
+		/*部門管理-修改-選擇部門樹*/
 		function selectDeptTree() {
 			var deptId = $("#treeId").val();
 			var excludeId = $("input[name='deptId']").val();
 			if(deptId > 0) {
 			    var options = {
-					title: '部门选择',
+					title: '部門選擇',
 					width: "380",
 					url: prefix + "/selectDeptTree/" + $("#treeId").val() + "/" + excludeId,
 					callBack: doSubmit
 				};
 				$.modal.openOptions(options);
 			} else {
-        		$.modal.alertError("父部门不能选择");
+        		$.modal.alertError("父部門不能選擇");
         	}
 		}
 		

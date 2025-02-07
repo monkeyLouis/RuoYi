@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PreDestroy;
 
 /**
- * 确保应用退出时能关闭后台线程
+ * 確保應用退出時能關閉後台執行緒
  *
  * @author cj
  */
@@ -34,7 +34,7 @@ public class ShutdownManager
     }
 
     /**
-     * 停止Seesion会话检查
+     * 停止Seesion會話檢查
      */
     private void shutdownSpringSessionValidationScheduler()
     {
@@ -42,7 +42,7 @@ public class ShutdownManager
         {
             try
             {
-                logger.info("====关闭会话验证任务====");
+                logger.info("====關閉會話驗證任務====");
                 springSessionValidationScheduler.disableSessionValidation();
             }
             catch (Exception e)
@@ -53,13 +53,13 @@ public class ShutdownManager
     }
 
     /**
-     * 停止异步执行任务
+     * 停止非同步執行任務
      */
     private void shutdownAsyncManager()
     {
         try
         {
-            logger.info("====关闭后台任务任务线程池====");
+            logger.info("====關閉後台任務任務執行緒池====");
             AsyncManager.me().shutdown();
         }
         catch (Exception e)
@@ -72,7 +72,7 @@ public class ShutdownManager
     {
         try
         {
-            logger.info("====关闭缓存====");
+            logger.info("====關閉快取====");
             if (ehCacheManager != null)
             {
                 CacheManager cacheManager = ehCacheManager.getCacheManager();

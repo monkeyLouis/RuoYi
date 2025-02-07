@@ -4,7 +4,7 @@ import org.quartz.JobExecutionContext;
 import com.ruoyi.quartz.domain.SysJob;
 
 /**
- * 定时任务处理（允许并发执行）
+ * 定時任務處理（允許並發執行）
  * 
  * @author ruoyi
  *

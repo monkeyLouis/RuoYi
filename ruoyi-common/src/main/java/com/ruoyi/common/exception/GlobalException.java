@@ -1,7 +1,7 @@
 package com.ruoyi.common.exception;
 
 /**
- * 全局异常
+ * 全域例外
  * 
  * @author ruoyi
  */

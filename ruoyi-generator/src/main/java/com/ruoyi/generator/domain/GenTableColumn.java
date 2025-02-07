@@ -5,7 +5,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * 代码生成业务字段表 gen_table_column
+ * 代碼生成業務欄位表 gen_table_column
  * 
  * @author ruoyi
  */
@@ -13,29 +13,29 @@ public class GenTableColumn extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 编号 */
+    /** 編號 */
     private Long columnId;
 
-    /** 归属表编号 */
+    /** 歸屬表編號 */
     private Long tableId;
 
-    /** 列名称 */
+    /** 列名稱 */
     private String columnName;
 
     /** 列描述 */
     private String columnComment;
 
-    /** 列类型 */
+    /** 列類型 */
     private String columnType;
 
-    /** JAVA类型 */
+    /** JAVA類型 */
     private String javaType;
 
-    /** JAVA字段名 */
-    @NotBlank(message = "Java属性不能为空")
+    /** JAVA欄位名 */
+    @NotBlank(message = "Java屬性不能為空")
     private String javaField;
 
-    /** 是否主键（1是） */
+    /** 是否主鍵（1是） */
     private String isPk;
 
     /** 是否自增（1是） */
@@ -44,25 +44,25 @@ public class GenTableColumn extends BaseEntity
     /** 是否必填（1是） */
     private String isRequired;
 
-    /** 是否为插入字段（1是） */
+    /** 是否為插入欄位（1是） */
     private String isInsert;
 
-    /** 是否编辑字段（1是） */
+    /** 是否編輯欄位（1是） */
     private String isEdit;
 
-    /** 是否列表字段（1是） */
+    /** 是否列表欄位（1是） */
     private String isList;
 
-    /** 是否查询字段（1是） */
+    /** 是否查詢欄位（1是） */
     private String isQuery;
 
-    /** 查询方式（EQ等于、NE不等于、GT大于、LT小于、LIKE模糊、BETWEEN范围） */
+    /** 查詢方式（EQ等於、NE不等於、GT大於、LT小於、LIKE模糊、BETWEEN範圍） */
     private String queryType;
 
-    /** 显示类型（input文本框、textarea文本域、select下拉框、checkbox复选框、radio单选框、datetime日期控件、upload上传控件、summernote富文本控件） */
+    /** 顯示類型（input文本框、textarea文本域、select下拉框、checkbox複選框、radio單選框、datetime日期控制項、upload上傳控制項、summernote富文本控制項） */
     private String htmlType;
 
-    /** 字典类型 */
+    /** 字典類型 */
     private String dictType = "";
 
     /** 排序 */
@@ -344,7 +344,7 @@ public class GenTableColumn extends BaseEntity
 
     public static boolean isUsableColumn(String javaField)
     {
-        // isSuperColumn()中的名单用于避免生成多余Domain属性，若某些属性在生成页面时需要用到不能忽略，则放在此处白名单
+        // isSuperColumn()中的名單用於避免生成多餘Domain屬性，若某些屬性在生成頁面時需要用到不能忽略，則放在此處白名單
         return StringUtils.equalsAnyIgnoreCase(javaField, "parentId", "orderNum", "remark");
     }
 

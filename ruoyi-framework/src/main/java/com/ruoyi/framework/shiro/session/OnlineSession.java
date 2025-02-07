@@ -6,7 +6,7 @@ import org.apache.shiro.session.mgt.SimpleSession;
 import com.ruoyi.common.enums.OnlineStatus;
 
 /**
- * 在线用户会话属性
+ * 在線用戶會話屬性
  * 
  * @author ruoyi
  */
@@ -14,31 +14,31 @@ public class OnlineSession extends SimpleSession
 {
     private static final long serialVersionUID = 1L;
 
-    /** 用户ID */
+    /** 用戶ID */
     private Long userId;
 
-    /** 用户名称 */
+    /** 使用者名稱 */
     private String loginName;
 
-    /** 部门名称 */
+    /** 部門名稱 */
     private String deptName;
 	
-	/** 用户头像 */
+	/** 用戶頭像 */
 	private String avatar;
 
-    /** 登录IP地址 */
+    /** 登錄IP位址 */
     private String host;
 
-    /** 浏览器类型 */
+    /** 瀏覽器類型 */
     private String browser;
 
-    /** 操作系统 */
+    /** 操作系統 */
     private String os;
 
-    /** 在线状态 */
+    /** 線上狀態 */
     private OnlineStatus status = OnlineStatus.on_line;
 
-    /** 属性是否改变 优化session数据同步 */
+    /** 屬性是否改變 最佳化session數據同步 */
     private transient boolean attributeChanged = false;
 
     @Override

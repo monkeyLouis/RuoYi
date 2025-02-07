@@ -16,14 +16,14 @@ import com.ruoyi.framework.shiro.session.OnlineSession;
 import com.ruoyi.framework.shiro.session.OnlineSessionDAO;
 
 /**
- * 自定义访问控制
+ * 自訂訪問控制
  * 
  * @author ruoyi
  */
 public class OnlineSessionFilter extends AccessControlFilter
 {
     /**
-     * 强制退出后重定向的地址
+     * 強制退出後重定向的地址
      */
     @Value("${shiro.user.loginUrl}")
     private String loginUrl;
@@ -31,7 +31,7 @@ public class OnlineSessionFilter extends AccessControlFilter
     private OnlineSessionDAO onlineSessionDAO;
 
     /**
-     * 表示是否允许访问；mappedValue就是[urls]配置中拦截器参数部分，如果允许访问返回true，否则false；
+     * 表示是否允許訪問；mappedValue就是[urls]配置中攔截器參數部分，如果允許訪問返回true，否則false；
      */
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue)
@@ -47,7 +47,7 @@ public class OnlineSessionFilter extends AccessControlFilter
         {
             OnlineSession onlineSession = (OnlineSession) session;
             request.setAttribute(ShiroConstants.ONLINE_SESSION, onlineSession);
-            // 把user对象设置进去
+            // 把user對象設置進去
             boolean isGuest = onlineSession.getUserId() == null || onlineSession.getUserId() == 0L;
             if (isGuest == true)
             {
@@ -71,7 +71,7 @@ public class OnlineSessionFilter extends AccessControlFilter
     }
 
     /**
-     * 表示当访问拒绝时是否已经处理了；如果返回true表示需要继续处理；如果返回false表示该拦截器实例已经处理了，将直接返回即可。
+     * 表示當訪問拒絕時是否已經處理了；如果返回true表示需要繼續處理；如果返回false表示該攔截器實例已經處理了，將直接返回即可。
      */
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception
@@ -85,7 +85,7 @@ public class OnlineSessionFilter extends AccessControlFilter
         return false;
     }
 
-    // 跳转到登录页
+    // 跳轉到登入頁
     @Override
     protected void redirectToLogin(ServletRequest request, ServletResponse response) throws IOException
     {

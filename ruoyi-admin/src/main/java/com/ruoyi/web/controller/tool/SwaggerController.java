@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ruoyi.common.core.controller.BaseController;
 
 /**
- * swagger 接口
+ * swagger 介面
  * 
  * @author ruoyi
  */
