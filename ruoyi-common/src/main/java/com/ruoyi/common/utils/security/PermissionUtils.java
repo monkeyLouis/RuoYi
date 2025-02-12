@@ -12,7 +12,7 @@ import com.ruoyi.common.constant.PermissionConstants;
 import com.ruoyi.common.utils.MessageUtils;
 
 /**
- * permission 工具類
+ * permission 工具类
  * 
  * @author ruoyi
  */
@@ -21,40 +21,40 @@ public class PermissionUtils
     private static final Logger log = LoggerFactory.getLogger(PermissionUtils.class);
 
     /**
-     * 查看數據的權限
+     * 查看数据的权限
      */
     public static final String VIEW_PERMISSION = "no.view.permission";
 
     /**
-     * 創建數據的權限
+     * 创建数据的权限
      */
     public static final String CREATE_PERMISSION = "no.create.permission";
 
     /**
-     * 修改數據的權限
+     * 修改数据的权限
      */
     public static final String UPDATE_PERMISSION = "no.update.permission";
 
     /**
-     * 刪除數據的權限
+     * 删除数据的权限
      */
     public static final String DELETE_PERMISSION = "no.delete.permission";
 
     /**
-     * 導出數據的權限
+     * 导出数据的权限
      */
     public static final String EXPORT_PERMISSION = "no.export.permission";
 
     /**
-     * 其他數據的權限
+     * 其他数据的权限
      */
     public static final String PERMISSION = "no.permission";
 
     /**
-     * 權限錯誤消息提醒
+     * 权限错误消息提醒
      * 
-     * @param permissionsStr 錯誤資訊
-     * @return 提示資訊
+     * @param permissionsStr 错误信息
+     * @return 提示信息
      */
     public static String getMsg(String permissionsStr)
     {
@@ -85,10 +85,10 @@ public class PermissionUtils
     }
 
     /**
-     * 返回用戶屬性值
+     * 返回用户属性值
      *
-     * @param property 屬性名稱
-     * @return 用戶屬性值
+     * @param property 属性名称
+     * @return 用户属性值
      */
     public static Object getPrincipalProperty(String property)
     {

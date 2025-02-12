@@ -16,24 +16,24 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.uuid.Seq;
 
 /**
- * 文件上傳工具類
+ * 文件上传工具类
  * 
  * @author ruoyi
  */
 public class FileUploadUtils
 {
     /**
-     * 默認大小 50M
+     * 默认大小 50M
      */
     public static final long DEFAULT_MAX_SIZE = 50 * 1024 * 1024L;
 
     /**
-     * 預設的檔案名最大長度 100
+     * 默认的文件名最大长度 100
      */
     public static final int DEFAULT_FILE_NAME_LENGTH = 100;
 
     /**
-     * 默認上傳的地址
+     * 默认上传的地址
      */
     private static String defaultBaseDir = RuoYiConfig.getProfile();
 
@@ -48,10 +48,10 @@ public class FileUploadUtils
     }
 
     /**
-     * 以默認配置進行文件上傳
+     * 以默认配置进行文件上传
      *
-     * @param file 上傳的文件
-     * @return 檔案名稱
+     * @param file 上传的文件
+     * @return 文件名称
      * @throws Exception
      */
     public static final String upload(MultipartFile file) throws IOException
@@ -67,11 +67,11 @@ public class FileUploadUtils
     }
 
     /**
-     * 根據文件路徑上傳
+     * 根据文件路径上传
      *
-     * @param baseDir 相對應用的基目錄
-     * @param file 上傳的文件
-     * @return 檔案名稱
+     * @param baseDir 相对应用的基目录
+     * @param file 上传的文件
+     * @return 文件名称
      * @throws IOException
      */
     public static final String upload(String baseDir, MultipartFile file) throws IOException
@@ -87,16 +87,16 @@ public class FileUploadUtils
     }
 
     /**
-     * 文件上傳
+     * 文件上传
      *
-     * @param baseDir 相對應用的基目錄
-     * @param file 上傳的文件
-     * @param allowedExtension 上傳文件類型
-     * @return 返回上傳成功的檔案名
+     * @param baseDir 相对应用的基目录
+     * @param file 上传的文件
+     * @param allowedExtension 上传文件类型
+     * @return 返回上传成功的文件名
      * @throws FileSizeLimitExceededException 如果超出最大大小
-     * @throws FileNameLengthLimitExceededException 檔案名太長
-     * @throws IOException 比如讀寫文件出錯時
-     * @throws InvalidExtensionException 檔案校驗異常
+     * @throws FileNameLengthLimitExceededException 文件名太长
+     * @throws IOException 比如读写文件出错时
+     * @throws InvalidExtensionException 文件校验异常
      */
     public static final String upload(String baseDir, MultipartFile file, String[] allowedExtension)
             throws FileSizeLimitExceededException, IOException, FileNameLengthLimitExceededException,
@@ -118,7 +118,7 @@ public class FileUploadUtils
     }
 
     /**
-     * 編碼檔案名
+     * 编码文件名
      */
     public static final String extractFilename(MultipartFile file)
     {
@@ -148,9 +148,9 @@ public class FileUploadUtils
     }
 
     /**
-     * 檔案大小校驗
+     * 文件大小校验
      *
-     * @param file 上傳的文件
+     * @param file 上传的文件
      * @return
      * @throws FileSizeLimitExceededException 如果超出最大大小
      * @throws InvalidExtensionException
@@ -196,7 +196,7 @@ public class FileUploadUtils
     }
 
     /**
-     * 判斷MIME類型是否是允許的MIME類型
+     * 判断MIME类型是否是允许的MIME类型
      *
      * @param extension
      * @param allowedExtension
@@ -215,10 +215,10 @@ public class FileUploadUtils
     }
 
     /**
-     * 獲取檔案名的後綴
+     * 获取文件名的后缀
      * 
-     * @param file 表單文件
-     * @return 後綴名
+     * @param file 表单文件
+     * @return 后缀名
      */
     public static final String getExtension(MultipartFile file)
     {

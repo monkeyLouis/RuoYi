@@ -12,7 +12,7 @@ import java.util.Date;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
- * 時間工具類
+ * 时间工具类
  * 
  * @author ruoyi
  */
@@ -34,9 +34,9 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
             "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm", "yyyy.MM"};
 
     /**
-     * 獲取當前Date型日期
+     * 获取当前Date型日期
      * 
-     * @return Date() 當前日期
+     * @return Date() 当前日期
      */
     public static Date getNowDate()
     {
@@ -44,7 +44,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     }
 
     /**
-     * 獲取當前日期, 默認格式為yyyy-MM-dd
+     * 获取当前日期, 默认格式为yyyy-MM-dd
      * 
      * @return String
      */
@@ -91,7 +91,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     }
 
     /**
-     * 日期路徑 即年/月/日 如2018/08/08
+     * 日期路径 即年/月/日 如2018/08/08
      */
     public static final String datePath()
     {
@@ -100,7 +100,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     }
 
     /**
-     * 日期路徑 即年/月/日 如20180808
+     * 日期路径 即年/月/日 如20180808
      */
     public static final String dateTime()
     {
@@ -109,7 +109,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     }
 
     /**
-     * 日期型字串轉化為日期 格式
+     * 日期型字符串转化为日期 格式
      */
     public static Date parseDate(Object str)
     {
@@ -128,7 +128,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     }
 
     /**
-     * 獲取伺服器啟動時間
+     * 获取服务器启动时间
      */
     public static Date getServerStartDate()
     {
@@ -137,7 +137,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     }
 
     /**
-     * 計算相差天數
+     * 计算相差天数
      */
     public static int differentDaysByMillisecond(Date date1, Date date2)
     {
@@ -145,11 +145,11 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     }
 
     /**
-     * 計算時間差
+     * 计算时间差
      *
-     * @param endDate 最後時間
-     * @param startTime 開始時間
-     * @return 時間差（天/小時/分鐘）
+     * @param endDate 最后时间
+     * @param startTime 开始时间
+     * @return 时间差（天/小时/分钟）
      */
     public static String timeDistance(Date endDate, Date startTime)
     {
@@ -157,17 +157,17 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
         long nh = 1000 * 60 * 60;
         long nm = 1000 * 60;
         // long ns = 1000;
-        // 獲得兩個時間的毫秒時間差異
+        // 获得两个时间的毫秒时间差异
         long diff = endDate.getTime() - startTime.getTime();
-        // 計算差多少天
+        // 计算差多少天
         long day = diff / nd;
-        // 計算差多少小時
+        // 计算差多少小时
         long hour = diff % nd / nh;
-        // 計算差多少分鐘
+        // 计算差多少分钟
         long min = diff % nd % nh / nm;
-        // 計算差多少秒//輸出結果
+        // 计算差多少秒//输出结果
         // long sec = diff % nd % nh % nm / ns;
-        return day + "天" + hour + "小時" + min + "分鐘";
+        return day + "天" + hour + "小时" + min + "分钟";
     }
 
     /**

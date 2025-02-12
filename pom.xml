@@ -229,13 +229,6 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
-            <!-- 門擴充-->
-            <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>door-order</artifactId>
-                <version>${ruoyi.version}</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -246,7 +239,6 @@
         <module>ruoyi-quartz</module>
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
-        <module>door-order</module>
     </modules>
     <packaging>pom</packaging>
 

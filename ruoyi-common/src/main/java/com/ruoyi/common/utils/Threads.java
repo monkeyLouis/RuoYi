@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 執行緒相關工具類.
+ * 线程相关工具类.
  * 
  * @author ruoyi
  */
@@ -18,7 +18,7 @@ public class Threads
     private static final Logger logger = LoggerFactory.getLogger(Threads.class);
 
     /**
-     * sleep等待,單位為毫秒
+     * sleep等待,单位为毫秒
      */
     public static void sleep(long milliseconds)
     {
@@ -33,11 +33,11 @@ public class Threads
     }
 
     /**
-     * 停止執行緒池
-     * 先使用shutdown, 停止接收新任務並嘗試完成所有已存在任務.
-     * 如果超時, 則調用shutdownNow, 取消在workQueue中Pending的任務,並中斷所有阻塞函數.
+     * 停止线程池
+     * 先使用shutdown, 停止接收新任务并尝试完成所有已存在任务.
+     * 如果超时, 则调用shutdownNow, 取消在workQueue中Pending的任务,并中断所有阻塞函数.
      * 如果仍人超時，則強制退出.
-     * 另對在shutdown時執行緒本身被調用中斷做了處理.
+     * 另对在shutdown时线程本身被调用中断做了处理.
      */
     public static void shutdownAndAwaitTermination(ExecutorService pool)
     {
@@ -64,7 +64,7 @@ public class Threads
     }
 
     /**
-     * 列印執行緒異常資訊
+     * 打印线程异常信息
      */
     public static void printException(Runnable r, Throwable t)
     {

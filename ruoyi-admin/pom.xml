@@ -73,12 +73,6 @@
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-generator</artifactId>
         </dependency>
-        
-        <!-- 訂單擴增-->
-        <dependency>
-            <groupId>com.ruoyi</groupId>
-            <artifactId>door-order</artifactId>
-        </dependency>
 
     </dependencies>
 

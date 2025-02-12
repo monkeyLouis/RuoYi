@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.ruoyi.common.utils.spring.SpringUtils;
 
 /**
- * Cache工具類
+ * Cache工具类
  * 
  * @author ruoyi
  */
@@ -23,7 +23,7 @@ public class CacheUtils
     private static final String SYS_CACHE = "sys-cache";
 
     /**
-     * 獲取SYS_CACHE快取
+     * 获取SYS_CACHE缓存
      * 
      * @param key
      * @return
@@ -34,7 +34,7 @@ public class CacheUtils
     }
 
     /**
-     * 獲取SYS_CACHE快取
+     * 获取SYS_CACHE缓存
      * 
      * @param key
      * @param defaultValue
@@ -47,7 +47,7 @@ public class CacheUtils
     }
 
     /**
-     * 寫入SYS_CACHE快取
+     * 写入SYS_CACHE缓存
      * 
      * @param key
      * @return
@@ -58,7 +58,7 @@ public class CacheUtils
     }
 
     /**
-     * 從SYS_CACHE快取中移除
+     * 从SYS_CACHE缓存中移除
      * 
      * @param key
      * @return
@@ -69,7 +69,7 @@ public class CacheUtils
     }
 
     /**
-     * 獲取快取
+     * 获取缓存
      * 
      * @param cacheName
      * @param key
@@ -81,7 +81,7 @@ public class CacheUtils
     }
 
     /**
-     * 獲取快取
+     * 获取缓存
      * 
      * @param cacheName
      * @param key
@@ -95,7 +95,7 @@ public class CacheUtils
     }
 
     /**
-     * 寫入快取
+     * 写入缓存
      * 
      * @param cacheName
      * @param key
@@ -107,7 +107,7 @@ public class CacheUtils
     }
 
     /**
-     * 從快取中移除
+     * 从缓存中移除
      * 
      * @param cacheName
      * @param key
@@ -118,7 +118,7 @@ public class CacheUtils
     }
 
     /**
-     * 從快取中移除所有
+     * 从缓存中移除所有
      * 
      * @param cacheName
      */
@@ -130,11 +130,11 @@ public class CacheUtils
         {
             cache.remove(it.next());
         }
-        logger.info("清理快取： {} => {}", cacheName, keys);
+        logger.info("清理缓存： {} => {}", cacheName, keys);
     }
 
     /**
-     * 從快取中移除指定key
+     * 从缓存中移除指定key
      * 
      * @param keys
      */
@@ -144,7 +144,7 @@ public class CacheUtils
     }
 
     /**
-     * 從快取中移除指定key
+     * 从缓存中移除指定key
      * 
      * @param cacheName
      * @param keys
@@ -155,11 +155,11 @@ public class CacheUtils
         {
             remove(it.next());
         }
-        logger.info("清理快取： {} => {}", cacheName, keys);
+        logger.info("清理缓存： {} => {}", cacheName, keys);
     }
 
     /**
-     * 獲取快取鍵名
+     * 获取缓存键名
      * 
      * @param key
      * @return
@@ -170,7 +170,7 @@ public class CacheUtils
     }
 
     /**
-     * 獲得一個Cache，沒有則顯示日誌。
+     * 获得一个Cache，没有则显示日志。
      * 
      * @param cacheName
      * @return
@@ -180,15 +180,15 @@ public class CacheUtils
         Cache<String, Object> cache = cacheManager.getCache(cacheName);
         if (cache == null)
         {
-            throw new RuntimeException("當前系統中沒有定義“" + cacheName + "”這個快取。");
+            throw new RuntimeException("当前系统中没有定义“" + cacheName + "”这个缓存。");
         }
         return cache;
     }
 
     /**
-     * 獲取所有快取
+     * 获取所有缓存
      * 
-     * @return 快取組
+     * @return 缓存组
      */
     public static String[] getCacheNames()
     {

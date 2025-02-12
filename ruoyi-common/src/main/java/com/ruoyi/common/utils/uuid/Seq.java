@@ -5,27 +5,27 @@ import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * @author ruoyi 序列生成類
+ * @author ruoyi 序列生成类
  */
 public class Seq
 {
-    // 通用序列類型
+    // 通用序列类型
     public static final String commSeqType = "COMMON";
 
-    // 上傳序列類型
+    // 上传序列类型
     public static final String uploadSeqType = "UPLOAD";
 
-    // 通用介面序列數
+    // 通用接口序列数
     private static AtomicInteger commSeq = new AtomicInteger(1);
 
-    // 上傳介面序列數
+    // 上传接口序列数
     private static AtomicInteger uploadSeq = new AtomicInteger(1);
 
-    // 機器標識
+    // 机器标识
     private static final String machineCode = "A";
 
     /**
-     * 獲取通用序號
+     * 获取通用序列号
      * 
      * @return 序列值
      */
@@ -35,7 +35,7 @@ public class Seq
     }
     
     /**
-     * 默認16位序號 yyMMddHHmmss + 一位機器標識 + 3長度循環遞增字串
+     * 默认16位序列号 yyMMddHHmmss + 一位机器标识 + 3长度循环递增字符串
      * 
      * @return 序列值
      */
@@ -50,10 +50,10 @@ public class Seq
     }
 
     /**
-     * 通用介面序號 yyMMddHHmmss + 一位機器標識 + length長度循環遞增字串
+     * 通用接口序列号 yyMMddHHmmss + 一位机器标识 + length长度循环递增字符串
      * 
-     * @param atomicInt 序列數
-     * @param length 數值長度
+     * @param atomicInt 序列数
+     * @param length 数值长度
      * @return 序列值
      */
     public static String getId(AtomicInteger atomicInt, int length)
@@ -65,7 +65,7 @@ public class Seq
     }
 
     /**
-     * 序列循環遞增字串[1, 10 的 (length)冪次方), 用0左補齊length位數
+     * 序列循环递增字符串[1, 10 的 (length)幂次方), 用0左补齐length位数
      * 
      * @return 序列值
      */
@@ -74,13 +74,13 @@ public class Seq
         // 先取值再+1
         int value = atomicInt.getAndIncrement();
 
-        // 如果更新後值>=10 的 (length)冪次方則重設為1
+        // 如果更新后值>=10 的 (length)幂次方则重置为1
         int maxSeq = (int) Math.pow(10, length);
         if (atomicInt.get() >= maxSeq)
         {
             atomicInt.set(1);
         }
-        // 轉字串，用0左補齊
+        // 转字符串，用0左补齐
         return StringUtils.padl(value, length);
     }
 }

@@ -10,7 +10,7 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.bean.BeanUtils;
 
 /**
- * shiro 工具類
+ * shiro 工具类
  * 
  * @author ruoyi
  */
@@ -49,7 +49,7 @@ public class ShiroUtils
         PrincipalCollection principalCollection = subject.getPrincipals();
         String realmName = principalCollection.getRealmNames().iterator().next();
         PrincipalCollection newPrincipalCollection = new SimplePrincipalCollection(user, realmName);
-        // 重新載入Principal
+        // 重新加载Principal
         subject.runAs(newPrincipalCollection);
     }
 
@@ -74,11 +74,11 @@ public class ShiroUtils
     }
 
     /**
-     * 生成隨機鹽
+     * 生成随机盐
      */
     public static String randomSalt()
     {
-        // 一個Byte占兩個位元組，此處生成的3位元組，字串長度為6
+        // 一个Byte占两个字节，此处生成的3字节，字符串长度为6
         SecureRandomNumberGenerator secureRandom = new SecureRandomNumberGenerator();
         String hex = secureRandom.nextBytes(3).toHex();
         return hex;
