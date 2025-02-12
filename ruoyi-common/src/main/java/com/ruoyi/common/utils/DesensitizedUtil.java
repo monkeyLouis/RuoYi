@@ -1,17 +1,17 @@
 package com.ruoyi.common.utils;
 
 /**
- * 脱敏工具类
+ * 脫敏工具類
  *
  * @author ruoyi
  */
 public class DesensitizedUtil
 {
     /**
-     * 密码的全部字符都用*代替，比如：******
+     * 密碼的全部字元都用*代替，比如：******
      *
-     * @param password 密码
-     * @return 脱敏后的密码
+     * @param password 密碼
+     * @return 脫敏後的密碼
      */
     public static String password(String password)
     {
@@ -23,10 +23,10 @@ public class DesensitizedUtil
     }
 
     /**
-     * 车牌中间用*代替，如果是错误的车牌，不处理
+     * 車牌中間用*代替，如果是錯誤的車牌，不處理
      *
-     * @param carLicense 完整的车牌号
-     * @return 脱敏后的车牌
+     * @param carLicense 完整的車牌號
+     * @return 脫敏後的車牌
      */
     public static String carLicense(String carLicense)
     {
@@ -34,14 +34,14 @@ public class DesensitizedUtil
         {
             return StringUtils.EMPTY;
         }
-        // 普通车牌
+        // 普通車牌
         if (carLicense.length() == 7)
         {
             carLicense = StringUtils.hide(carLicense, 3, 6);
         }
         else if (carLicense.length() == 8)
         {
-            // 新能源车牌
+            // 新能源車牌
             carLicense = StringUtils.hide(carLicense, 3, 7);
         }
         return carLicense;

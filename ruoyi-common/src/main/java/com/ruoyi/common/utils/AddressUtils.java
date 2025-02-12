@@ -8,7 +8,7 @@ import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.utils.http.HttpUtils;
 
 /**
- * 获取地址类
+ * 獲取地址類
  * 
  * @author ruoyi
  */
@@ -16,7 +16,7 @@ public class AddressUtils
 {
     private static final Logger log = LoggerFactory.getLogger(AddressUtils.class);
 
-    // IP地址查询
+    // IP位址查詢
     public static final String IP_URL = "http://whois.pconline.com.cn/ipJson.jsp";
 
     // 未知地址
@@ -24,10 +24,10 @@ public class AddressUtils
 
     public static String getRealAddressByIP(String ip)
     {
-        // 内网不查询
+        // 內網不查詢
         if (IpUtils.internalIp(ip))
         {
-            return "内網IP";
+            return "內網IP";
         }
         if (RuoYiConfig.isAddressEnabled())
         {
@@ -36,7 +36,7 @@ public class AddressUtils
                 String rspStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", Constants.GBK);
                 if (StringUtils.isEmpty(rspStr))
                 {
-                    log.error("获取地理位置异常 {}", ip);
+                    log.error("獲取地理位置異常 {}", ip);
                     return UNKNOWN;
                 }
                 JSONObject obj = JSONObject.parseObject(rspStr);
@@ -46,7 +46,7 @@ public class AddressUtils
             }
             catch (Exception e)
             {
-                log.error("获取地理位置异常 {}", e);
+                log.error("獲取地理位置異常 {}", e);
             }
         }
         return UNKNOWN;

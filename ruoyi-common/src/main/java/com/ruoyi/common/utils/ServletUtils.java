@@ -14,19 +14,19 @@ import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.core.text.Convert;
 
 /**
- * 客户端工具类
+ * 用戶端工具類
  * 
  * @author ruoyi
  */
 public class ServletUtils
 {
     /**
-     * 定义移动端请求的所有可能类型
+     * 定義行動端請求的所有可能類型
      */
     private final static String[] agent = { "Android", "iPhone", "iPod", "iPad", "Windows Phone", "MQQBrowser" };
 
     /**
-     * 获取String参数
+     * 獲取String參數
      */
     public static String getParameter(String name)
     {
@@ -34,7 +34,7 @@ public class ServletUtils
     }
 
     /**
-     * 获取String参数
+     * 獲取String參數
      */
     public static String getParameter(String name, String defaultValue)
     {
@@ -42,7 +42,7 @@ public class ServletUtils
     }
 
     /**
-     * 获取Integer参数
+     * 獲取Integer參數
      */
     public static Integer getParameterToInt(String name)
     {
@@ -50,7 +50,7 @@ public class ServletUtils
     }
 
     /**
-     * 获取Integer参数
+     * 獲取Integer參數
      */
     public static Integer getParameterToInt(String name, Integer defaultValue)
     {
@@ -58,7 +58,7 @@ public class ServletUtils
     }
 
     /**
-     * 获取Boolean参数
+     * 獲取Boolean參數
      */
     public static Boolean getParameterToBool(String name)
     {
@@ -66,7 +66,7 @@ public class ServletUtils
     }
 
     /**
-     * 获取Boolean参数
+     * 獲取Boolean參數
      */
     public static Boolean getParameterToBool(String name, Boolean defaultValue)
     {
@@ -74,7 +74,7 @@ public class ServletUtils
     }
 
     /**
-     * 获取request
+     * 獲取request
      */
     public static HttpServletRequest getRequest()
     {
@@ -82,7 +82,7 @@ public class ServletUtils
     }
 
     /**
-     * 获取response
+     * 獲取response
      */
     public static HttpServletResponse getResponse()
     {
@@ -90,7 +90,7 @@ public class ServletUtils
     }
 
     /**
-     * 获取session
+     * 獲取session
      */
     public static HttpSession getSession()
     {
@@ -104,10 +104,10 @@ public class ServletUtils
     }
 
     /**
-     * 将字符串渲染到客户端
+     * 將字串渲染到用戶端
      * 
-     * @param response 渲染对象
-     * @param string 待渲染的字符串
+     * @param response 渲染對象
+     * @param string 待渲染的字串
      * @return null
      */
     public static String renderString(HttpServletResponse response, String string)
@@ -126,7 +126,7 @@ public class ServletUtils
     }
 
     /**
-     * 是否是Ajax异步请求
+     * 是否是Ajax非同步請求
      * 
      * @param request
      */
@@ -155,14 +155,14 @@ public class ServletUtils
     }
 
     /**
-     * 判断User-Agent 是不是来自于手机
+     * 判斷User-Agent 是不是來自於手機
      */
     public static boolean checkAgentIsMobile(String ua)
     {
         boolean flag = false;
         if (!ua.contains("Windows NT") || (ua.contains("Windows NT") && ua.contains("compatible; MSIE 9.0;")))
         {
-            // 排除 苹果桌面系统
+            // 排除 蘋果桌面系統
             if (!ua.contains("Windows NT") && !ua.contains("Macintosh"))
             {
                 for (String item : agent)
@@ -179,10 +179,10 @@ public class ServletUtils
     }
 
     /**
-     * 内容编码
+     * 內容編碼
      * 
-     * @param str 内容
-     * @return 编码后的内容
+     * @param str 內容
+     * @return 編碼後的內容
      */
     public static String urlEncode(String str)
     {
@@ -197,10 +197,10 @@ public class ServletUtils
     }
 
     /**
-     * 内容解码
+     * 內容解碼
      * 
-     * @param str 内容
-     * @return 解码后的内容
+     * @param str 內容
+     * @return 解碼後的內容
      */
     public static String urlDecode(String str)
     {

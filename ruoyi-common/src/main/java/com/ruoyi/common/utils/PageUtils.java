@@ -6,14 +6,14 @@ import com.ruoyi.common.core.page.TableSupport;
 import com.ruoyi.common.utils.sql.SqlUtil;
 
 /**
- * 分页工具类
+ * 分頁工具類
  * 
  * @author ruoyi
  */
 public class PageUtils extends PageHelper
 {
     /**
-     * 设置请求分页数据
+     * 設置請求分頁數據
      */
     public static void startPage()
     {
@@ -26,7 +26,7 @@ public class PageUtils extends PageHelper
     }
 
     /**
-     * 清理分页的线程变量
+     * 清理分頁的執行緒變數
      */
     public static void clearPage()
     {
