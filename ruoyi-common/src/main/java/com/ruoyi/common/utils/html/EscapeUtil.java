@@ -3,7 +3,7 @@ package com.ruoyi.common.utils.html;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * 转义和反转义工具类
+ * 轉義和反轉義工具類
  * 
  * @author ruoyi
  */
@@ -21,18 +21,18 @@ public class EscapeUtil
         }
 
         // special HTML characters
-        TEXT['\''] = "&#039;".toCharArray(); // 单引号
-        TEXT['"'] = "&#34;".toCharArray(); // 双引号
+        TEXT['\''] = "&#039;".toCharArray(); // 單引號
+        TEXT['"'] = "&#34;".toCharArray(); // 雙引號
         TEXT['&'] = "&#38;".toCharArray(); // &符
-        TEXT['<'] = "&#60;".toCharArray(); // 小于号
-        TEXT['>'] = "&#62;".toCharArray(); // 大于号
+        TEXT['<'] = "&#60;".toCharArray(); // 小於號
+        TEXT['>'] = "&#62;".toCharArray(); // 大於號
     }
 
     /**
-     * 转义文本中的HTML字符为安全的字符
+     * 轉義文本中的HTML字元為安全的字元
      * 
-     * @param text 被转义的文本
-     * @return 转义后的文本
+     * @param text 被轉義的文本
+     * @return 轉義後的文本
      */
     public static String escape(String text)
     {
@@ -40,10 +40,10 @@ public class EscapeUtil
     }
 
     /**
-     * 还原被转义的HTML特殊字符
+     * 還原被轉義的HTML特殊字元
      * 
-     * @param content 包含转义符的HTML内容
-     * @return 转换后的字符串
+     * @param content 包含轉義符的HTML內容
+     * @return 轉換後的字串
      */
     public static String unescape(String content)
     {
@@ -51,10 +51,10 @@ public class EscapeUtil
     }
 
     /**
-     * 清除所有HTML标签，但是不删除标签内的内容
+     * 清除所有HTML標籤，但是不刪除標籤內的內容
      * 
      * @param content 文本
-     * @return 清除标签后的文本
+     * @return 清除標籤後的文本
      */
     public static String clean(String content)
     {
@@ -62,10 +62,10 @@ public class EscapeUtil
     }
 
     /**
-     * Escape编码
+     * Escape編碼
      * 
-     * @param text 被编码的文本
-     * @return 编码后的字符
+     * @param text 被編碼的文本
+     * @return 編碼後的字元
      */
     private static String encode(String text)
     {
@@ -103,10 +103,10 @@ public class EscapeUtil
     }
 
     /**
-     * Escape解码
+     * Escape解碼
      * 
-     * @param content 被转义的内容
-     * @return 解码后的字符串
+     * @param content 被轉義的內容
+     * @return 解碼後的字串
      */
     public static String decode(String content)
     {

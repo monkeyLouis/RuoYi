@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.ruoyi.common.json.JSON;
 
 /**
- * 处理并记录日志文件
+ * 處理並記錄日誌檔案
  * 
  * @author ruoyi
  */
@@ -20,7 +20,7 @@ public class LogUtils
     public static final Logger ACCESS_LOG = LoggerFactory.getLogger("sys-access");
 
     /**
-     * 记录访问日志 [username][jsessionid][ip][accept][UserAgent][url][params][Referer]
+     * 記錄訪問日誌 [username][jsessionid][ip][accept][UserAgent][url][params][Referer]
      *
      * @param request
      * @throws Exception
@@ -48,7 +48,7 @@ public class LogUtils
     }
 
     /**
-     * 记录异常错误 格式 [exception]
+     * 記錄異常錯誤 格式 [exception]
      *
      * @param message
      * @param e
@@ -64,7 +64,7 @@ public class LogUtils
     }
 
     /**
-     * 记录页面错误 错误日志记录 [page/eception][username][statusCode][errorMessage][servletName][uri][exceptionName][ip][exception]
+     * 記錄頁面錯誤 錯誤日誌記錄 [page/eception][username][statusCode][errorMessage][servletName][uri][exceptionName][ip][exception]
      *
      * @param request
      */

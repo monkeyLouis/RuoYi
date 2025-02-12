@@ -14,7 +14,7 @@ import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.utils.StringUtils;
 
 /**
- * 图片处理工具类
+ * 圖片處理工具類
  *
  * @author ruoyi
  */
@@ -31,7 +31,7 @@ public class ImageUtils
         }
         catch (Exception e)
         {
-            log.error("图片加载异常 {}", e);
+            log.error("圖片載入異常 {}", e);
             return null;
         }
         finally
@@ -50,16 +50,16 @@ public class ImageUtils
         }
         catch (Exception e)
         {
-            log.error("获取图片异常 {}", e);
+            log.error("獲取圖片異常 {}", e);
         }
         return null;
     }
 
     /**
-     * 读取文件为字节数据
+     * 讀取文件為位元組數據
      * 
      * @param url 地址
-     * @return 字节数据
+     * @return 位元組數據
      */
     public static byte[] readFile(String url)
     {
@@ -68,7 +68,7 @@ public class ImageUtils
         {
             if (url.startsWith("http"))
             {
-                // 网络地址
+                // 網路地址
                 URL urlObj = new URL(url);
                 URLConnection urlConnection = urlObj.openConnection();
                 urlConnection.setConnectTimeout(30 * 1000);
@@ -78,7 +78,7 @@ public class ImageUtils
             }
             else
             {
-                // 本机地址
+                // 本機地址
                 String localPath = RuoYiConfig.getProfile();
                 String downloadPath = localPath + StringUtils.substringAfter(url, Constants.RESOURCE_PREFIX);
                 in = new FileInputStream(downloadPath);
@@ -87,7 +87,7 @@ public class ImageUtils
         }
         catch (Exception e)
         {
-            log.error("获取文件路径异常 {}", e);
+            log.error("獲取文件路徑異常 {}", e);
             return null;
         }
         finally
